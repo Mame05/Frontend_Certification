@@ -1,0 +1,76 @@
+/* Container principal du header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;  /* Espacement autour du header */
+    background-color: #fff; /* Fond blanc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour délimiter */
+    position: sticky;  /* Reste en haut lors du défilement */
+    top: 0;
+    z-index: 1000;  /* Priorité sur d'autres éléments */
+  }
+  
+  /* Section du logo */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    width: 120px;  /* Taille du logo */
+  }
+  
+  /* Style du menu de navigation */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Liste des liens de navigation */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;  /* Espacement entre les liens */
+  }
+  
+  /* Style des liens */
+  .nav-links a {
+    text-decoration: none;  /* Retirer le soulignement */
+    color: #007bff;  /* Couleur du texte (bleu) */
+    font-size: 16px;
+    font-weight: 600;  /* Texte en semi-gras */
+    transition: color 0.3s ease;  /* Effet de transition sur la couleur */
+  }
+  
+  /* Changement de couleur au survol */
+  .nav-links a:hover {
+    color: #0056b3;  /* Couleur plus foncée au survol */
+  }
+  
+  /* Style pour les liens actifs (lorsqu'on est sur la section) */
+  .nav-links a.active {
+    color: #e63946;  /* Couleur rouge pour indiquer la section active */
+    border-bottom: 2px solid #e63946;  /* Soulignement pour l'actif */
+    padding-bottom: 5px;
+  }
+  
+  /* Adaptation pour les écrans plus petits */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 10px 20px;
+    }
+    
+    .logo-img {
+      width: 100px;
+    }
+  
+    .nav-links {
+      gap: 20px;
+    }
+  
+    .nav-links a {
+      font-size: 14px;
+    }
+  }
+  
