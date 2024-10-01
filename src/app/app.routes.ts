@@ -1,17 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
+import { AppComponent } from './app.component'; // Assure-toi que cette ligne importe correctement le composant AppComponent
 
 const routes: Routes = [
-  { path: '', component: AppComponent } // La page d'accueil, qui contient toutes les sections
+  { path: '', component: AppComponent }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes, { 
-    scrollPositionRestoration: 'enabled',  // Restaure la position de défilement
-    anchorScrolling: 'enabled',  // Active le scrolling par ancres
-    scrollOffset: [0, 64]  // Décalage pour compenser la hauteur de la barre de navigation
-  })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-
+export { routes };  // Assure-toi que les routes sont bien exportées
