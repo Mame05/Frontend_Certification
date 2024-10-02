@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  currentSection = 'home';  // Section actuelle
+
+  // Méthode pour définir la section active
+  setActiveSection(section: string) {
+    this.currentSection = section;
+  }
 
 }
