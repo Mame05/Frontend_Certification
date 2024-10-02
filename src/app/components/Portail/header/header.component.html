@@ -5,10 +5,6 @@
   </div>
     <nav class="nav-menu">
       <ul class="nav-links">
-        <!--<li><a routerLink="/" fragment="home">Accueil</a></li>
-        <li><a routerLink="/" fragment="about">À propos</a></li>
-        <li><a routerLink="/" fragment="how-it-works">Comment ça marche</a></li>
-        <li><a routerLink="/" fragment="statistics">Statistiques</a></li>-->
         <li><a href="#home" [class.active]="currentSection === 'home'" (click)="setActiveSection('home')">Accueil</a></li>
       <li><a href="#about" [class.active]="currentSection === 'about'" (click)="setActiveSection('about')">À propos</a></li>
       <li><a href="#how-it-works" [class.active]="currentSection === 'how-it-works'" (click)="setActiveSection('how-it-works')">Comment ça marche</a></li>

@@ -1,0 +1,55 @@
+footer {
+    background-color: #1D3557; /* Couleur bleu foncé */
+    color: #ffffff; /* Texte blanc */
+    padding: 40px 0;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  footer h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Style de la navigation dans le footer */
+  .footer-nav {
+    margin-bottom: 20px;
+  }
+
+  .footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #DF2C26; /* Rouge au survol */
+  }
+
+  /* Style de l'icône */
+  .footer-icon {
+    margin: 20px 0;
+  }
+
+  .footer-icon img {
+    width: 60px; /* Ajuster selon la taille de l'icône dans la maquette */
+  }
+
+  /* Ligne de séparation */
+  .footer-separator {
+    width: 80%;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 20px auto;
+  }
+
+  /* Copyright */
+  .footer-copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ffffff;
+  }

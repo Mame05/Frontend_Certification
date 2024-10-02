@@ -1,0 +1,97 @@
+/* Section générale "Comment ça marche" */
+.how-it-works-section {
+    padding: 30px 20px;
+    background-color: rgb(29, 53, 87, 0.05);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+  
+  .how-it-works-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .how-it-works-content h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1D3557; 
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+    .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+ /* Style pour les traits */
+ .line {
+    width: 50px;
+    height: 2.5px;
+    background-color: #DF2C26; /* Couleur rouge */
+    margin: 0 10px;
+    margin-top: -50px;
+  }
+
+  /* Style pour l'icône */
+  .icon {
+    width: 30px; /* Ajuster la taille de l'icône selon la maquette */
+    height: 30px;
+    margin-top: -50px;
+  }
+  
+  /* Conteneur des étapes */
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Espace entre les colonnes */
+    align-items: start; /* Aligner les cartes en haut */
+    justify-content: space-between;
+  }
+  
+  /* Style pour chaque carte d'étape */
+  .step-card {
+    /*border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+    display:flex;
+  }
+  
+  /*.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }*/
+  
+  /* Style pour l'icône */
+  .step-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style pour les titres et descriptions */
+  .step-card p strong {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin-bottom: 10px;
+  }
+  
+  .step-card p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1D3557;
+    text-align: left;
+    /*line-height: 1.6;*/
+  }
+  
+  /* Responsivité pour les petits écrans */
+  @media (max-width: 768px) {
+    .steps-container {
+      grid-template-columns: 1fr; /* Les étapes s'empilent sur une colonne sur mobile */
+    }
+  }
+  
