@@ -4,11 +4,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;  /* Espacement autour du header */
-    background-color: #fff; /* Fond blanc */
+    background-color: #ffffff; /* Fond blanc */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour délimiter */
     position: sticky;  /* Reste en haut lors du défilement */
     top: 0;
     z-index: 1000;  /* Priorité sur d'autres éléments */
+    font-family: 'Montserrat', sans-serif;
   }
   
   /* Section du logo */
@@ -35,11 +36,11 @@
   }
   
   /* Style des liens */
-  .nav-links a {
+  .nav-links li a {
     text-decoration: none;  /* Retirer le soulignement */
-    color: #007bff;  /* Couleur du texte (bleu) */
-    font-size: 16px;
-    font-weight: 600;  /* Texte en semi-gras */
+    color: #1d3557;  /* Couleur du texte (bleu) */
+    font-size: 18px;
+    font-weight: bold;  /* Texte en semi-gras */
     transition: color 0.3s ease;  /* Effet de transition sur la couleur */
   }
   
@@ -49,9 +50,9 @@
   }
   
   /* Style pour les liens actifs (lorsqu'on est sur la section) */
-  .nav-links a.active {
-    color: #e63946;  /* Couleur rouge pour indiquer la section active */
-    border-bottom: 2px solid #e63946;  /* Soulignement pour l'actif */
+  .nav-links li a.active {
+    color: #df2c26;  /* Couleur rouge pour indiquer la section active */
+    border-bottom: 2px solid #df2c26;  /* Soulignement pour l'actif */
     padding-bottom: 5px;
   }
   

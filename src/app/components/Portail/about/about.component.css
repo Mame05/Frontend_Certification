@@ -1,0 +1,106 @@
+/* Style général pour la section about */
+.about-section {
+    padding: 0 20px;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .deco-about1{
+    width: 156px;
+    height: 149px;
+    margin-bottom: 10px;
+  }
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto ;
+
+  }
+  
+  .about-content h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: -130px;
+    color: #1D3557;
+  }
+  
+  
+  /* Style pour les rangées (texte et image) */
+  .about-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  /* Inversion de la disposition pour le deuxième bloc (image à gauche, texte à droite) */
+  .about-row.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  /* Style du texte */
+  .about-text {
+    flex: 1;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1D3557;
+    /*line-height: 1.8;*/
+  }
+  .about-text1{
+    margin-bottom: 220px;
+    margin-left: 50px;
+  }
+  
+  /* Style de l'image */
+  .about-image {
+    flex: 1;
+    padding: 0 20px;
+  }
+  
+  .about-img1 {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-left: -48px;
+    /*border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour effet esthétique */
+  }
+  .about-img2 {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-left: 50px;
+    margin-top: -250px;
+
+  }
+  .deco-about2{
+    width: 156px;
+    height: 149px;
+    margin-top: -120px;
+    margin-left: 86%;
+  }
+  
+  /* Adaptation pour les petits écrans */
+  @media (max-width: 768px) {
+    .about-row {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-row.reverse {
+      flex-direction: column;
+    }
+  
+    .about-text, .about-image {
+      padding: 0;
+    }
+  
+    .about-img1, .about-img2 {
+      max-width: 100%;
+    }
+  }
+
+
+
+  
