@@ -1,0 +1,19 @@
+
+<form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Profession:</label>
+      <input formControlName="profession" />
+    </div>
+    <div>
+      <label>Groupe sanguin:</label>
+      <select formControlName="groupe_sanguin">
+        <option value="A+">A+</option>
+        <option value="O+">O+</option>
+        <!-- Ajoutez les autres groupes sanguins -->
+      </select>
+    </div>
+    <!-- Ajoutez les autres champs -->
+    <button type="button" (click)="previousStep.emit()">Retour</button>
+    <button type="submit">S'inscrire</button>
+  </form>
+  

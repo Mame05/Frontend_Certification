@@ -1,0 +1,20 @@
+<form [formGroup]="stepOneForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Nom:</label>
+      <input formControlName="nom" />
+    </div>
+    <div>
+      <label>Prénom:</label>
+      <input formControlName="prenom" />
+    </div>
+    <div>
+      <label>Sexe:</label>
+      <select formControlName="sexe">
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+      </select>
+    </div>
+    <!-- Ajoutez les autres champs selon vos besoins -->
+    <button type="submit">Suivant</button>
+  </form>
+  
