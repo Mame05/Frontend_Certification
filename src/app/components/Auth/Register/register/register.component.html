@@ -1,11 +1,10 @@
 <div *ngIf="step === 1">
-    <app-step-one (nextStep)="goToNextStep($event)"></app-step-one>
-  </div>
-  <div *ngIf="step === 2">
-    <app-step-two 
-      [parentForm]="registrationForm" 
-      (previousStep)="goToPreviousStep()" 
-      (submitForm)="submitForm($event)">
-    </app-step-two>
-  </div>
-  
+  <app-step-one (nextStep)="goToNextStep($event)"></app-step-one>
+</div>
+<div *ngIf="step === 2">
+  <app-step-two 
+    [parentForm]="registrationForm" 
+    (previousStep)="goToPreviousStep()" 
+    (submitForm)="submitForm($event)">
+  </app-step-two>
+</div>

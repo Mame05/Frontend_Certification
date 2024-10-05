@@ -5,7 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PortailComponent } from './components/portail/portail.component';
 const routes: Routes = [
 
- { path: '', component: PortailComponent },
+  { path: '', component: PortailComponent },
   { path: 'login', component: LoginComponent }, // Page de connexion
   { path: 'register', component: RegisterComponent }, // Page d'inscription
   { path: '', pathMatch: 'full', redirectTo: 'portail' },

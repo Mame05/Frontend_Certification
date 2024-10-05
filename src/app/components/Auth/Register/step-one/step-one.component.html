@@ -1,20 +1,42 @@
-<form [formGroup]="stepOneForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label>Nom:</label>
-      <input formControlName="nom" />
-    </div>
-    <div>
-      <label>Prénom:</label>
-      <input formControlName="prenom" />
-    </div>
-    <div>
-      <label>Sexe:</label>
-      <select formControlName="sexe">
-        <option value="Homme">Homme</option>
-        <option value="Femme">Femme</option>
-      </select>
-    </div>
-    <!-- Ajoutez les autres champs selon vos besoins -->
-    <button type="submit">Suivant</button>
-  </form>
-  
+<div class="container">
+  <div class="illustration">
+    <img src="/assets/images/register1.png" alt="Description de l'image" />
+  </div>
+  <div class="form-container">
+    <h2>INSCRIPTION</h2>
+    <form [formGroup]="stepOneForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" formControlName="nom" class="form-control" placeholder="Votre nom" required />
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" formControlName="prenom" class="form-control" placeholder="Votre nom" required/>
+      </div>
+      <div class="form-group">
+        <label for="sexe">Sexe:</label>
+        <select id="sexe" formControlName="sexe" class="form-control" required>
+          <option value="" selected disabled>Sélectionner votre sexe</option>
+          <option value="M">Masculin</option>
+          <option value="F">Féminin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date_naiss">Date de naissance</label>
+        <input type="date" id="date_naiss" formControlName="date_naiss" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse" required />
+      </div>
+      <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Votre numéro de téléphone" required />
+      </div>
+      <div class="button-group">
+        <button type="submit" [disabled]="stepOneForm.invalid" class="btn1">Suivant</button>
+        <button routerLink="/login" class="btn2">Retour</button>
+      </div>
+    </form>
+  </div>
+</div>

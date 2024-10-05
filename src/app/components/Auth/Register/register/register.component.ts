@@ -1,30 +1,31 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { StepOneComponent } from '../step-one/step-one.component';  // Chemin correct vers StepOneComponent
 import { StepTwoComponent } from '../step-two/step-two.component';  // Chemin correct vers StepTwoComponent
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [NgIf, StepOneComponent, StepTwoComponent],
+  imports: [CommonModule, StepOneComponent, StepTwoComponent],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   step: number = 1;
   registrationForm!: FormGroup;
 
   goToNextStep(form: FormGroup) {
-    this.registrationForm = form;
-    this.step = 2;
+    console.log('Passage à l\'étape suivante avec le formulaire:', form.value);
+    this.registrationForm = form; // Mettre à jour le formulaire parent
+    this.step = 2; // Passer à l'étape suivante
   }
 
   goToPreviousStep() {
-    this.step = 1;
+    this.step = 1; // Retourner à l'étape précédente
   }
 
   submitForm(form: FormGroup) {
-    console.log(form.value);  // Vous pouvez gérer ici l'envoi du formulaire
+    console.log('Formulaire final soumis:', form.value); // Gérer l'envoi du formulaire final
   }
 }
