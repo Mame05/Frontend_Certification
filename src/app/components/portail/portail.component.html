@@ -1,0 +1,183 @@
+<header class="header-container">
+    <div class="logo">
+      <!-- Remplace par le vrai logo -->
+      <img src="assets/logo.png" alt="Logo" class="logo-img">
+    </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+        <li><a href="#home" [class.active]="currentSection === 'home'" (click)="setActiveSection('home')">Accueil</a></li>
+        <li><a href="#about" [class.active]="currentSection === 'about'" (click)="setActiveSection('about')">À propos</a></li>
+        <li><a href="#how-it-works" [class.active]="currentSection === 'how-it-works'" (click)="setActiveSection('how-it-works')">Comment ça marche</a></li>
+        <li><a href="#statistics" [class.active]="currentSection === 'statistics'" (click)="setActiveSection('statistics')">Statistiques</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+<section class="home-section" id="home">
+    <div class="overlay">
+      <div class="content">
+        <h1>Donnez du Sang et Sauvez des Vies</h1>
+        <p>Chaque don compte! Rejoignez notre communauté de donneurs et aidez à maintenir les réserves de sang de nos structures. Ensemble, nous pouvons sauver des vies et offrir une seconde chance à ceux qui en ont besoin.</p>
+        <div class="buttons">
+          <a href="#" class="btn btn-inscription">Inscription</a>
+          <a routerLink="login" class="btn btn-connexion">Connexion</a>
+        </div>
+      </div>
+    </div>
+</section>
+  
+<section class="about-section" id="about">
+    <img src="/assets/images/Apropos1.png" alt="Don de sang" class="deco-about1">
+    <div class="about-content">
+        <h2>À PROPOS</h2>
+        <div class="title-container">
+            <div class="line"></div>
+            <img class="icon" src="assets/images/divider.png" alt="Icône coeur">
+            <div class="line"></div>
+        </div>  
+    <!-- Premier bloc: Texte à gauche, image à droite -->
+    <div class="about-row">
+        <div class="about-text">
+            <p class="about-text1">
+            La plateforme (Nom de la plateforme) est<br> une initiative qui vise à répondre à la<br> problématique urgente de la pénurie de<br>
+            sang dans les hôpitaux et centres de<br> transfusion sanguine à travers le Sénégal<br>.  Nous croyons fermement que toute<br>
+            personne en bonne santé âgée 18 à 60 ans<br>  a le pouvoir de sauver des vies en faisant un<br> don de sang. En mettant en place cette<br>
+            plateforme, nous facilitons la<br> communication entre les donneurs<br> potentiels et les structures de santé,<br> permettant une gestion optimisée des<br>
+            besoins en poches de sang.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="/assets/images/Apropos2.png" alt="Don de sang" class="about-img1">
+        </div>
+    </div>
+
+    <!-- Deuxième bloc: Image à gauche, texte à droite -->
+    <div class="about-row reverse">
+        <div class="about-text">
+            <p>
+                Notre mission est simple : promouvoir le<br> don de sang et simplifier l’accès à<br> l'information pour que chaque citoyen<br> puisse contribuer,
+                en temps utile, à cet<br> acte solidaire. Nous travaillons en<br> collaboration avec le Centre National de<br> Transfusion Sanguine (CNTS)
+                et d'autres<br> structures régionales pour assurer une<br> répartition équitable et rapide des<br> poches de sang.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="/assets/images/Apropos3.png" alt="Donneur de sang" class="about-img2">
+        </div>
+    </div>    
+  </div>
+  <img src="/assets/images/Apropos1.png" alt="Don de sang" class="deco-about2">
+</section>
+
+<section class="how-it-works-section" id="how-it-works">
+    <div class="how-it-works-content">
+      <h2>Comment ça marche</h2>
+      <div class="title-container">
+        <div class="line"></div>
+        <img class="icon" src="assets/images/divider.png" alt="Icône coeur">
+        <div class="line"></div>
+      </div>
+      <div class="steps-container">
+        <!-- Première ligne (Étape 1 & 2) -->
+        <div class="step-card">
+          <div>
+            <img src="/assets/images/marche1.png" alt="Inscription et Connexion" class="step-icon">
+          </div>
+          <div>
+            <p><strong>1. Inscription et Connexion</strong><br>
+              <br>Les donneurs pourrons facilement créer un<br>compte en fournissant leurs informations<br>personnelles, y compris leur groupe<br>
+              sanguin. Une fois inscrits, ils peuvent<br>accéder à leur tableau de bord pour voir les<br>collectes de sang disponibles ou les besoins<br>urgents.</p>
+          </div>
+        </div>
+  
+        <div class="step-card">
+          <div>
+            <img src="/assets/images/marche2.png" alt="Notification" class="step-icon">
+          </div>
+          <div>
+            <p><strong>2. Notification</strong><br>
+              <br>Les donneurs inscrits recevront des<br> notifications en fonction de leur groupe sanguin lorsqu'il y a des besoins urgents ou<br>
+              des collectes à proximité.</p>
+          </div>
+        </div>
+  
+        <!-- Deuxième ligne (Étape 3 & 4) -->
+        <div class="step-card">
+          <div>
+            <img src="/assets/images/marche3.png" alt="Inscription à une annonce" class="step-icon">
+          </div>
+          <div>
+            <p><strong>3. Inscription à une annonce</strong><br>
+              <br>Les donneurs pourront faire une inscription<br> pour donner leur sang en fonction des<br> collectes disponibles. Une fois l’inscription<br>
+              effectué, un rappel leur est envoyé avant la<br> date via SMS.</p>
+          </div>
+        </div>
+  
+        <div class="step-card">
+          <div>
+            <img src="/assets/images/marche4.png" alt="Suivi des Dons et Historique" class="step-icon">
+          </div>
+          <div>
+            <p><strong>4. Suivi des Dons et Historique</strong><br>
+              <br>Les donneurs peuvent consulter leur<br> historique de dons et voir les futurs inscriptions<br> planifiés.<br>
+              Ils peuvent également suivre leur éligibilité<br> au don selon les règles locales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statistics-section" id="statistics">
+    <h2>Statistiques</h2>
+    <div class="title-container">
+      <div class="line"></div>
+      <img class="icon" src="assets/images/divider.png" alt="Icône coeur">
+      <div class="line"></div>
+    </div>
+    
+    <div class="statistics-content">
+      <p>Par le biais de la CNTS , le Sénegal recencent pas nombre de données vis à vis du don<br> de sang </p>
+      <div class="statistics-content-item">
+        <div class="statistics-item">
+          <img src="assets/images/stat1.png" alt="Donneurs">
+          <p>6 donneurs pour 1000<br> habitants</p>
+        </div>
+  
+        <div class="statistics-item">
+          <img src="assets/images/stat2.png" alt="Transfusion">
+          <p>24 structures de transfusion<br> sanguine</p>
+        </div>
+  
+        <div class="statistics-item">
+          <img src="assets/images/stat3.png" alt="Poches de sang">
+          <p>121 000 poches de sang<br> collectées en 2021</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h2>NOM DE LA PLATEFORME ICI</h2>
+    
+    <!-- Navigation -->
+    <div class="footer-nav">
+      <a href="#home">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#how-it-works">Comment ça marche</a>
+      <a href="#statistics">Statistiques</a>
+    </div>
+  
+    <!-- Icône au centre -->
+    <div class="footer-icon">
+      <img src="assets/images/heart-hand-icon.png" alt="Icône main et cœur">
+    </div>
+  
+    <!-- Ligne de séparation -->
+    <div class="footer-separator"></div>
+  
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>Copyright Septembre 2024</p>
+    </div>
+  </footer>
+  
+    

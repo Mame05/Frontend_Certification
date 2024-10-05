@@ -1,0 +1,110 @@
+/* Styles globaux pour le conteneur */
+.container {
+    display: flex; /* Alignement horizontal */
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .illustration {
+    flex: 1;
+    /*padding: 20px;*/
+    margin-left: 5%;
+}
+
+.illustration img {
+    width: 500px;
+    height: 600px;
+}
+  
+  /* Section du formulaire */
+  .form-container {
+    flex: 1; /* Prendre la moitié de l'espace */
+    padding: 40px; /* Espacement intérieur */
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column; /* Disposition verticale pour le formulaire */
+    justify-content: center; /* Centrer le formulaire verticalement */
+    background-color: #ffffff; /* Couleur de fond blanche */
+  }
+  h2 {
+    margin-bottom: 40px;
+    color: #DF2C26;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-left:12%;
+    margin-bottom: 8px;
+    color: #1D3557;
+    font-size: 18px;
+    font-weight: 500;
+}
+  
+  /* Styles des champs de formulaire */
+  .form-group input,
+  .form-group select {
+    width: 70%;
+    margin-left: 10%;
+    padding: 12px;
+    margin-bottom: 20px; /* Ajoute de l'espace sous chaque input */
+    border: 1px solid #1D3557;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: transparent;
+  }
+  
+  /* Style du bouton */
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .btn1 {
+    background-color: #DF2C26;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /*flex: 1;*/
+    margin-left: 3%;
+}
+
+.btn1:hover {
+    background-color: #B82420; 
+    transform: scale(1.05); 
+}
+
+.btn2 {
+    background-color: #ffffff;
+    color: #DF2C26;
+    border: 1px solid #DF2C26;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /*flex: 1;*/
+    margin-right: 8%;
+}
+
+.btn2:hover {
+    background-color: #DF2C26; /* Passe au rouge au survol */
+    color: #ffffff; /* Le texte devient blanc */
+    transform: scale(1.05); /* Légère agrandissement */
+}
+  
+  

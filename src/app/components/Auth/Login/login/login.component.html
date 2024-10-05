@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="illustration">
+    <img src="/assets/images/login.png" alt="Description de l'image" />
+  </div>
+  <div class="form-container">
+    <h2>CONNECTION</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email"  required />
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" formControlName="password"  required />
+        </div>  
+        <div class="button-group">
+          <button type="submit" [disabled]="loginForm.invalid" class="btn1">Se Connecter</button>
+          <button routerLink="/" type="button" class="btn2">Retour</button>
+        </div>
+        <p class="register-link">Pas encore de compte ? <a routerLink="/register" class="link-signup">Inscrivez-vous ici</a></p>
+      </form>
+    </div>
+</div>
+  

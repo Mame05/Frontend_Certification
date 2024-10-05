@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="form-container">
+    <h2>INSCRIPTION</h2>
+    <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input type="text" id="profession" formControlName="profession" class="form-control" placeholder="votre profession" required />
+      </div>
+      <div class="form-group">
+        <label for="groupe_sanguin">Groupe sanguin:</label>
+        <select id="groupe_sanguin" formControlName="groupe_sanguin" class="form-control" required>
+          <option value="" selected disabled>Sélectionner votre groupe sanguin</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="Je ne connais pas mon groupe sanguin">Je ne connais pas mon groupe sanguin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo de profil</label>
+        <input type="file" id="photo" (change)="onPhotoChange($event)" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" placeholder="Votre email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" formControlName="password" class="form-control" placeholder="Votre mot de passe" required />
+      </div>
+      <div class="button-group">
+        <button type="submit" [disabled]="parentForm.invalid" class="btn1">S'inscrire</button>
+        <button type="button" (click)="onPrevious()"  class="btn2">Retour</button>        
+      </div>
+    </form>
+  </div>
+  <div class="illustration">
+    <img src="/assets/images/register2.png" alt="Description de l'image" />
+  </div>
+</div>
+

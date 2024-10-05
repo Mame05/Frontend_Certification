@@ -1,0 +1,525 @@
+/*    Header */
+/* Container principal du header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;  /* Espacement autour du header */
+    background-color: #ffffff; /* Fond blanc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour délimiter */
+    position: sticky;  /* Reste en haut lors du défilement */
+    top: 0;
+    z-index: 1000;  /* Priorité sur d'autres éléments */
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Section du logo */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    width: 120px;  /* Taille du logo */
+  }
+  
+  /* Style du menu de navigation */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Liste des liens de navigation */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;  /* Espacement entre les liens */
+  }
+  
+  /* Style des liens */
+  .nav-links li a {
+    text-decoration: none;  /* Retirer le soulignement */
+    color: #1d3557;  /* Couleur du texte (bleu) */
+    font-size: 18px;
+    font-weight: bold;  /* Texte en semi-gras */
+    transition: color 0.3s ease;  /* Effet de transition sur la couleur */
+  }
+  
+  /* Changement de couleur au survol */
+  .nav-links a:hover {
+    color: #0056b3;  /* Couleur plus foncée au survol */
+  }
+  
+  /* Style pour les liens actifs (lorsqu'on est sur la section) */
+  .nav-links li a.active {
+    color: #df2c26;  /* Couleur rouge pour indiquer la section active */
+    border-bottom: 2px solid #df2c26;  /* Soulignement pour l'actif */
+    padding-bottom: 5px;
+  }
+  
+  /* Adaptation pour les écrans plus petits */
+  @media (max-width: 768px) {
+    .header-container {
+      padding: 10px 20px;
+    }
+    
+    .logo-img {
+      width: 100px;
+    }
+  
+    .nav-links {
+      gap: 20px;
+    }
+  
+    .nav-links a {
+      font-size: 14px;
+    }
+  }
+
+  /*    Accueil      */
+/* Style pour la section home */
+.home-section {
+    position: relative;
+    background-image: url('/assets/images/Rectangle 12.png'); /* Ajoutez le chemin de l'image de la maquette */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay sombre pour le contraste avec le texte */
+  }
+  
+  .content {
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    margin-left: 22%;
+  }
+  
+  .content h1 {
+    font-size: 32px;
+    font-weight: bold;
+    padding-top: 120px;
+    margin-bottom: 30px;
+  }
+  
+  .content p {
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 12px;
+    margin-bottom: 60px;
+    line-height: 1.8;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+    gap: 40px; /* Espace entre les boutons */
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-inscription {
+    background-color: #DF2C26; /* Rouge pour inscription */
+    color: #ffffff;
+  }
+  
+  .btn-connexion {
+    background-color: #1D3557; /* Bleu pour connexion */
+    color: #ffffff;
+  }
+  
+  .btn:hover {
+    background-color: #c0392b; /* Changement de couleur au survol pour inscription */
+  }
+  
+  .btn-connexion:hover {
+    background-color: #2980b9; /* Changement de couleur au survol pour connexion */
+  }  
+  
+  /*    A PROPOS   */
+  /* Style général pour la section about */
+.about-section {
+    padding: 0 20px;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .deco-about1{
+    width: 156px;
+    height: 149px;
+    margin-bottom: 10px;
+  }
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto ;
+
+  }
+  
+  .about-content h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: -130px;
+    color: #1D3557;
+  }
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 ;
+  }
+
+ /* Style pour les traits */
+ .line {
+    width: 50px;
+    height: 2.5px;
+    background-color: #DF2C26; /* Couleur rouge */
+    margin: 0 10px ;
+    margin-top: -70px;
+  }
+
+  /* Style pour l'icône */
+  .icon {
+    width: 30px; /* Ajuster la taille de l'icône selon la maquette */
+    height: 30px;
+    margin-top: -70px;
+
+  }
+  
+  
+  /* Style pour les rangées (texte et image) */
+  .about-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+  
+  /* Inversion de la disposition pour le deuxième bloc (image à gauche, texte à droite) */
+  .about-row.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  /* Style du texte */
+  .about-text {
+    flex: 1;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #1D3557;
+    /*line-height: 1.8;*/
+  }
+  .about-text1{
+    margin-bottom: 220px;
+    margin-left: 50px;
+  }
+  
+  /* Style de l'image */
+  .about-image {
+    flex: 1;
+    padding: 0 20px;
+  }
+  
+  .about-img1 {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-left: -48px;
+    /*border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour effet esthétique */
+  }
+  .about-img2 {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-left: 50px;
+    margin-top: -250px;
+
+  }
+  .deco-about2{
+    width: 156px;
+    height: 149px;
+    margin-top: -120px;
+    margin-left: 86%;
+  }
+  
+  /* Adaptation pour les petits écrans */
+  @media (max-width: 768px) {
+    .about-row {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-row.reverse {
+      flex-direction: column;
+    }
+  
+    .about-text, .about-image {
+      padding: 0;
+    }
+  
+    .about-img1, .about-img2 {
+      max-width: 100%;
+    }
+  }
+
+  /*  Comment ça marche */
+  /* Section générale "Comment ça marche" */
+.how-it-works-section {
+    padding: 30px 20px;
+    background-color: rgb(29, 53, 87, 0.05);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+  
+  .how-it-works-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .how-it-works-content h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1D3557; 
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+    .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+ /* Style pour les traits */
+ .line {
+    width: 50px;
+    height: 2.5px;
+    background-color: #DF2C26; /* Couleur rouge */
+    margin: 0 10px;
+    margin-top: -50px;
+  }
+
+  /* Style pour l'icône */
+  .icon {
+    width: 30px; /* Ajuster la taille de l'icône selon la maquette */
+    height: 30px;
+    margin-top: -50px;
+  }
+  
+  /* Conteneur des étapes */
+  .steps-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Espace entre les colonnes */
+    align-items: start; /* Aligner les cartes en haut */
+    justify-content: space-between;
+  }
+  
+  /* Style pour chaque carte d'étape */
+  .step-card {
+    /*border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+    display:flex;
+  }
+  
+  /*.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }*/
+  
+  /* Style pour l'icône */
+  .step-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style pour les titres et descriptions */
+  .step-card p strong {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin-bottom: 10px;
+  }
+  
+  .step-card p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1D3557;
+    text-align: left;
+    /*line-height: 1.6;*/
+  }
+  
+  /* Responsivité pour les petits écrans */
+  @media (max-width: 768px) {
+    .steps-container {
+      grid-template-columns: 1fr; /* Les étapes s'empilent sur une colonne sur mobile */
+    }
+  }
+
+  /*  Statistiques  */
+  .statistics-section {
+    padding: 0 20px;
+    background-color: #ffffff; /* Couleur de fond de la section */
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .statistics-section h2 {
+    color: #1D3557; /* Bleu pour le titre */
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+ /* Style pour les traits */
+ .line {
+    width: 50px;
+    height: 2.5px;
+    background-color: #DF2C26; /* Couleur rouge */
+    margin: 0 10px;
+    margin-top: -25px;
+
+  }
+
+  /* Style pour l'icône */
+  .icon {
+    width: 30px; /* Ajuster la taille de l'icône selon la maquette */
+    height: 30px;
+    margin-top: -25px;
+
+  }
+  .statistics-content {
+    text-align: center;
+    border-radius: 20px;
+    width: 95%;
+    height: 350px;
+    margin: 0 auto;
+    background-color: rgb(223, 44, 56, 0.1);    
+  }
+  .statistics-content p{
+    font-size: 22px;
+    font-weight: 600;
+    color: #1D3557;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .statistics-content-item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+
+  .statistics-item {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  .statistics-item img {
+    width: 120px;
+    height: 120px;
+  }
+
+ .statistics-content-item .statistics-item p {
+    font-size: 18px;
+    color: #1D3557;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+
+  /* footer */
+  footer {
+    background-color: #1D3557; /* Couleur bleu foncé */
+    color: #ffffff; /* Texte blanc */
+    padding: 40px 0;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  footer h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  /* Style de la navigation dans le footer */
+  .footer-nav {
+    margin-bottom: 20px;
+  }
+
+  .footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #DF2C26; /* Rouge au survol */
+  }
+
+  /* Style de l'icône */
+  .footer-icon {
+    margin: 20px 0;
+  }
+
+  .footer-icon img {
+    width: 60px; /* Ajuster selon la taille de l'icône dans la maquette */
+  }
+
+  /* Ligne de séparation */
+  .footer-separator {
+    width: 80%;
+    height: 1px;
+    background-color: #ffffff;
+    margin: 20px auto;
+  }
+
+  /* Copyright */
+  .footer-copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ffffff;
+  }
+ 
+  
+
+
+
+  
