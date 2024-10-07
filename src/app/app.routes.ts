@@ -6,6 +6,8 @@ import { PortailComponent } from './components/portail/portail.component';
 import { SidebareComponent } from './components/Admin/sidebare/sidebare.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
 import { StructureComponent } from './components/Admin/structure/structure.component';
+import { AjoutStructureComponent } from './components/Admin/ajout-structure/ajout-structure.component';
+import { ModifierStructureComponent } from './components/Admin/modifier-structure/modifier-structure.component';
 
 // Authentification
 export const routes: Routes = [
@@ -22,11 +24,10 @@ export const routes: Routes = [
   component: SidebareComponent,
   children: [
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'structure', component: StructureComponent }
-   /* { path: 'projet/ajouter', component: AjoutProjetComponent },
-    { path: 'projet/detail/projet/:id', component: DetailProjetComponent },
-    { path: 'projet/modifier/:id', component: ModificationProjetComponent },
-    { path: 'habitant', component: HabitantComponent },
+    { path: 'structure', component: StructureComponent },
+    { path: 'structure/ajouter', component: AjoutStructureComponent },
+    { path: 'structure/modifier', component: ModifierStructureComponent }
+    /*{ path: 'habitant', component: HabitantComponent },
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
     {path: 'parametre', component: ParametreComponent},

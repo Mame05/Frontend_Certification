@@ -1,0 +1,62 @@
+<div class="form-container">
+    <h2>Formulaire d’ajout de Structure</h2>
+    <form action="#" method="POST" class="structure-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" placeholder="Nom">
+            </div>
+            <div class="form-group">
+                <label for="region">Région</label>
+                <select id="region" name="region">
+                    <option value="">Sélectionner une région</option>
+                    <option value="Dakar">Dakar</option>
+                    <option value="Diourbel">Diourbel</option>
+                    <option value="Fatick">Fatick</option>
+                    <option value="Kaffrine">Kaffrine</option>
+                    <option value="Kaolack">Kaolack</option>
+                    <option value="Kedougou">Kédougou</option>
+                    <option value="Kolda">Kolda</option>
+                    <option value="Louga">Louga</option>
+                    <option value="Matam">Matam</option>
+                    <option value="Saint-Louis">Saint-Louis</option>
+                    <option value="Sedhiou">Sédhiou</option>
+                    <option value="Tambacounda">Tambacounda</option>
+                    <option value="Thiès">Thiès</option>  
+                    <option value="Ziguinchor">Ziguinchor</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="sigle">Sigle</label>
+                <input type="text" id="sigle" name="sigle" placeholder="Sigle">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="text" id="telephone" name="telephone" placeholder="Téléphone">
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" placeholder="Mot de passe">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse"name="adresse" placeholder="Adresse">
+            </div>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <button routerLink="/sidebar/structure" type="button" class="btn btn-secondary">Retour</button>
+        </div>
+    </form>
+</div>
+
