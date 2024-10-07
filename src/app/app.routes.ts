@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/Admin/dashboard/dashboard.compo
 import { StructureComponent } from './components/Admin/structure/structure.component';
 import { AjoutStructureComponent } from './components/Admin/ajout-structure/ajout-structure.component';
 import { ModifierStructureComponent } from './components/Admin/modifier-structure/modifier-structure.component';
+import { DonneurStructureComponent } from './components/Admin/donneur-structure/donneur-structure.component';
 
 // Authentification
 export const routes: Routes = [
@@ -26,7 +27,8 @@ export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'structure', component: StructureComponent },
     { path: 'structure/ajouter', component: AjoutStructureComponent },
-    { path: 'structure/modifier', component: ModifierStructureComponent }
+    { path: 'structure/modifier', component: ModifierStructureComponent },
+    { path: 'structure/donneur', component: DonneurStructureComponent }
     /*{ path: 'habitant', component: HabitantComponent },
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },

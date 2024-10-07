@@ -1,9 +1,6 @@
-<div class="struct-container">
-    <div class="mb-4" style="float: right;">
-      <button routerLink="/sidebar/structure/ajouter" type="button" class="btn btn-custom">Ajouter une Structure</button>
-    </div>
+<div class="donneur-container">
   
-    <h2 class="struct-title">Liste des structures</h2>
+    <h2 class="donneur-title">Donneur du CNTS</h2>
   
     <!-- Filtrage des structures -->
     <!--<div class="d-flex mb-3 ">
@@ -16,30 +13,24 @@
       <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
     </div>-->
     
-    <table class="struct-table table table-striped mt-3">
+    <table class="donneur-table table table-striped mt-3">
       <thead>
         <tr>
-          <th>Nom</th>
-          <th>Adresse</th>
-          <th>Téléphone</th>
-          <th>Actions</th>
+          <th>Nom Complet</th>
+          <th>NIN</th>
+          <th>Groupe sanguin</th>
+          <th>Nombre de don</th>
+          <th>Dernier don</th>
+
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Centre Nationale de Transfusion Sanguin (CNTS)</td>
-          <td>Avenue Cheikh Anta Diop/Dakar</td>
-          <td>33 869 86 60</td>
-          <td>
-            <a [routerLink]="['/sidebar/structure/donneur']" class="icon-link">
-              <span class="iconify" data-icon="bi:people-fill"></span>
-            </a>
-            <a [routerLink]="['/sidebar/structure/modifier']" class="icon-link">
-              <span class="iconify" data-icon="mdi:pencil"></span>
-            </a>
-            <a class="icon-link"><span class="iconify" data-icon="mdi:delete"></span>
-            </a>
-          </td>
+          <td>Ndéye Anta Coulibaly</td>
+          <td>2 000 0000 00000</td>
+          <td>A+</td>
+          <td>3</td>
+          <td>29/06/2024</td>
         </tr>
       </tbody>
     </table>
@@ -63,6 +54,5 @@
       </button>
       
     </div>-->
-    
-    <router-outlet></router-outlet>
   </div>
+
