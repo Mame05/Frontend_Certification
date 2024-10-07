@@ -1,0 +1,214 @@
+.dashboard-content {
+    padding: 20px;
+    font-family: Montserrat,sans-serif;
+
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    width: 250px;
+    height: 150px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    margin-right: 10%;
+}
+.card1 {
+    box-shadow: 4px 4px 4px 4px rgba(29, 53, 87, 1); /* Ombre */
+}
+.card2 {
+    box-shadow: 4px 4px 4px 4px rgba(223, 44, 38, 1);
+
+}
+.stat-card .stat-info {
+    display: flex;
+    margin-left: 10%;
+
+}
+.stat-card .iconify {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.stat-card .icon1 {
+    color: #1D3557;
+}
+.stat-card .icon2 {
+    color: #DF2C26;
+}
+
+.stat-card .stat-info h4 {
+    margin-top: 40px;
+    margin-left: 20px;
+    color: #1D3557;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.stat-card p {
+    color: #1D3557;
+    font-size: 18px;
+    font-weight: 400;
+}
+.info-struct {
+    display: flex;
+}
+.add-struct {
+    display: flex;
+    margin-left: 8%;
+}
+.add-struct .iconify {
+    width: 50px;
+    height: 50px;
+    color: #DF2C26;
+}
+.add-struct h5 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #DF2C26;
+    margin-left: 2%;
+    margin-top: 12px;
+
+}
+
+.stocks {
+    margin-top: 20px;
+   
+}
+
+.stocks h2 {
+    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-left: 25%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+}
+
+.stocks table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 8%;
+    border: 1px solid #1D3557;
+
+}
+
+.stocks table th,
+.stocks table td {
+   /* border: 1px solid #1D3557;*/
+    padding: 10px;
+    text-align: left;
+}
+
+.stocks table th {
+    background-color: #1D3557;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 20px;
+}
+.stocks table tr {
+    background-color: #ffffff;
+    color: #1D3557;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.recent-announcements {
+    margin-top: 30px;
+    margin-left: 6%;
+}
+
+.recent-announcements h2 {
+    color: #1D3557;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.recent-announcements p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1D3557;
+}
+
+.announcement {
+    display: flex;
+    align-items: center;
+    background-color: rgba(223, 44, 38, 0.1);
+    padding: 15px;
+    border: none;
+    margin-bottom: 15px;
+    width: 585px;
+    height: 190px;
+}
+
+.announcement-date {
+    width: 300px;
+    height: 190px;
+    background-color: #ffffff;    
+    padding: 40px 10px 40px 40px;
+    border-radius: 0 100px 100px 0;
+    border: 1px solid #1D3557;
+    
+    margin-left: -16px;
+}
+.announcement-date .iconify {
+    color: #DF2C26;
+    margin-left: -20px;
+    margin-right: 10px;
+}
+
+
+.announcement-content {
+    padding-left: 20px;
+}
+
+.announcement-content p{
+    margin: 5px 0;   
+}
+
+.announcement2 {
+    display: flex;
+    align-items: center;
+    background-color: rgba(223, 44, 38, 0.1);
+    padding: 15px;
+    border: none;
+    margin-bottom: 15px;
+    width: 585px;
+    height: 190px;
+}
+
+.announcement2-date {
+    width: 300px;
+    height: 190px;
+    background-color: #ffffff;    
+    padding: 40px 10px 40px 40px;
+    border-radius: 100px 0 0 100px;
+    border: 1px solid #1D3557;
+    
+    margin-right: -16px;
+}
+.announcement2-date .iconify {
+    color: #DF2C26;
+    margin-left: -20px;
+    margin-right: 10px;
+}
+
+.announcement2-content {
+    padding-right: 20px;
+}
+
+.announcement2-content p{
+    margin: 5px 0px;   
+}

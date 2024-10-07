@@ -1,0 +1,58 @@
+<div class="donneur-container">
+  
+    <h2 class="donneur-title">Donneur du CNTS</h2>
+  
+    <!-- Filtrage des structures -->
+    <!--<div class="d-flex mb-3 ">
+      <div class="flex-grow-1">
+        <select id="filterCriteria" class="form-select" (change)="onFilterChange()">
+          <option value="">Choisir un critère</option>
+          <option value="nom">Nom de la structure</option>
+        </select>
+      </div>
+      <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
+    </div>-->
+    
+    <table class="donneur-table table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Nom Complet</th>
+          <th>NIN</th>
+          <th>Groupe sanguin</th>
+          <th>Nombre de don</th>
+          <th>Dernier don</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ndéye Anta Coulibaly</td>
+          <td>2 000 0000 00000</td>
+          <td>A+</td>
+          <td>3</td>
+          <td>29/06/2024</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- Pagination controls -->
+    <!--<div class="pagination-controls d-flex justify-content-end mt-3">
+      <button (click)="previousPage()" [disabled]="currentPage === 1" class="btn btn-icon">
+        <span class="material-symbols-outlined">arrow_back_ios</span>
+      </button>
+    
+      <ng-container *ngFor="let page of getPages(); let i = index">
+        <button (click)="goToPage(page)"
+                [ngStyle]="{'border-color': currentPage === page ? '#2C6B59' : '#6c757d', 'color': currentPage === page ? '#2C6B59' : '#6c757d'}"
+                class="btn mx-1">
+          {{ page }}
+        </button>
+      </ng-container>
+    
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages" class="btn btn-icon">
+        <span class="material-symbols-outlined">arrow_forward_ios</span>
+      </button>
+      
+    </div>-->
+  </div>
+
