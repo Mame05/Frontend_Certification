@@ -9,6 +9,7 @@ import { StructureComponent } from './components/Admin/structure/structure.compo
 import { AjoutStructureComponent } from './components/Admin/ajout-structure/ajout-structure.component';
 import { ModifierStructureComponent } from './components/Admin/modifier-structure/modifier-structure.component';
 import { DonneurStructureComponent } from './components/Admin/donneur-structure/donneur-structure.component';
+import { Sidebare1Component } from './components/Structure/sidebare1/sidebare1.component';
 
 // Authentification
 export const routes: Routes = [
@@ -35,6 +36,24 @@ export const routes: Routes = [
     {path: 'parametre', component: ParametreComponent},
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
   ]
+},
+
+//  Routes Structures
+{
+  path: 'sidebar1',
+  component: Sidebare1Component,
+ /* children: [
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'structure', component: StructureComponent },
+    { path: 'structure/ajouter', component: AjoutStructureComponent },
+    { path: 'structure/modifier', component: ModifierStructureComponent },
+    { path: 'structure/donneur', component: DonneurStructureComponent }
+    { path: 'habitant', component: HabitantComponent },
+    { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
+    { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
+    {path: 'parametre', component: ParametreComponent},
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  ]*/
 },
 
 ];
