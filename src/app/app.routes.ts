@@ -5,6 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { PortailComponent } from './components/portail/portail.component';
 import { SidebareComponent } from './components/Admin/sidebare/sidebare.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
+import { StructureComponent } from './components/Admin/structure/structure.component';
 
 // Authentification
 export const routes: Routes = [
@@ -20,9 +21,9 @@ export const routes: Routes = [
   path: 'sidebar',
   component: SidebareComponent,
   children: [
-    { path: 'dashboard', component: DashboardComponent }
-    /*{ path: 'projet', component: ProjetComponent },
-    { path: 'projet/ajouter', component: AjoutProjetComponent },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'structure', component: StructureComponent }
+   /* { path: 'projet/ajouter', component: AjoutProjetComponent },
     { path: 'projet/detail/projet/:id', component: DetailProjetComponent },
     { path: 'projet/modifier/:id', component: ModificationProjetComponent },
     { path: 'habitant', component: HabitantComponent },
