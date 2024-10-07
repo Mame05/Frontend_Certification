@@ -10,6 +10,7 @@ import { AjoutStructureComponent } from './components/Admin/ajout-structure/ajou
 import { ModifierStructureComponent } from './components/Admin/modifier-structure/modifier-structure.component';
 import { DonneurStructureComponent } from './components/Admin/donneur-structure/donneur-structure.component';
 import { Sidebare1Component } from './components/Structure/sidebare1/sidebare1.component';
+import { Dashboard1Component } from './components/Structure/dashboard1/dashboard1.component';
 
 // Authentification
 export const routes: Routes = [
@@ -42,9 +43,9 @@ export const routes: Routes = [
 {
   path: 'sidebar1',
   component: Sidebare1Component,
- /* children: [
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'structure', component: StructureComponent },
+  children: [
+    { path: 'dashboard1', component: Dashboard1Component }
+    /*{ path: 'structure', component: StructureComponent },
     { path: 'structure/ajouter', component: AjoutStructureComponent },
     { path: 'structure/modifier', component: ModifierStructureComponent },
     { path: 'structure/donneur', component: DonneurStructureComponent }
@@ -52,8 +53,8 @@ export const routes: Routes = [
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
     {path: 'parametre', component: ParametreComponent},
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
-  ]*/
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
+  ]
 },
 
 ];
