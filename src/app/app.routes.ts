@@ -13,6 +13,7 @@ import { Sidebare1Component } from './components/Structure/sidebare1/sidebare1.c
 import { Dashboard1Component } from './components/Structure/dashboard1/dashboard1.component';
 import { AnnonceComponent } from './components/Structure/annonce/annonce.component';
 import { AjoutAnnonceComponent } from './components/Structure/ajout-annonce/ajout-annonce.component';
+import { DetailAnnonceComponent } from './components/Structure/detail-annonce/detail-annonce.component';
 
 // Authentification
 export const routes: Routes = [
@@ -48,9 +49,9 @@ export const routes: Routes = [
   children: [
     { path: 'dashboard1', component: Dashboard1Component },
     { path: 'annonce', component: AnnonceComponent },
-    { path: 'annonce/ajouter', component: AjoutAnnonceComponent }
-    /*{ path: 'annonce/detail', component: ModifierStructureComponent },
-    { path: 'annonce/modifier', component: DonneurStructureComponent }
+    { path: 'annonce/ajouter', component: AjoutAnnonceComponent },
+    { path: 'annonce/detail-annonce', component: DetailAnnonceComponent }
+    /*{ path: 'annonce/modifier', component: DonneurStructureComponent }
     { path: 'habitant', component: HabitantComponent },
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
