@@ -1,0 +1,77 @@
+<div class="dashboard">
+    <div class="stats-section">
+        <div class="stat-card card1">
+            <div class="stat-icon blood-stock">
+                <span class="iconify" data-icon="mdi:blood-bag"></span>
+            </div>
+            <div class="stat-content">
+                <h3>124 poches de sang</h3>
+                <p>en stock</p>
+            </div>
+        </div>
+        <div class="stat-card card2">
+            <div class="stat-icon collects">
+                <span class="iconify" data-icon="fontisto:blood-drop"></span>
+            </div>
+            <div class="stat-content">
+                <h3>20 collectes</h3>
+                <p>planifiées</p>
+            </div>
+        </div>
+        <div class="stat-card card3">
+            <div class="stat-icon donors">
+                <span class="iconify" data-icon="mdi:person-group"></span>
+            </div>
+            <div class="stat-content">
+                <h3>50 donneurs</h3>
+                <p>enregistrés</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="announce-button">
+        <a [routerLink]="['/sidebar1/annonce/ajouter']">
+            <span class="iconify" data-icon="carbon:add-filled"></span>
+        </a>
+        <h5>Ajouter une structure</h5> 
+    </div>
+
+    <div class="content-section">
+        <div class="blood-group-table">
+            <h4>Nombre de poche / Groupe sanguin</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Groupe sanguin</th>
+                        <th>Poches</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>O-</td><td>24</td></tr>
+                    <tr><td>O+</td><td>15</td></tr>
+                    <tr><td>A-</td><td>30</td></tr>
+                    <tr><td>A+</td><td>12</td></tr>
+                    <tr><td>B-</td><td>5</td></tr>
+                    <tr><td>B+</td><td>3</td></tr>
+                    <tr><td>AB-</td><td>0</td></tr>
+                    <tr><td>AB+</td><td>35</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="announcements">
+            <h4>Dernières annonces publiées</h4>
+            <div class="announcement-card">
+                <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024 au Centre National de Transfusion Sanguin à 10h</p>
+                <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>
+                <p><span class="iconify icon3" data-icon="maki:blood-bank"></span>Type d'annonce : Collecte</p>
+            </div>
+            <div class="announcement-card">
+                <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024 au Centre National de Transfusion Sanguin à 09h</p>
+                <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>
+                <p><span class="iconify icon3" data-icon="maki:blood-bank"></span>Type d'annonce : Besoin urgent</p>
+            </div>
+        </div>
+    </div>
+</div>
+

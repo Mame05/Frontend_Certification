@@ -1,0 +1,83 @@
+<div class="form-container">
+    <h2>Formulaire de modification d'une annonce</h2>
+    <form action="#" method="post">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="titre">Titre</label>
+                <input type="text" id="titre" placeholder="Titre">
+            </div>
+            <div class="form-group">
+                <label for="nom_lieu">Lieu de collecte</label>
+                <input type="text" id="nom_lieu" placeholder="Nom du lieu">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="type_annonce">Type d'annonce</label>
+                <select id="type_annonce">
+                    <option>Sélectionner un type</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse du lieu</label>
+                <input type="text" id="adresse" placeholder="Adresse du lieu">
+            </div>
+            
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="date_debut">Date de début</label>
+                <input type="date" id="date_debut">
+            </div>
+            <div class="form-group">
+                <label for="groupe-sanguin">Groupe sanguin requis</label>
+                <select id="groupe-sanguin">
+                    <option>Sélectionner le(s) groupe(s)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="date_fin">Date de la fin</label>
+                <input type="date" id="date_fin">
+            </div>
+            <div class="form-group">
+                <label for="nombre_poches_vise">Nombre de poches visées</label>
+                <input type="number" id="nombre_poches_vise" placeholder="Nombre de poches visées">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="heure_debut">Heure de début</label>
+                <input type="time" id="heure_debut">
+            </div>
+            <div class="form-group description-group">
+                <label for="description">Description</label>
+                <textarea id="description" placeholder="Description de l'annonce"></textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="heure_fin">Heure de la fin</label>
+                <input type="time" id="heure_fin">
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact du responsable</label>
+                <input type="text" id="contact" placeholder="Contact responsable collecte">
+            </div>
+            
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Modifier</button>
+            <button routerLink="/sidebar1/annonce" type="button" class="btn-cancel">Retour</button>
+        </div>
+    </form>
+</div>
+
+

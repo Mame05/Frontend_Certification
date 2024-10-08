@@ -1,6 +1,9 @@
-<div class="donneur-container">
+<div class="struct-container">
+    <div class="mb-4" style="float: right;">
+      <button routerLink="/sidebar1/annonce/ajouter" type="button" class="btn btn-custom">Publier une Annonce</button>
+    </div>
   
-    <h2 class="donneur-title">Donneur du CNTS</h2>
+    <h2 class="struct-title">Liste des annonces</h2>
   
     <!-- Filtrage des structures -->
     <!--<div class="d-flex mb-3 ">
@@ -13,22 +16,32 @@
       <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
     </div>-->
     
-    <table class="donneur-table table table-striped mt-3">
+    <table class="struct-table table table-striped mt-3">
       <thead>
         <tr>
-          <th>Nom Complet</th>
-          <th>Groupe sanguin</th>
-          <th>Nombre de don</th>
-          <th>Dernier don</th>
-
+          <th>Titre</th>
+          <th>Date Début</th>
+          <th>Lieu</th>
+          <th>Inscrit</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Ndéye Anta Coulibaly</td>
-          <td>A+</td>
-          <td>3</td>
-          <td>29/06/2024</td>
+          <td>Grande collectes de sang</td>
+          <td>28/09/2024</td>
+          <td>Centre national de transfusion sanguin</td>
+          <td>20</td>
+          <td>
+            <a [routerLink]="['/sidebar1/annonce/detail-annonce']" class="icon-link">
+              <span class="iconify" data-icon="mdi:eye"></span>
+            </a>
+            <a [routerLink]="['/sidebar1/annonce/modifier']" class="icon-link">
+              <span class="iconify" data-icon="mdi:pencil"></span>
+            </a>
+            <a class="icon-link"><span class="iconify" data-icon="mdi:delete"></span>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -52,5 +65,7 @@
       </button>
       
     </div>-->
+    
+    <router-outlet></router-outlet>
   </div>
 

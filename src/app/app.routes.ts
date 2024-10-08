@@ -9,6 +9,14 @@ import { StructureComponent } from './components/Admin/structure/structure.compo
 import { AjoutStructureComponent } from './components/Admin/ajout-structure/ajout-structure.component';
 import { ModifierStructureComponent } from './components/Admin/modifier-structure/modifier-structure.component';
 import { DonneurStructureComponent } from './components/Admin/donneur-structure/donneur-structure.component';
+import { Sidebare1Component } from './components/Structure/sidebare1/sidebare1.component';
+import { Dashboard1Component } from './components/Structure/dashboard1/dashboard1.component';
+import { AnnonceComponent } from './components/Structure/annonce/annonce.component';
+import { AjoutAnnonceComponent } from './components/Structure/ajout-annonce/ajout-annonce.component';
+import { DetailAnnonceComponent } from './components/Structure/detail-annonce/detail-annonce.component';
+import { ModifierAnnonceComponent } from './components/Structure/modifier-annonce/modifier-annonce.component';
+import { DonneurComponent } from './components/Structure/donneur/donneur.component';
+import { StatistiqueComponent } from './components/Structure/statistique/statistique.component';
 
 // Authentification
 export const routes: Routes = [
@@ -32,6 +40,24 @@ export const routes: Routes = [
     /*{ path: 'habitant', component: HabitantComponent },
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
+    {path: 'parametre', component: ParametreComponent},
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
+  ]
+},
+
+//  Routes Structures
+{
+  path: 'sidebar1',
+  component: Sidebare1Component,
+  children: [
+    { path: 'dashboard1', component: Dashboard1Component },
+    { path: 'annonce', component: AnnonceComponent },
+    { path: 'annonce/ajouter', component: AjoutAnnonceComponent },
+    { path: 'annonce/detail-annonce', component: DetailAnnonceComponent },
+    { path: 'annonce/modifier', component: ModifierAnnonceComponent },
+    { path: 'donneur', component: DonneurComponent },
+    { path: 'statistique', component: StatistiqueComponent }
+    /*{ path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
     {path: 'parametre', component: ParametreComponent},
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
   ]
