@@ -15,6 +15,7 @@ import { AnnonceComponent } from './components/Structure/annonce/annonce.compone
 import { AjoutAnnonceComponent } from './components/Structure/ajout-annonce/ajout-annonce.component';
 import { DetailAnnonceComponent } from './components/Structure/detail-annonce/detail-annonce.component';
 import { ModifierAnnonceComponent } from './components/Structure/modifier-annonce/modifier-annonce.component';
+import { DonneurComponent } from './components/Structure/donneur/donneur.component';
 
 // Authentification
 export const routes: Routes = [
@@ -52,9 +53,9 @@ export const routes: Routes = [
     { path: 'annonce', component: AnnonceComponent },
     { path: 'annonce/ajouter', component: AjoutAnnonceComponent },
     { path: 'annonce/detail-annonce', component: DetailAnnonceComponent },
-    { path: 'annonce/modifier', component: ModifierAnnonceComponent }
-    /*{ path: 'habitant', component: HabitantComponent },
-    { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
+    { path: 'annonce/modifier', component: ModifierAnnonceComponent },
+    { path: 'donneur', component: DonneurComponent }
+    /*{ path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
     {path: 'parametre', component: ParametreComponent},
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
