@@ -12,6 +12,7 @@ import { DonneurStructureComponent } from './components/Admin/donneur-structure/
 import { Sidebare1Component } from './components/Structure/sidebare1/sidebare1.component';
 import { Dashboard1Component } from './components/Structure/dashboard1/dashboard1.component';
 import { AnnonceComponent } from './components/Structure/annonce/annonce.component';
+import { AjoutAnnonceComponent } from './components/Structure/ajout-annonce/ajout-annonce.component';
 
 // Authentification
 export const routes: Routes = [
@@ -46,9 +47,9 @@ export const routes: Routes = [
   component: Sidebare1Component,
   children: [
     { path: 'dashboard1', component: Dashboard1Component },
-    { path: 'annonce', component: AnnonceComponent }
-    /*{ path: 'annonce/ajouter', component: AjoutStructureComponent },
-    { path: 'annonce/detail', component: ModifierStructureComponent },
+    { path: 'annonce', component: AnnonceComponent },
+    { path: 'annonce/ajouter', component: AjoutAnnonceComponent }
+    /*{ path: 'annonce/detail', component: ModifierStructureComponent },
     { path: 'annonce/modifier', component: DonneurStructureComponent }
     { path: 'habitant', component: HabitantComponent },
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
