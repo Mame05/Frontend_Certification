@@ -14,6 +14,7 @@ import { Dashboard1Component } from './components/Structure/dashboard1/dashboard
 import { AnnonceComponent } from './components/Structure/annonce/annonce.component';
 import { AjoutAnnonceComponent } from './components/Structure/ajout-annonce/ajout-annonce.component';
 import { DetailAnnonceComponent } from './components/Structure/detail-annonce/detail-annonce.component';
+import { ModifierAnnonceComponent } from './components/Structure/modifier-annonce/modifier-annonce.component';
 
 // Authentification
 export const routes: Routes = [
@@ -50,9 +51,9 @@ export const routes: Routes = [
     { path: 'dashboard1', component: Dashboard1Component },
     { path: 'annonce', component: AnnonceComponent },
     { path: 'annonce/ajouter', component: AjoutAnnonceComponent },
-    { path: 'annonce/detail-annonce', component: DetailAnnonceComponent }
-    /*{ path: 'annonce/modifier', component: DonneurStructureComponent }
-    { path: 'habitant', component: HabitantComponent },
+    { path: 'annonce/detail-annonce', component: DetailAnnonceComponent },
+    { path: 'annonce/modifier', component: ModifierAnnonceComponent }
+    /*{ path: 'habitant', component: HabitantComponent },
     { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
     { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
     {path: 'parametre', component: ParametreComponent},
