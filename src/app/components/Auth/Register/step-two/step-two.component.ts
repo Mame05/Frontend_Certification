@@ -21,7 +21,6 @@ export class StepTwoComponent {
       photo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      telephone: ['', Validators.required],
     });
   }
 

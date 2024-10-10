@@ -27,12 +27,24 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      console.log('Form Value:', this.loginForm.value); // Ajoute cette ligne
       this.authService.login(this.loginForm.value).subscribe(
-        (response:  { token: string }) => {
+        (response:  { access_token: string, role_id: number }) => {
           // Stocker le token JWT ou une autre information de session
-          this.authService.storeToken(response.token);
-          // Rediriger l'utilisateur après connexion réussie
-          this.router.navigate(['/dashboard']); // Par exemple, un tableau de bord après la connexion
+          this.authService.storeToken(response.access_token);
+          // Rediriger en fonction du role_id
+        const roleId = response.role_id;
+        if (roleId === 1) {
+          this.router.navigate(['/sidebar/dashboard']);
+        } else if (roleId === 2) {
+          this.router.navigate(['/sidebar1/dashboard1']);
+        } else if (roleId === 3) {
+          this.router.navigate(['/sidebar1/dashboard1']);
+        }  
+         else {
+          this.router.navigate(['/default']);
+        }
+         
         },
         (error: HttpErrorResponse) => {
           this.errorMessage = 'Identifiants invalides. Veuillez réessayer.';

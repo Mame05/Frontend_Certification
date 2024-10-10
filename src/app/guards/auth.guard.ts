@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../Services/Auth/auth.service';
 
 /*export const authGuard: CanActivateFn = (route, state) => {
   return true;
 };*/
-@Injectable({
+/*@Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
@@ -19,4 +19,4 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-}
+}*/

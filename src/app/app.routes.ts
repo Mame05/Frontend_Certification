@@ -1,7 +1,7 @@
 import {  Routes } from '@angular/router';
 import { LoginComponent } from './components/Auth/Login/login/login.component'; // Assure-toi que LoginComponent est correctement importé
 import { RegisterComponent } from './components/Auth/Register/register/register.component'; // Assure-toi que RegisterComponent est correctement importé
-import { AuthGuard } from './guards/auth.guard';
+/*import { AuthGuard } from './guards/auth.guard';*/
 import { PortailComponent } from './components/portail/portail.component';
 import { SidebareComponent } from './components/Admin/sidebare/sidebare.component';
 import { DashboardComponent } from './components/Admin/dashboard/dashboard.component';
@@ -18,13 +18,16 @@ import { ModifierAnnonceComponent } from './components/Structure/modifier-annonc
 import { DonneurComponent } from './components/Structure/donneur/donneur.component';
 import { StatistiqueComponent } from './components/Structure/statistique/statistique.component';
 
-// Authentification
-export const routes: Routes = [
 
+export const routes: Routes = [
+//Toute par defaut
+  { path: '', pathMatch: 'full', redirectTo: 'portail' },
+
+  // Authentification
   { path: '', component: PortailComponent },
   { path: 'login', component: LoginComponent }, // Page de connexion
   { path: 'register', component: RegisterComponent }, // Page d'inscription
-  { path: '', pathMatch: 'full', redirectTo: 'portail' },
+  
 
 
  //  Routes Admin
@@ -37,11 +40,6 @@ export const routes: Routes = [
     { path: 'structure/ajouter', component: AjoutStructureComponent },
     { path: 'structure/modifier', component: ModifierStructureComponent },
     { path: 'structure/donneur', component: DonneurStructureComponent }
-    /*{ path: 'habitant', component: HabitantComponent },
-    { path: 'habitant/detail/habitant/:id', component: DetailHabitantComponent },
-    { path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
-    {path: 'parametre', component: ParametreComponent},
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
   ]
 },
 
@@ -57,9 +55,6 @@ export const routes: Routes = [
     { path: 'annonce/modifier', component: ModifierAnnonceComponent },
     { path: 'donneur', component: DonneurComponent },
     { path: 'statistique', component: StatistiqueComponent }
-    /*{ path: 'habitant/detail/projet/:id', component: DetailProjetHabitantComponent },
-    {path: 'parametre', component: ParametreComponent},
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }*/
   ]
 },
 
