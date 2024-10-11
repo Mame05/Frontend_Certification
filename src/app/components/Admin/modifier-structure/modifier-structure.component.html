@@ -1,14 +1,14 @@
 <div class="form-container">
     <h2>Formulaire de modification de Structure</h2>
-    <form action="#" method="POST" class="structure-form">
+    <form [formGroup]="structureForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
             <div class="form-group">
                 <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" placeholder="Nom">
+                <input type="text" id="nom" formControlName="nom" placeholder="Nom">
             </div>
             <div class="form-group">
                 <label for="region">Région</label>
-                <select id="region" name="region">
+                <select id="region" formControlName="region">
                     <option value="">Sélectionner une région</option>
                     <option value="Dakar">Dakar</option>
                     <option value="Diourbel">Diourbel</option>
@@ -30,27 +30,27 @@
         <div class="form-row">
             <div class="form-group">
                 <label for="sigle">Sigle</label>
-                <input type="text" id="sigle" name="sigle" placeholder="Sigle">
+                <input type="text" id="sigle" formControlName="sigle" placeholder="Sigle">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email">
+                <input type="email" id="email" formControlName="email" placeholder="Email">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label for="telephone">Téléphone</label>
-                <input type="text" id="telephone" name="telephone" placeholder="Téléphone">
+                <input type="text" id="telephone" formControlName="telephone" placeholder="Téléphone">
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" placeholder="Mot de passe">
+                <input type="password" id="password" formControlName="password" placeholder="Mot de passe">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label for="adresse">Adresse</label>
-                <input type="text" id="adresse"name="adresse" placeholder="Adresse">
+                <input type="text" id="adresse" formControlName="adresse" placeholder="Adresse">
             </div>
         </div>
         <div class="form-buttons">

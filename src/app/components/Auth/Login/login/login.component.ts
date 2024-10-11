@@ -29,9 +29,11 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       console.log('Form Value:', this.loginForm.value); // Ajoute cette ligne
       this.authService.login(this.loginForm.value).subscribe(
-        (response:  { access_token: string, role_id: number }) => {
+        (response: any) => {
           // Stocker le token JWT ou une autre information de session
           this.authService.storeToken(response.access_token);
+          localStorage.setItem('access_token', response.access_token);
+            localStorage.setItem('user', JSON.stringify(response.user));
           // Rediriger en fonction du role_id
         const roleId = response.role_id;
         if (roleId === 1) {

@@ -38,8 +38,8 @@ export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'structure', component: StructureComponent },
     { path: 'structure/ajouter', component: AjoutStructureComponent },
-    { path: 'structure/modifier', component: ModifierStructureComponent },
-    { path: 'structure/donneur', component: DonneurStructureComponent }
+    { path: 'structure/modifier/:id', component: ModifierStructureComponent },
+    { path: 'structure/donneur/:id', component: DonneurStructureComponent }
   ]
 },
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../Services/Auth/auth.service';
 
 
 @Component({
@@ -11,5 +12,6 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './sidebare.component.css'
 })
 export class SidebareComponent {
+  constructor(private authService: AuthService, private router: Router) {}
 
 }

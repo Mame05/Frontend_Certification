@@ -2,24 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+import { apiUrl } from '../apiUrl';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api';  
 
   private authSubject = new BehaviorSubject<string | null>(this.getToken());
 
   constructor(private http: HttpClient) {}
 
   register(userData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, userData);
+    return this.http.post(`${apiUrl}/register`, userData);
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, credentials).pipe(
+    return this.http.post(`${apiUrl}/login`, credentials).pipe(
       map((response: any) => {
         this.storeToken(response.access_token);
         return response;
@@ -35,7 +35,7 @@ export class AuthService {
     }
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.apiUrl}/logout`, { headers }).pipe(
+    return this.http.get(`${apiUrl}/logout`, { headers }).pipe(
       map(() => {
         this.clearSession();
       }),
@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   getUserDetails(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/profile`, { headers: this.createAuthorizationHeader() }).pipe(
+    return this.http.get(`${apiUrl}/profile`, { headers: this.createAuthorizationHeader() }).pipe(
         catchError((error: HttpErrorResponse) => {
             if (error.status === 401) {
                 return this.refreshToken().pipe(
@@ -64,7 +64,7 @@ export class AuthService {
     }
   
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post<any>(`${this.apiUrl}/refresh`, {}, { headers }).pipe(
+    return this.http.post<any>(`${apiUrl}/refresh`, {}, { headers }).pipe(
       map((response: any) => {
         if (response && response.access_token) {
           this.storeToken(response.access_token);

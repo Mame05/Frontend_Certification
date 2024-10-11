@@ -26,18 +26,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Centre Nationale de Transfusion Sanguin (CNTS)</td>
-          <td>Avenue Cheikh Anta Diop/Dakar</td>
-          <td>33 869 86 60</td>
+        <tr *ngFor="let structure of structures">
+          <td>{{ structure.nom_structure }} ({{structure.sigle }})</td>
+          <td>{{ structure.adresse }}</td>
+          <td>{{ structure.telephone }}</td>
           <td>
-            <a [routerLink]="['/sidebar/structure/donneur']" class="icon-link">
+            <a [routerLink]="['/sidebar/structure/donneur', structure.id]" class="icon-link">
               <span class="iconify" data-icon="bi:people-fill"></span>
             </a>
-            <a [routerLink]="['/sidebar/structure/modifier']" class="icon-link">
+            <a [routerLink]="['/sidebar/structure/modifier', structure.id]" class="icon-link">
               <span class="iconify" data-icon="mdi:pencil"></span>
             </a>
-            <a class="icon-link"><span class="iconify" data-icon="mdi:delete"></span>
+            <a class="icon-link" (click)="deleteStructure(structure.id)"><span class="iconify" data-icon="mdi:delete"></span>
             </a>
           </td>
         </tr>
