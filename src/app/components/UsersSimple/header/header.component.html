@@ -1,0 +1,24 @@
+<!-- header.component.html -->
+<header class="header">
+    <div class="logo">
+      <img src="/assets/logo.png" alt="Logo" /> <!-- Remplacez par le chemin vers votre logo -->
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a routerLink="/accueil" routerLinkActive="active">Accueil</a></li>
+        <li><a routerLink="/annonces" routerLinkActive="active">Annonces</a></li>
+        <li><a routerLink="/mes-dons" routerLinkActive="active">Mes Dons</a></li>
+        <li><a routerLink="/profil" routerLinkActive="active" (click)="toggleDropdown()">
+          Profil <i class="fas fa-caret-down"></i>
+            </a>
+          <ul class="dropdown" *ngIf="isDropdownOpen">
+            <li><a routerLink="/profil" routerLinkActive="active"><i class="fas fa-user"></i> Voir mon profil</a></li>
+            <li><a (click)="deconnexion()"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/notifications" routerLinkActive="active"><i class="fas fa-bell"></i></a></li>
+        <!--<button type="button" class="btn"><span class="iconify" data-icon="mdi:bell"></span></button>-->
+      </ul>
+    </nav>
+  </header>
+  

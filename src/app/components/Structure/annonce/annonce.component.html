@@ -27,19 +27,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Grande collectes de sang</td>
-          <td>28/09/2024</td>
-          <td>Centre national de transfusion sanguin</td>
+        <tr  *ngFor="let annonce of annonces">
+          <td>{{ annonce.titre}}</td>
+          <td>{{ annonce.date_debut}}</td>
+          <td>{{ annonce.nom_lieu}}</td>
           <td>20</td>
           <td>
-            <a [routerLink]="['/sidebar1/annonce/detail-annonce']" class="icon-link">
+            <a [routerLink]="['/sidebar1/annonce/detail-annonce', annonce.id]" class="icon-link">
               <span class="iconify" data-icon="mdi:eye"></span>
             </a>
-            <a [routerLink]="['/sidebar1/annonce/modifier']" class="icon-link">
+            <a [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="icon-link">
               <span class="iconify" data-icon="mdi:pencil"></span>
             </a>
-            <a class="icon-link"><span class="iconify" data-icon="mdi:delete"></span>
+            <a class="icon-link" (click)="deleteAnnonce(annonce.id)"><span class="iconify" data-icon="mdi:delete"></span>
             </a>
           </td>
         </tr>

@@ -1,0 +1,89 @@
+/* header.component.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixe l'en-tête en haut de la page */
+    top: 0; /* Positionne en haut */
+    left: 0; /* Positionne à gauche */
+    width: 100%; /* S'étend sur toute la largeur */
+    z-index: 1000; /* Assure que l'en-tête est au-dessus des autres éléments */
+  }
+  
+  .logo img {
+    height: 40px; /* Ajustez la taille du logo */
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .nav ul li {
+    position: relative;
+    margin-right: 40px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #1D3557; /* Couleur des liens */
+    padding: 8px 10px 0 20px;
+    transition: color 0.3s;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: Montserrat,sans-serif;
+  }
+  
+  .nav a:hover,
+  .nav a.active {
+    color: #df2c26; /* Couleur au survol et active */
+    /*border-bottom: 2px solid #df2c26; /* Soulignement sous le lien actif */
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%; /* Positionne le dropdown juste en dessous */
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc; /* Bordure */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Assure que le menu est au-dessus des autres éléments */
+    /*width: 250px;
+    height: 150px;*/
+    
+  }
+  .header .dropdown{
+    display: block; /* Empile les éléments les uns sous les autres */
+
+  }
+  
+  .dropdown li {
+    padding: 10px;
+  }
+  
+  .dropdown li a {
+    color: #1D3557;
+    display: flex; /* Flexbox pour aligner l'icône et le texte */
+  }
+  .dropdown li a i {
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+  }
+  
+  .dropdown li a:hover,
+  .dropdown li a:active {
+    background-color: #f8f8f8; /* Couleur au survol du dropdown */
+    color: #df2c26;
+    /*border-bottom: 2px solid #df2c26; /* Soulignement sous le lien actif */
+
+  }
+  .header.scrolled {
+    background-color: #f1f1f1; /* Couleur de fond lors du défilement */
+    transition: background-color 0.3s; /* Animation pour le changement de couleur */
+}
+
+  

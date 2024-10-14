@@ -1,0 +1,269 @@
+/* Hero section */
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.hero {
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/accueil1.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+    background-image: url('/assets/images/accueil1.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+    background-size: cover; /* Ajuste l'image pour couvrir l'élément */
+    background-position: center; /* Centre l'image */
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .hero-content h1 {
+    font-size: 32px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6); /* Pour rendre le texte plus lisible */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .platform-name {
+    color: #df2c26; /* Couleur de la plateforme en rouge */
+  }
+  
+  /* Processus section */
+  .processus-section {
+    padding: 40px;
+    background-color: #ffffff;
+  }
+  .deco-accueil{
+    margin-bottom: 20px;
+    display: flex;
+  }
+  .deco-accueil1{
+    width: 64px;
+    height: 74px;
+  }
+  .deco-accueil2{
+    width: 64px;
+    height: 74px;
+    margin-left: 90%;
+  }
+  
+  .processus-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: -60px;
+  }
+  .border1 {
+    width: 10%; /* Ajuste la largeur de la bordure */
+    height: 3px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+    margin-left: 45% ; /* Centre la bordure sous le titre */
+  }
+  
+  .processus-section .steps {
+    display:flex;
+    flex-direction: column; /* Positionne les éléments l'un en dessous de l'autre */
+    gap: 30px; /* Espace entre chaque étape, ajuste selon tes besoins */
+  }
+  
+  .processus-section .step {
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    /*margin: 0; /* Retire les marges par défaut */
+    /*padding: 0; /* Retire les padding par défaut */
+    position: relative;
+  }
+  .processus-section .step1{
+    background-color: rgb(29,53,87,0.05);
+  }
+  .processus-section .step2{
+    background-color: rgb(223,44,38,0.1);
+  }
+  
+  .processus-section .step img {
+    width: 40%;
+    height: 230px;
+  }
+  .processus-section .step .img1 {
+    margin-left: auto;
+  }
+  .processus-section .step p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1D3557;
+    margin-top: 40px;
+    padding: 0;
+    margin-top: 60px;
+
+    
+  }
+  .processus-section .step .p1{
+    margin-left: 10%;
+  }
+  
+  /* Style de la numérotation */
+.number {
+    position: absolute;
+    top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #df2c26;
+    color: #ffffff;
+}
+.number1{   
+    left: 10px;
+}
+.number2{
+    right: 10px;
+}
+/* Style des titres */
+.step-title {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    color: #df2c26;
+}
+.title1{
+    left: 60px;
+}
+.title2{
+    right: 60px;
+    color: #df2c26;
+}
+.video-section {
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffff;
+    margin-top: -20px;
+ }
+ .video-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    text-align: center;
+ }
+ .video-container{
+    width: 80%;
+    max-width: 800px; /* Limite la taille maximale */
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+ }
+ .border2 {
+    width: 10%; /* Ajuste la largeur de la bordure */
+    height: 3px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+   /* margin-left: 45% ; /* Centre la bordure sous le titre */
+    margin: 0 auto;
+    margin-top: -10px;
+  }
+ 
+ 
+  
+
+  /*  Temoignage */
+  .testimonials-section {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+ }
+ .testimonials-section h2{
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    text-align: center;
+ }
+ .border3 {
+    width: 7%; /* Ajuste la largeur de la bordure */
+    height: 3px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+    margin: 0 auto;
+   /* margin-left: 46.5% ; /* Centre la bordure sous le titre */
+    margin-top: -8px;
+  }
+ .testimonials {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+ }
+ .testimonial {
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20px; /* Ajoute un espacement entre les témoignages */
+
+ }
+ .testimonial img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+ }
+ .testimonial p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: #1D3557;
+
+ }
+ .testimonial span {
+    font-size: 18px;
+    font-weight: 500;
+    color: #df2c26;
+ }
+
+
+
+ /* Button call action */
+ .cta-section {
+    padding: 40px;
+    background-color: #ffffff;
+    color: #df2c26;
+    text-align: center;
+
+ }
+ .cta-section h2 {
+    margin-bottom: 20px;
+ }
+ .cta-button {
+    padding: 10px 20px;
+    background-color: #df2c26;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+
+
+
+ }
+ 
+
+  /* Footer */
+  footer {
+    background-color: #1D3557;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+ 
+  
+  footer .platform-name {
+    color: #df2c26;
+  }
+  

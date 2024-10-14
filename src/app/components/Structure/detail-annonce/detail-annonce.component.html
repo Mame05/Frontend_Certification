@@ -1,30 +1,44 @@
-<div class="detail-annonce-container">
+<div class="detail-annonce-container" *ngIf="annonce">
     <div class="image-banner">
         <img src="assets/images/detail-annonce.png" alt="Grande collecte de sang">
     </div>
-    <h2>Grandes collectes de sang</h2>
+    <h2>{{ annonce.titre }}</h2>
     
     <div class="annonce-details">
         <div class="left-column">
-            <p><strong>Type d'annonce :</strong> Collecte</p>
-            <p><strong>Lieu :</strong> Centre National de Transfusion Sanguin</p>
-            <p><strong>Date de début :</strong> 28/09/2024</p>
-            <p><strong>Description :</strong> En participant à cette collecte, vous contribuez directement à sauver des vies et à offrir à des personnes en détresse une seconde chance de guérir.</p>
-            <p><strong>Nombre de poches visées :</strong> 250 poches</p>
+            <p><strong>Type d'annonce :</strong> {{ annonce.type_annonce }}</p>
+            <p><strong>Lieu :</strong> {{ annonce.nom_lieu }}</p>
+            <p><strong>Date de début :</strong> {{ annonce.date_debut | date:'dd/MM/yyyy' }}</p>
+            <p><strong>Description :</strong> {{ annonce.description }}.</p>
+            <p><strong>Nombre de poches visées :</strong>{{ annonce.nombre_poches_vise }} poches</p>
         </div>
         
         <div class="right-column">
-            <p><strong>Groupe sanguin requis :</strong> Tous les groupes</p>
-            <p><strong>Adresse :</strong> Avenue Cheikh A Anta Diop / Dakar</p>
-            <p><strong>Date de la fin :</strong> 29/09/2024</p>
-            <p><strong>Heure de début :</strong> 10h00mn</p>
-            <p><strong>Contact du responsable :</strong> 77 000 00 00</p>
-            <p><strong>Nombre d'inscrit :</strong> 100 volontaires</p>
+            <p><strong>Groupe sanguin requis :</strong> {{ annonce.groupe_sanguin_requis }}</p>
+            <p><strong>Adresse :</strong> {{ annonce.adresse_lieu }}</p>
+            <p><strong>Date de la fin :</strong> {{ annonce.date_fin | date:'dd/MM/yyyy' }}</p>
+            <p><strong>Heure de début :</strong> {{ annonce.heure_debut }}</p>
+            <p><strong>Contact du responsable :</strong> {{ annonce.contact_responsable }}</p>
+            <p><strong>Nombre d'inscrit :</strong> {{ annonce.nombre_inscrits }} volontaires</p>
         </div>
+    </div>
+    <div class="inscriptions-section">
+        <h3>Inscriptions ({{ annonce.nombre_inscrits }})</h3>
+        <div *ngFor="let inscrit of annonce.inscrits">
+            <p>{{ inscrit.nom }} {{ inscrit.prenom }} - État: {{ inscrit.etat ? 'Effectué' : 'Non effectué' }}</p>
+            <button 
+            [ngClass]="{
+                'effectue': inscrit.etat, 
+                'non-effectue': !inscrit.etat
+            }"
+            (click)="changeEtat(inscrit.id, !inscrit.etat)">
+              {{ inscrit.etat ? 'Annuler' : 'Marquer comme effectué' }}
+            </button>
+          </div>
     </div>
     
     <div class="action-buttons">
-        <button class="btn-edit">Editer les informations</button>
+        <button [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="btn-edit" type="submit">Editer les informations</button>
         <button routerLink="/sidebar1/annonce" class="btn-back">Retour</button>
     </div>
 </div>

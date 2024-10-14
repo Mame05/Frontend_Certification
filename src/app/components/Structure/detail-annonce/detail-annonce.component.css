@@ -45,7 +45,64 @@ h2 {
 strong {
     font-weight: bold;
 }
+/*  Inscription */
+.inscriptions-section {
+    margin: 20px 0; /* Marge autour de la section des inscriptions */
+    padding: 20px; /* Espacement interne */
+    background-color: #f9f9f9; /* Couleur de fond de la section */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+}
 
+.inscriptions-section h3 {
+    font-size: 1.5rem; /* Taille de la police du titre */
+    color: #333; /* Couleur du texte du titre */
+    margin-bottom: 15px; /* Marge sous le titre */
+}
+
+.inscriptions-section div {
+    display: flex; /* Utilise Flexbox pour le conteneur d'inscription */
+    justify-content: space-between; /* Espace entre le texte et le bouton */
+    align-items: center; /* Aligne verticalement au centre */
+    margin-bottom: 15px; /* Espacement entre les inscriptions */
+    padding: 10px; /* Espacement interne pour chaque inscription */
+    background-color: #fff; /* Couleur de fond de chaque inscription */
+    border-radius: 5px; /* Coins arrondis pour chaque inscription */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre portée pour chaque inscription */
+}
+
+.inscriptions-section p {
+    font-size: 1.1rem; /* Taille de la police pour les inscriptions */
+    color: #555; /* Couleur du texte des inscriptions */
+    margin: 0; /* Pas de marge autour du texte */
+}
+
+button {
+    padding: 10px 15px; /* Espacement interne du bouton */
+    font-size: 1rem; /* Taille de la police pour le bouton */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de pointeur pour les boutons */
+    transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.effectue {
+    background-color: #4caf50; /* Couleur verte pour l'état effectué */
+    color: white; /* Couleur du texte pour les boutons */
+}
+
+.non-effectue {
+    background-color: #f44336; /* Couleur rouge pour l'état non effectué */
+    color: white; /* Couleur du texte pour les boutons */
+}
+
+button:hover {
+    opacity: 0.8; /* Effet de survol sur les boutons */
+}
+
+
+
+/*      */
 .action-buttons {
     display: flex;
     justify-content: center;

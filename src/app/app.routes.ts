@@ -17,6 +17,8 @@ import { DetailAnnonceComponent } from './components/Structure/detail-annonce/de
 import { ModifierAnnonceComponent } from './components/Structure/modifier-annonce/modifier-annonce.component';
 import { DonneurComponent } from './components/Structure/donneur/donneur.component';
 import { StatistiqueComponent } from './components/Structure/statistique/statistique.component';
+import { HeaderComponent } from './components/UsersSimple/header/header.component';
+import { AccueilComponent } from './components/UsersSimple/accueil/accueil.component';
 
 
 export const routes: Routes = [
@@ -51,12 +53,18 @@ export const routes: Routes = [
     { path: 'dashboard1', component: Dashboard1Component },
     { path: 'annonce', component: AnnonceComponent },
     { path: 'annonce/ajouter', component: AjoutAnnonceComponent },
-    { path: 'annonce/detail-annonce', component: DetailAnnonceComponent },
-    { path: 'annonce/modifier', component: ModifierAnnonceComponent },
+    { path: 'annonce/detail-annonce/:id', component: DetailAnnonceComponent },
+    { path: 'annonce/modifier/:id', component: ModifierAnnonceComponent },
     { path: 'donneur', component: DonneurComponent },
     { path: 'statistique', component: StatistiqueComponent }
   ]
 },
+
+//  Routes pour les utilisateurs siimples
+
+    { path: 'accueil', component: AccueilComponent  },
+    
+    // Ajouter les autres routes pour les utilisateurs si simples ici
 
 ];
 
