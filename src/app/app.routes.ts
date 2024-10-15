@@ -20,6 +20,7 @@ import { StatistiqueComponent } from './components/Structure/statistique/statist
 import { HeaderComponent } from './components/UsersSimple/header/header.component';
 import { AccueilComponent } from './components/UsersSimple/accueil/accueil.component';
 import { AnnoncesComponent } from './components/UsersSimple/annonces/annonces.component';
+import { NotificationAnnonceComponent } from './components/UsersSimple/notification-annonce/notification-annonce.component';
 
 
 export const routes: Routes = [

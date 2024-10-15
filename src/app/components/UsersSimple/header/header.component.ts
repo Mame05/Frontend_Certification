@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { NotificationAnnonceService } from '../../../Services/notification-annonce.service';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,13 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   // header.component.ts
   isDropdownOpen = false;
+  notifications: any[] = [];
+  unreadCount: number = 0;
 
-  constructor(private router: Router) {}
+  constructor (private notificationAnnonceService: NotificationAnnonceService, private router: Router ) {}
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
@@ -32,6 +35,61 @@ export class HeaderComponent {
     } else {
       header.classList.remove('scrolled');
     }
+  }
+
+  ngOnInit() {
+    this.getNotifications();
+  } 
+
+  // Récupérer le nombre de notifications non lues
+  getNotifications() {
+    this.notificationAnnonceService.getUnreadNotifications().subscribe(
+      (data) => {
+        this.notifications = data.map(notification => ({
+          ...notification,
+          lue: false // Initialisez toutes les notifications comme non lues
+      }));
+        this.unreadCount = data.length;
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des notifications', error);
+      }
+    );
+  }
+  openModal() {
+    this.getNotifications(); // Assurez-vous de charger les notifications avant d'ouvrir le modal
+    const modalElement = document.getElementById('notificationsModal');
+    if (modalElement) {
+      const modalInstance = new (window as any).bootstrap.Modal(modalElement);
+      modalInstance.show();
+    }
+  }
+  
+  
+
+  // Marquer une notification comme lue
+ /* markAsRead(notificationId: number) {
+    this.notificationAnnonceService.markAsRead(notificationId).subscribe(() => {
+      this.getNotifications();
+    });
+  }*/
+    markAsRead(notificationId: number) {
+      this.notificationAnnonceService.markAsRead(notificationId).subscribe(() => {
+        // Marquer la notification comme lue
+        const notification = this.notifications.find(notification => notification.id === notificationId);
+        if (notification) {
+          notification.lue = true; // Mettez à jour l'état de la notification
+        }
+        this.unreadCount--; // Décrémentez le compteur des notifications non lues
+      });
+    }
+    
+
+  // Supprimer une notification
+  deleteNotification(notificationId: number) {
+    this.notificationAnnonceService.deleteNotification(notificationId).subscribe(() => {
+      this.getNotifications();
+    });
   }
 }
 

@@ -16,9 +16,38 @@
             <li><a (click)="deconnexion()"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
           </ul>
         </li>
-        <li><a routerLink="/notifications" routerLinkActive="active"><i class="fas fa-bell"></i></a></li>
+        <!--<li><a routerLink="/notifications" routerLinkActive="active" (click)="getUnreadNotifications()"><i class="fas fa-bell"></i>
+            <span *ngIf="unreadNotificationsCount > 0" class="notification-badge">{{ unreadNotificationsCount }}</span>
+        </a></li>-->
+        <li><a (click)="openModal()" class="notification-bell"><i class="fas fa-bell"></i>
+              <span *ngIf="unreadCount > 0" class="notification-badge">{{ unreadCount }}</span>
+            </a>
+        </li>
         <!--<button type="button" class="btn"><span class="iconify" data-icon="mdi:bell"></span></button>-->
       </ul>
     </nav>
   </header>
+  <!-- Modal -->
+<div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="notificationsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="notificationsModalLabel">Notifications</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li *ngFor="let notification of notifications"><span [class.lue]="notification.lue">{{ notification.contenu }}</span>
+            <div class="d-flex justify-content-between mt-2">
+              <button class="btn btn-success btn-sm" (click)="markAsRead(notification.id)">Marquer comme lu</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteNotification(notification.id)">Supprimer</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
   

@@ -85,5 +85,24 @@
     background-color: #f1f1f1; /* Couleur de fond lors du défilement */
     transition: background-color 0.3s; /* Animation pour le changement de couleur */
 }
+.notification-bell {
+  cursor: pointer;
+}
 
+
+.notification-badge {
+    background-color: #df2c26;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 12px;
+    position: absolute;
+    top: -10px;
+    left: 25px;
+  }
+  .lue {
+    text-decoration: line-through; /* Barrer le texte pour les notifications lues */
+    color: gray; /* Couleur grise pour les notifications lues */
+  }
+  
   
