@@ -1,0 +1,248 @@
+/* Global */
+*
+ {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+ }
+
+/* Bannière */
+.banner {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+        /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+        background-size: cover; /* Ajuste l'image pour couvrir l'élément */
+        background-position: center; /* Centre l'image */
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #ffffff;
+}
+.banner h1{
+    font-size: 32px;
+    font-weight: bold;
+    /*background-color: rgba(0, 0, 0, 0.6); /* Pour rendre le texte plus lisible */
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+
+/* Section des annonces urgent */
+.announcements-urgent-section {
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.announcements-urgent-section .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin-bottom: 30px;
+    margin-left: 18%;
+}
+.border1 {
+    width: 8%; /* Ajuste la largeur de la bordure */
+    height: 3px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+    left: 10px ; /* Centre la bordure sous le titre */
+  }
+
+.announcements-urgent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0; /* Espacement autour des cartes */
+}
+
+/* Cartes d'annonces */
+.announcement-urgent-card {
+    background-color: #ffffff;
+    width: 450px;
+    height: 580px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    overflow: hidden;
+    border-radius: 10px; /* Coins arrondis */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation pour l'effet au survol */
+}
+.announcement-urgent-card:hover {
+    transform: translateY(-10px); /* Effet de soulèvement au survol */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
+}
+
+.announcement-urgent-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Ajuste l'image pour couvrir sans déformer */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; /* Coins arrondis en haut */
+}
+
+.announcement-urgent-details {
+    padding: 20px;
+}
+
+.announcement-urgent-details h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #df2c26;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.announcement-urgent-details p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px 0 20px 10px;
+    color: #1D3557;
+
+}
+.announcement-urgent-details p strong{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #1D3557;
+    text-decoration: underline;
+}
+
+/* Section des annonces de type collecte*/
+
+.announcements-collecte-section {
+    padding: 40px;
+    background-color: #ffffff;
+}
+
+.announcements-collecte-section .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin-bottom: 30px;
+    margin-left: 70%;
+}
+.border2 {
+    width: 25%; /* Ajuste la largeur de la bordure */
+    height: 3px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+    margin-left: 1% ; /* Centre la bordure sous le titre */
+  }
+
+.announcements-collecte {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+/* Cartes d'annonces */
+.announcement-collecte-card {
+    background-color: #ffffff;
+    flex-basis: calc(50% - 15px); /* Chaque carte occupe environ 50% avec l'espace de 15px */
+    flex-grow: 1;
+    max-width: 500px;
+    height: 610px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    margin-bottom: 20px; 
+}
+.announcement-collecte-card:hover {
+    transform: translateY(-10px); /* Animation au hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.announcement-collecte-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.announcement-collecte-details {
+    padding: 15px 20px;
+}
+
+.announcement-collecte-details h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #df2c26;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.announcement-collecte-details p {
+    font-size: 17px;
+    font-weight: 400;
+    /*margin: 5px 0 20px 30px;*/
+    margin: 10px 0 20px 10px;
+    color: #1D3557;
+    line-height: 1.5;
+
+}
+.announcement-collecte-details p strong{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px 0;
+    color: #1D3557;
+    text-decoration: underline;
+}
+
+/* Bouton call to action */
+.cta-button {
+    text-align: center;
+    padding: 12px 20px;
+    background-color: #df2c26;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 350px;
+    height: 60px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 20px 20px 70%;
+}
+
+.cta-button:hover {
+    background-color: #c02422;
+}
+/* Style pour la pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Espacement entre les éléments */
+}
+
+/* Style pour les liens de pagination */
+.pagination a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+/* Désactiver le lien lorsqu'il est désactivé */
+.pagination a.disabled {
+    pointer-events: none;
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+/* Effet hover */
+.pagination a:hover:not(.disabled) {
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+    color: #0056b3;
+}
+
+

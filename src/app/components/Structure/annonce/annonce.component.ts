@@ -16,6 +16,7 @@ export class AnnonceComponent   implements OnInit{
 
   ngOnInit() {
    this.getAnnonce();
+   //this.getAnnonce(); // Rafraîchir la liste quand une annonce est ajoutée
   }
 
 
@@ -24,11 +25,13 @@ export class AnnonceComponent   implements OnInit{
     this.annonceService.getAnnonces().subscribe( {
       next: (data) => {
         console.log('Données des annonces:', data);
-        this.annonces = data;
+        this.annonces = data.sort((a, b) => new Date(b.date_debut).getTime() - new Date(a.date_debut).getTime()); // Tri;
       },
       error: (err) => console.error('Erreur lors de la récupération des annonces:', err)
     });    
   }
+
+
   deleteAnnonce(id: number) {
     this.annonceService.deleteAnnonce(id).subscribe(() => {
       this.annonces = this.annonces.filter(s => s.id !== id);

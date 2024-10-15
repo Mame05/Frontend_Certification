@@ -1,0 +1,61 @@
+<app-header></app-header>
+    <!-- Section de la bannière -->
+    <section class="banner">   
+        <h1>Je m'engage à donner mon sang</h1>
+    </section>
+    <!-- Section des annonces de type urgent-->
+    <section class="announcements-urgent-section">
+        <h2 class="section-title">Besoin en urgence
+            <div class="border1"></div>
+        </h2>
+        <div class="announcements-urgent" style="display: flex; justify-content: center;">
+            <div *ngFor="let annonce of paginatedUrgences; let i = index" class="announcement-urgent-card">
+                <img [src]="getUrgenceImage(i)" alt="Demande en urgence 1">
+                <div class="announcement-urgent-details">
+                    <h3>{{ annonce.titre }}</h3>
+                    <p><strong>Groupe sanguin requis:</strong> {{ annonce.groupe_sanguin_requis }}</p>
+                    <p><strong>Lieu de la collecte:</strong> {{ annonce.nom_lieu }}</p>
+                    <p><strong>Adresse:</strong> {{ annonce.adresse_lieu }}</p>
+                    <p><strong>Date limite:</strong> {{ annonce.date_fin }}</p>
+                </div>
+                <a href="/donate" class="cta-button">S'inscrire</a>
+            </div>
+        </div>
+        <!-- Pagination Urgence -->  
+        <div *ngIf="paginatedUrgences.length > 0" class="pagination">
+            <a (click)="currentPageUrgence > 1 && changePageUrgence(currentPageUrgence - 1)" 
+       [class.disabled]="currentPageUrgence === 1">&laquo; Précédent</a>
+            <a (click)="paginatedUrgences.length >= pageSize && changePageUrgence(currentPageUrgence + 1)" 
+       [class.disabled]="paginatedUrgences.length < pageSize">Suivant &raquo;</a>
+        </div>
+
+    </section>
+
+    <!-- Section des annonces de type collecte-->
+    <section class="announcements-collecte-section">
+        <h2 class="section-title">Collecte à venir
+            <div class="border2"></div>
+        </h2>
+        <div class="announcements-collecte" style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div *ngFor="let annonce of paginatedCollectes; let i = index" class="announcement-collecte-card">
+                <img [src] ="getCollecteImage(i)" alt="Demande en urgence 1">
+                <div class="announcement-collecte-details">
+                    <h3>{{ annonce.titre }}</h3>
+                    <p><strong>Lieu de la collecte:</strong> {{ annonce.nom_lieu }}</p>
+                    <p><strong>Adresse:</strong> {{ annonce.adresse_lieu }}</p>
+                    <p><strong>Date de la collecte:</strong> {{ annonce.date_debut }} à partir de {{ annonce.heure_debut }}</p>
+                    <p>Pour toutes autre information<br> supplémentaires, appelez le responsable de<br> la collecte au <strong>{{ annonce.contact_responsable }}</strong></p>
+                </div>
+                <a href="/donate" class="cta-button">S'inscrire</a>
+            </div>
+        </div>
+        <!-- Pagination Collecte -->  
+        <div *ngIf="paginatedCollectes.length > 0" class="pagination">
+            <a (click)="currentPageCollecte > 1 && changePageCollecte(currentPageCollecte - 1)" 
+       [class.disabled]="currentPageCollecte === 1">&laquo; Précédent</a>
+            <a (click)="paginatedCollectes.length >= pageSize && changePageCollecte(currentPageCollecte + 1)" 
+       [class.disabled]="paginatedCollectes.length < pageSize">Suivant &raquo;</a>
+        </div>
+    
+    </section>
+    <app-footer></app-footer>

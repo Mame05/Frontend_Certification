@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
+import { map, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,29 @@ import { apiUrl } from './apiUrl';
 export class AnnonceService {
   //constructor() { }
   private http = inject(HttpClient);
+  private annonceAjouteSubject = new Subject<void>();
   @Injectable({
     providedIn: 'root'
   })
+  // Méthode pour notifier les composants d'un changement
+  notifyAnnonceAjoute() {
+    this.annonceAjouteSubject.next();
+  }
+
+  onAnnonceAjoute() {
+    return this.annonceAjouteSubject.asObservable();
+  }
    // Récupérer toutes les annonces pour chaque structure
       getAnnonces() {
     const token = localStorage.getItem('access_token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get<any[]>(`${apiUrl}/annonces`, {headers});
+    return this.http.get<any[]>(`${apiUrl}/annonces`, {headers}).pipe(
+      map((data) => {
+          return data.sort((a, b) => new Date(b.date_debut).getTime() - new Date(a.date_debut).getTime());
+      })
+  );
   }
   // Obtenir une annonce par ID
   getAnnonce(id: number) {
@@ -55,3 +69,4 @@ export class AnnonceService {
   }
 
 }
+

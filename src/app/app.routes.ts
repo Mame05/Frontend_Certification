@@ -19,6 +19,7 @@ import { DonneurComponent } from './components/Structure/donneur/donneur.compone
 import { StatistiqueComponent } from './components/Structure/statistique/statistique.component';
 import { HeaderComponent } from './components/UsersSimple/header/header.component';
 import { AccueilComponent } from './components/UsersSimple/accueil/accueil.component';
+import { AnnoncesComponent } from './components/UsersSimple/annonces/annonces.component';
 
 
 export const routes: Routes = [
@@ -63,6 +64,7 @@ export const routes: Routes = [
 //  Routes pour les utilisateurs siimples
 
     { path: 'accueil', component: AccueilComponent  },
+    { path: 'annonces', component:AnnoncesComponent},
     
     // Ajouter les autres routes pour les utilisateurs si simples ici
 

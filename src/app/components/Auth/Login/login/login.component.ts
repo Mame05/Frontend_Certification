@@ -41,7 +41,7 @@ export class LoginComponent {
         } else if (roleId === 2) {
           this.router.navigate(['/sidebar1/dashboard1']);
         } else if (roleId === 3) {
-          this.router.navigate(['/sidebar1/dashboard1']);
+          this.router.navigate(['/accueil']);
         }  
          else {
           this.router.navigate(['/default']);

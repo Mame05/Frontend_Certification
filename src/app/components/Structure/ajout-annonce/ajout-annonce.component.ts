@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AnnonceService } from '../../../Services/annonce.service';
@@ -35,12 +35,12 @@ export class AjoutAnnonceComponent {
      
     });
   }
-
   onSubmit() {
     if (this.annonceForm.valid) {
       console.log('Valeurs du formulaire:', this.annonceForm.value);  // Vérifier les données du formulaire
       this.annonceService.createAnnonce(this.annonceForm.value).subscribe((response) => {
         console.log('Annonce ajoutée avec succès', response);
+        this.annonceService.notifyAnnonceAjoute(); // Émettez la notification ici
         this.router.navigate(['/sidebar1/annonce']);  // Rediriger vers la liste des structures
       },
     );
