@@ -23,6 +23,7 @@ import { AnnoncesComponent } from './components/UsersSimple/annonces/annonces.co
 import { NotificationAnnonceComponent } from './components/UsersSimple/notification-annonce/notification-annonce.component';
 import { DetailAnnonceUserComponent } from './components/UsersSimple/detail-annonce-user/detail-annonce-user.component';
 import { MesInscriptionsComponent } from './components/UsersSimple/mes-inscriptions/mes-inscriptions.component';
+import { ModifierProfileComponent } from './components/UsersSimple/modifier-profile/modifier-profile.component';
 
 
 export const routes: Routes = [
@@ -69,7 +70,8 @@ export const routes: Routes = [
     { path: 'accueil', component: AccueilComponent  },
     { path: 'annonces', component:AnnoncesComponent},
     { path: 'detail-annonce-user/:id', component: DetailAnnonceUserComponent},
-    { path: 'mes-dons', component:MesInscriptionsComponent}
+    { path: 'mes-dons', component:MesInscriptionsComponent},
+    { path: 'profil', component:ModifierProfileComponent}
     
     // Ajouter les autres routes pour les utilisateurs si simples ici
 

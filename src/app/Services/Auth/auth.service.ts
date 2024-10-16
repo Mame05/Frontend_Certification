@@ -109,4 +109,23 @@ export class AuthService {
     console.error(error);
     return throwError(() => new Error('An error occurred'));
   }
+
+ // Récupérer le profil utilisateur
+ getProfile(): Observable<any> {
+  const token = localStorage.getItem('access_token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  return this.http.get(`${apiUrl}/profile`, { headers });
+}
+
+// Mettre à jour le profil utilisateur
+updateProfile(userData: any): Observable<any> {
+  const token = localStorage.getItem('access_token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  return this.http.put(`${apiUrl}/updateProfile`, userData, { headers });
+}
+
 }
