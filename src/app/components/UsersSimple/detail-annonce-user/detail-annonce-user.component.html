@@ -1,0 +1,15 @@
+<div *ngIf="annonce">
+    <h2>{{ annonce.titre }}</h2>
+    <p>Description : {{ annonce.description }}</p>
+    <p>Date de début : {{ annonce.date_debut }}</p>
+    <p>Heure de début : {{ annonce.heure_debut }}</p>
+    <p>Lieu : {{ annonce.nom_lieu }}</p>
+    <p>Nombre d'inscrits : {{ annonce.nombre_inscrits }}</p>
+  
+    <!-- Bouton pour s'inscrire -->
+    <button (click)="inscrire()">inscrire</button>
+    
+    <!-- Message d'état 
+    <p *ngIf="message">{{ message }}</p>
+  </div>-->
+  

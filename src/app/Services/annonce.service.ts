@@ -67,6 +67,27 @@ export class AnnonceService {
     });
     return this.http.delete<void>(`${apiUrl}/annonces/${id}`, {headers});
   }
+    //Incription à une annoncee
+  inscrire(annonceId: number) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${apiUrl}/annonces/${annonceId}/inscrire`, {}, { headers });
+  }
+
+  // Récupérer les inscriptions
+  getInscriptions() {
+    const token = localStorage.getItem('access_token'); // Récupérer le token d'authentification
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Ajouter le token au header
+    });
+  
+    return this.http.get(`${apiUrl}/user/inscriptions`, { headers });
+  }
+  
+  
+  
 
 }
 

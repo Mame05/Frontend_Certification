@@ -21,6 +21,7 @@ import { HeaderComponent } from './components/UsersSimple/header/header.componen
 import { AccueilComponent } from './components/UsersSimple/accueil/accueil.component';
 import { AnnoncesComponent } from './components/UsersSimple/annonces/annonces.component';
 import { NotificationAnnonceComponent } from './components/UsersSimple/notification-annonce/notification-annonce.component';
+import { DetailAnnonceUserComponent } from './components/UsersSimple/detail-annonce-user/detail-annonce-user.component';
 
 
 export const routes: Routes = [
@@ -66,6 +67,7 @@ export const routes: Routes = [
 
     { path: 'accueil', component: AccueilComponent  },
     { path: 'annonces', component:AnnoncesComponent},
+    { path: 'detail-annonce-user/:id', component: DetailAnnonceUserComponent}
     
     // Ajouter les autres routes pour les utilisateurs si simples ici
 

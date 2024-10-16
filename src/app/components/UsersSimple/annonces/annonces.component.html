@@ -18,7 +18,8 @@
                     <p><strong>Adresse:</strong> {{ annonce.adresse_lieu }}</p>
                     <p><strong>Date limite:</strong> {{ annonce.date_fin }}</p>
                 </div>
-                <a href="/donate" class="cta-button">S'inscrire</a>
+                <!--<a href="/donate" class="cta-button">S'inscrire</a>-->
+                <a [routerLink]="['/detail-annonce-user', annonce.id]" class="cta-button">S'inscrire</a>
             </div>
         </div>
         <!-- Pagination Urgence -->  
@@ -46,7 +47,8 @@
                     <p><strong>Date de la collecte:</strong> {{ annonce.date_debut }} à partir de {{ annonce.heure_debut }}</p>
                     <p>Pour toutes autre information<br> supplémentaires, appelez le responsable de<br> la collecte au <strong>{{ annonce.contact_responsable }}</strong></p>
                 </div>
-                <a href="/donate" class="cta-button">S'inscrire</a>
+                <!--<a href="/donate" class="cta-button">S'inscrire</a>-->
+                <a [routerLink]="['/detail-annonce-user', annonce.id]" class="cta-button">S'inscrire</a>
             </div>
         </div>
         <!-- Pagination Collecte -->  
