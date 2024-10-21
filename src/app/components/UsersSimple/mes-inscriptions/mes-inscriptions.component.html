@@ -1,5 +1,56 @@
 <app-header></app-header>
-<h2>Inscriptions en cours</h2>
+<!-- Section de la bannière -->
+<section class="banner">   
+  <h1>Je donne </h1>
+</section>
+<section class="section_general">
+  <div class="container">
+      <section class="upcoming-section">
+          <h2>À venir
+            <div class="border1"></div>
+          </h2>
+          <div class="don-card1"  *ngFor="let annonce of inscriptionsEnCours">
+              <div class="don-info1">
+                  <div class="info1">
+                      <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le {{ formatDate(annonce.annonce.date_debut) }} au {{ annonce.annonce.nom_lieu }}</p>
+                      <p><span class="iconify" data-icon="icomoon-free:location"></span>{{ annonce.annonce.adresse_lieu}}</p>
+                  </div>
+                  <!-- Ajout de la durée -->
+                  <p class="durée"><span class="iconify" data-icon="tabler:clock"></span> Durée: {{ calculerDuree(annonce.annonce.date_debut, annonce.annonce.date_fin) }} jours</p>
+                  <button (click)="annulerInscription(annonce.id)" class="cancel-btn">Annuler</button>
+              </div>
+              <div class="border"></div>
+              <div class="don-tip">
+                  <h4>Pensez-y !</h4>
+                  <div class="recommand">
+                      <div>
+                        <p><span class="iconify" data-icon="tabler:point-filled"></span>Hydratez-vous et mangez avant de venir</p>
+                        <p><span class="iconify" data-icon="tabler:point-filled"></span>Venez avec votre carte d'identité nationale</p>
+                      </div>
+                      <img src="/assets/images/history2.png" alt="Don Icon">                      
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="don-history">
+          <h2>Historique de mes dons
+            <div class="border2"></div>
+          </h2>
+          <div class="don-card2"  *ngFor="let annonce of historiqueInscriptions">
+              <div class="don-info2">
+                <div class="info2">
+                  <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le {{ formatDate(annonce.annonce.date_debut) }} au {{ annonce.annonce.nom_lieu }}</p>
+                  <p><span class="iconify" data-icon="icomoon-free:location"></span>{{ annonce.annonce.adresse_lieu}}</p>
+                </div>
+                <span *ngIf="annonce.etat">Effectuée</span><span *ngIf="!annonce.etat">Non effectuée</span>
+                <button (click)="supprimerHistorique(annonce.id)" class="delete-btn">Supprimer</button>
+              </div>
+          </div>
+      </section>
+  </div>
+</section>
+<!--<h2>Inscriptions en cours</h2>
 <ul>
   <li *ngFor="let annonce of inscriptionsEnCours">
     {{ annonce.annonce.titre }} - {{ annonce.annonce.date_fin }}
@@ -14,6 +65,6 @@
     <span *ngIf="!annonce.etat">Non effectuée</span>
     <button (click)="supprimerHistorique(annonce.id)">Supprimer</button>
   </li>
-</ul>
+</ul>-->
 <app-footer></app-footer>
 

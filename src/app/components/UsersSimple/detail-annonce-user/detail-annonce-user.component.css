@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat,sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    background-color: #ffffff;
+    width: 60%;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.left-section {
+    flex-basis: 40%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/assets/images/inscription1.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+    background-size: cover;
+    background-position: center; /* Centre l'image */
+    height: 600px;
+}
+
+.blood-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-section {
+    flex-basis: 55%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    justify-content:  space-between; ;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+.header img {
+    width: 50px; /* Taille de l'image */
+    height: auto;
+}
+.blood-icon-left {
+    margin-right: -30px; /* Espace entre l'image et le texte */
+}
+
+.blood-icon-right {
+    margin-left: 20px; /* Espace entre l'image et le texte */
+}
+
+.header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin: 0 0 10px 30px;
+    flex-grow: 1; /* Permet au texte de s'étendre entre les icônes */
+    text-align: center; /* Centre le texte entre les icônes */
+    
+}
+
+.content p {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #1D3557;
+}
+.content p strong{
+    color: #DF2C26;
+}
+
+.goal {
+    margin: 20px 0;
+    display: flex;
+}
+
+.goal p {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1D3557;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.primary-button {
+    background-color: #DF2C26;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.secondary-button {
+    background-color: #ffffff;
+    color: #DF2C26;
+    border: 1px solid #DF2C26;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.primary-button:hover, .secondary-button:hover {
+    opacity: 0.9;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section {
+        flex-basis: 100%;
+        width: 100%;
+        height: auto; /* Ajuste la hauteur de l'image sur mobile */
+    }
+}
+

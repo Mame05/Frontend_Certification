@@ -59,4 +59,13 @@ export class StructureService {
     });
     return this.http.delete<void>(`${apiUrl}/structures/${id}`, {headers});
   }
+
+  // Recupérer la stucture connecté
+  getStructureConnectee() {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${apiUrl}/profileStructure`, { headers});
+  } 
 }

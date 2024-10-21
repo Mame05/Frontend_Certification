@@ -1,15 +1,51 @@
-<div *ngIf="annonce">
+<!--<div *ngIf="annonce">
     <h2>{{ annonce.titre }}</h2>
     <p>Description : {{ annonce.description }}</p>
     <p>Date de début : {{ annonce.date_debut }}</p>
     <p>Heure de début : {{ annonce.heure_debut }}</p>
     <p>Lieu : {{ annonce.nom_lieu }}</p>
-    <p>Nombre d'inscrits : {{ annonce.nombre_inscrits }}</p>
+    <p>Nombre d'inscrits : {{ annonce.nombre_inscrits }}</p>-->
   
     <!-- Bouton pour s'inscrire -->
-    <button (click)="inscrire()">inscrire</button>
+    <!--<button (click)="inscrire()">inscrire</button>-->
     
     <!-- Message d'état 
     <p *ngIf="message">{{ message }}</p>
   </div>-->
+  <!--   -->
+  
+<body>
+    <div class="container">
+        <div class="left-section"></div>
+        <div class="right-section">
+            <div class="header">
+                <img src="/assets/images/inscription2.png" alt="Goutte de sang gauche" class="blood-icon-left">    
+                <h2>REPONDRE À L'APPEL</h2>
+                <img src="/assets/images/inscription2.png" alt="Goutte de sang gauche" class="blood-icon-left">
+            </div>
+            <div *ngIf="annonce">
+                <div class="content">
+                    <p><strong>{{ annonce.type_annonce }} de sang</strong></p>
+                    <p>{{ formatDate(annonce.date_debut) }} / {{ formatDate(annonce.date_fin) }}</p>
+                    <p>{{ annonce.titre }}</p>
+                    <p>À partir de {{ annonce.heure_debut }} heures</p>
+                    <p>{{ annonce.nom_lieu }}</p>
+                    <p>{{ annonce.adresse_lieu }}</p>
+                </div>
+                <img src="/assets/images/inscription3.png" alt="" class="blood">
+                <div class="goal">
+                    <p>Objectif : <strong>{{ annonce.nombre_poches_vise }} poches</strong></p>
+                    <p>Nombre d'inscrit : <strong>{{ annonce.nombre_inscrits }} volontaires</strong></p>
+                </div>
+                <div class="buttons">
+                    <button (click)="inscrire()" class="primary-button">Faire une promesse de don</button>
+                    <button routerLink="/annonces" class="secondary-button">Retour</button>
+                </div>
+                 <!-- Message d'état--> 
+                <p *ngIf="message">{{ message }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
   

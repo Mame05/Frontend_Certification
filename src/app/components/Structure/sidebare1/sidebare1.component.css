@@ -161,7 +161,7 @@
 
 
   /* Styles de base pour les notifications */
-#notifications {
+/*#notifications {
   padding: 20px;
   background: #f4f4f4;
 }
@@ -221,11 +221,11 @@
 
 .delete-btn:hover {
   color: #c0392b;
-}
+}*/
 
 /*  */
 /* Amélioration de la carte de notification */
-.notification-card {
+/*.notification-card {
   background: #fff;
   border: none;
   border-radius: 12px;
@@ -237,10 +237,10 @@
 .notification-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
+}*/
 
 /* Titres et textes plus élégants */
-.notification-title {
+/*.notification-title {
   font-size: 24px;
   color: #34495e;
   margin-bottom: 15px;
@@ -250,10 +250,10 @@
   font-size: 16px;
   line-height: 1.6;
   color: #7f8c8d;
-}
+}*/
 
 /* Dates plus discrètes */
-.notification-date {
+/*.notification-date {
   font-size: 14px;
   color: #95a5a6;
   text-align: right;
@@ -261,18 +261,24 @@
 /* Style pour l'icône de notification */
 .btn {
   position: relative; /* Pour positionner le badge correctement */
+  width: 34px;
+  height: 34px;
 }
 
-.badge {
+.notification-badge {
+  background-color: #df2c26;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
   position: absolute;
-  top: -2px; /* Ajuste selon tes besoins */
-  right: -10px; /* Ajuste selon tes besoins */
-  background-color: #ff0000; /* Couleur de fond du badge */
-  color: #fff; /* Couleur du texte du badge */
-  border-radius: 50%; /* Badge circulaire */
-  padding: 0.25em 0.5em; /* Taille du badge */
-  font-size: 0.75em; /* Taille du texte du badge */
-  text-align: center;
+  top: -5px;
+  left: 18px
+ 
+}
+.lue {
+  text-decoration: line-through; /* Barrer le texte pour les notifications lues */
+  color: gray; /* Couleur grise pour les notifications lues */
 }
 
 /* Responsive Design pour les grands écrans (1280px) */

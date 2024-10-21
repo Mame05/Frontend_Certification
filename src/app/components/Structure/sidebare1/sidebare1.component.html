@@ -24,13 +24,12 @@
     <div class="main-content">
       <div class="topbar">
         <div class="left-section">
-          <h3>Centre Nationale de Tranfusion Sanguin</h3>
+          <h3> {{nomstructure}} </h3>
           <p>Bienvenue!</p>
         </div>
         <div class="right-section">
-          <!--<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#notificationsModal">-->
-          <button type="button" class="btn"><span class="iconify" data-icon="mdi:bell"></span>
-            <!--<span *ngIf="notifications.length > 0" class="badge">{{ notifications.length }}</span>-->
+          <button type="button" (click)="openModal()" class="btn notification-bell"><span class="iconify" data-icon="mdi:bell"></span>
+            <span *ngIf="unreadCount > 0" class="notification-badge">{{ unreadCount }}</span>
           </button>
           <!--<button (click)="openParametreModal()" class="btn">
             <span class="iconify" data-icon="mdi:cog"></span>
@@ -41,38 +40,29 @@
         <router-outlet></router-outlet>
     </div>
   </div>
-  <!-- Modal de Notifications
-  <div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="notificationsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="notificationsModalLabel">Mes Notifications</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <section id="notifications">
-            <div class="container">
-              <h1 class="notifications-title">Mes Notifications</h1>
-              <div class="notifications-list">
-                <div *ngFor="let notification of notifications" class="notification-card">
-                  <div class="notification-header">
-                    <h2 class="notification-title">{{ notification.title }}</h2>
-                    <button class="delete-btn" (click)="deleteNotification(notification.id)">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </div>
-                  <p class="notification-content">{{ notification.contenu }}</p>
-                  <span class="notification-date">{{ notification.created_at | date: 'dd MMMM yyyy' }}</span>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-        </div>
+  <!-- Modal -->
+<div class="modal fade" id="notificationsModal" tabindex="-1" aria-labelledby="notificationsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="notificationsModalLabel">Notifications</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    </div> 
-  </div>-->
+      <div class="modal-body">
+        <ul>
+          <li *ngFor="let notification of notifications"><span [class.lue]="notification.lue">{{ notification.contenu }}</span>
+            <div class="d-flex justify-content-between mt-2">
+              <button class="btn btn-success btn-sm" (click)="markAsRead(notification.id)">Marquer comme lu</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteNotification(notification.id)">Supprimer</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+  
   
 

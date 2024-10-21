@@ -1,0 +1,240 @@
+*
+ {
+    font-family: Montserrat,sans-serif;
+    margin: 0;
+    padding: 0;
+ }
+
+/* Bannière */
+.banner {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/history1.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+        /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+        background-size: cover; /* Ajuste l'image pour couvrir l'élément */
+        background-position: center; /* Centre l'image */
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #ffffff;
+}
+.banner h1{
+    font-size: 32px;
+    font-weight: bold;
+    /*background-color: rgba(0, 0, 0, 0.6); /* Pour rendre le texte plus lisible */
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.section_general {
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer tout le contenu */
+}
+
+.upcoming-section h2{
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin: 10px 0 25px 20px;
+}
+.border1 {
+    width: 5%; /* Ajuste la largeur de la bordure */
+    height: 3px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+    left: 10px ; /* Centre la bordure sous le titre */
+  }
+
+
+.don-card1 {
+    background-color: #ffffff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display:block;
+    justify-content: space-between;
+    border: 1px solid #1D3557;
+    width: 800px;
+    height: 340px;
+}
+
+.don-info1 {
+    flex-grow: 1;
+    
+}
+.info1{
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1D3557;
+    gap: 20px;
+
+}
+.info1 p{
+    max-width: 400px; /* Limite la largeur du paragraphe */
+    word-wrap: break-word; /* Force les longs mots à passer à la ligne */    
+}
+.durée {
+    font-size: 20px;
+    font-weight: 500;
+    color: #1D3557; 
+    margin-top: 10px;
+}
+.durée .iconify{
+    width: 20px;
+    height: 20px;
+    color: #DF2C26;
+}
+
+
+.info1 .iconify {
+    color: #DF2C26; 
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Aligne l'icône avec le texte */    
+}
+.don-info1 .cancel-btn {
+    margin-left:85%;
+    background-color: #ffffff;
+    color: #1D3557;
+    border: 1px solid #1D3557;
+    padding: 8px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.border{
+    background-color: #1D3557;
+    height: 2px;
+    margin-top: 10px;
+    width: 80%;
+    margin-left: 8%;
+}
+.don-tip {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.don-tip h4 {
+    color: #1D3557;
+    font-weight: bold;
+    font-size: 18px;
+    right: 10px;
+    margin-bottom: 30px;
+}
+.recommand{
+    display: flex;
+    margin-top: -20px;
+
+}
+.recommand div p{
+    font-size: 16px;
+    font-weight: 500;
+    color: #1D3557;
+    margin-bottom: 20px;
+}
+
+.recommand .iconify {
+    color: #DF2C26; 
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+}
+.recommand img{
+    margin-left: 30%;
+    margin-top: -50px;
+    width: 150px;
+    height: 150px;
+    
+}
+.don-history h2{
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D3557;
+    margin: 40px 0 20px 20px;
+}
+.border2 {
+    width: 12%; /* Ajuste la largeur de la bordure */
+    height: 2px; /* Épaisseur de la bordure */
+    background-color: #df2c26; /* Couleur de la bordure */
+    left: 10px ; /* Centre la bordure sous le titre */
+  }
+
+.don-card2 {
+    background-color: #ffffff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display:block;
+    justify-content: space-between;
+    border: 1px solid #1D3557;
+    width: 800px;
+    height: 160px;
+}
+.info2{
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1D3557;
+    gap: 20px;
+
+}
+.info2 p{
+    max-width: 400px; /* Limite la largeur du paragraphe */
+    word-wrap: break-word; /* Force les longs mots à passer à la ligne */
+    align-items: flex-start;
+
+}
+
+.info2 .iconify {
+    color: #DF2C26; 
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+    
+}
+.don-info2 .delete-btn {
+    margin-left:80%;
+    background-color: #ffffff;
+    color: #1D3557;
+    border: 1px solid #1D3557;
+    padding: 8px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: -10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.page-btn {
+    background-color: white;
+    border: 1px solid #457B9D;
+    padding: 5px 10px;
+    color: #457B9D;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.page-btn:hover {
+    background-color: #457B9D;
+    color: white;
+}
