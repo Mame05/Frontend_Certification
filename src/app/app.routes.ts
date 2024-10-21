@@ -24,6 +24,9 @@ import { NotificationAnnonceComponent } from './components/UsersSimple/notificat
 import { DetailAnnonceUserComponent } from './components/UsersSimple/detail-annonce-user/detail-annonce-user.component';
 import { MesInscriptionsComponent } from './components/UsersSimple/mes-inscriptions/mes-inscriptions.component';
 import { ModifierProfileComponent } from './components/UsersSimple/modifier-profile/modifier-profile.component';
+import { ListBanqueSangComponent } from './components/Structure/list-banque-sang/list-banque-sang.component';
+import { DetailBanqueSangComponent } from './components/Structure/detail-banque-sang/detail-banque-sang.component';
+import { BanqueSangFormComponent } from './components/Structure/banque-sang-form/banque-sang-form.component';
 
 
 export const routes: Routes = [
@@ -61,6 +64,10 @@ export const routes: Routes = [
     { path: 'annonce/detail-annonce/:id', component: DetailAnnonceComponent },
     { path: 'annonce/modifier/:id', component: ModifierAnnonceComponent },
     { path: 'donneur', component: DonneurComponent },
+    { path: 'banque-sang', component: ListBanqueSangComponent},
+    { path: 'banque-sang/ajouter', component: BanqueSangFormComponent},
+    { path: 'banque-sang/detail-banque-sang/:id', component: DetailBanqueSangComponent},
+    { path: 'banque-sang/modifier/:id', component: BanqueSangFormComponent},
     { path: 'statistique', component: StatistiqueComponent }
   ]
 },

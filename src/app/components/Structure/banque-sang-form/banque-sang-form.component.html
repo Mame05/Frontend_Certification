@@ -1,0 +1,18 @@
+<form [formGroup]="banqueForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Matricule</label>
+      <input matInput formControlName="matricule" required>
+    </div>
+
+    <div>
+      <label>Stock actuel</label>
+      <input matInput type="number" formControlName="stock_actuelle" required>
+    </div>
+
+    <div>
+      <label>Date de mise à jour</label>
+      <input matInput type="date" formControlName="date_mise_a_jour" required>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="banqueForm.invalid">Enregistrer</button>
+  </form>
