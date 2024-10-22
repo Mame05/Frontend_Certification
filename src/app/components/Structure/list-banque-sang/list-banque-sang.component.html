@@ -1,27 +1,33 @@
-<div class="action-bar">
-    <!-- Bouton pour ajouter une nouvelle banque de sang -->
-    <a [routerLink]="['/sidebar1/banque-sang/ajouter']" class="btn btn-primary">
-      <span class="iconify" data-icon="mdi:plus-circle-outline"></span> Ajouter une Banque
-    </a>
-  </div>
-<div *ngFor="let banque of banques">
-    <div class="card">
-      <div class="card-title">{{ banque.matricule }}</div>
-      <div class="card-content">
-        <p>Stock actuel : {{ banque.stock_actuelle }}</p>
-        <p>Date mise à jour : {{ banque.date_mise_a_jour }}</p>
-      </div>
-      <div class="card-actions">
-        <a [routerLink]="['/sidebar1/banque-sang/detail-banque-sang', banque.id]" class="icon-link">
+<div class="page-content">
+    <!-- Barre d'action pour le bouton "Ajouter une Banque" -->
+    <div class="action-bar">
+      <a [routerLink]="['/sidebar1/banque-sang/ajouter']" class="btn btn-add">Ajouter une Banque</a>
+    </div>
+  
+    <!-- Conteneur des cartes des banques -->
+    <div class="banques-container">
+      <div *ngFor="let banque of banques" class="card banque-card">
+        <div class="card-header">
+          <h3 class="card-title">{{ banque.matricule }}</h3>
+        </div>
+        <div class="card-content">
+          <p class="card-info"><strong>Stock actuel :</strong> {{ banque.stock_actuelle }} poche(s)</p>
+          <p class="card-info"><strong>Date mise à jour :</strong> Le {{ banque.date_mise_a_jour }}</p>
+        </div>
+        <div class="card-actions">
+          <a [routerLink]="['/sidebar1/banque-sang/detail-banque-sang', banque.id]" class="icon-link">
             <span class="iconify" data-icon="mdi:eye"></span>
-        </a>
-        <a [routerLink]="['/sidebar1/banque-sang/modifier', banque.id]" class="icon-link">
+          </a>
+          <a [routerLink]="['/sidebar1/banque-sang/modifier', banque.id]" class="icon-link">
             <span class="iconify" data-icon="mdi:pencil"></span>
           </a>
-        <a class="icon-link" (click)="deleteBanque(banque.id)"><span class="iconify" data-icon="mdi:delete"></span>
-        </a>
+          <a class="icon-link" (click)="deleteBanque(banque.id)">
+            <span class="iconify" data-icon="mdi:delete"></span>
+          </a>
         </div>
+      </div>
     </div>
   </div>
+  
   <router-outlet></router-outlet>
 

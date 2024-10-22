@@ -27,6 +27,9 @@ import { ModifierProfileComponent } from './components/UsersSimple/modifier-prof
 import { ListBanqueSangComponent } from './components/Structure/list-banque-sang/list-banque-sang.component';
 import { DetailBanqueSangComponent } from './components/Structure/detail-banque-sang/detail-banque-sang.component';
 import { BanqueSangFormComponent } from './components/Structure/banque-sang-form/banque-sang-form.component';
+import { PocheSangFormComponent } from './components/Structure/poche-sang-form/poche-sang-form.component';
+import { ListPocheSangComponent } from './components/Structure/list-poche-sang/list-poche-sang.component';
+import { DetailPocheSangComponent } from './components/Structure/detail-poche-sang/detail-poche-sang.component';
 
 
 export const routes: Routes = [
@@ -68,6 +71,10 @@ export const routes: Routes = [
     { path: 'banque-sang/ajouter', component: BanqueSangFormComponent},
     { path: 'banque-sang/detail-banque-sang/:id', component: DetailBanqueSangComponent},
     { path: 'banque-sang/modifier/:id', component: BanqueSangFormComponent},
+    { path: 'poche-sang', component: ListPocheSangComponent},
+    { path: 'poche-sang/ajouter', component: PocheSangFormComponent},
+    { path: 'poche-sang/detail-poche-sang/:id', component: DetailPocheSangComponent},
+    { path: 'poche-sang/modifier/:id', component: PocheSangFormComponent},
     { path: 'statistique', component: StatistiqueComponent }
   ]
 },

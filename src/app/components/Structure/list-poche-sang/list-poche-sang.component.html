@@ -1,0 +1,45 @@
+<div class="container poche-sang-container">
+    <!-- Bouton d'ajout aligné à droite -->
+    <div class="add-poche-btn text-right mb-3">
+        <a [routerLink]="['/sidebar1/poche-sang/ajouter']" class="btn btn-add-poche">
+            Ajouter une Poche
+        </a>
+    </div>
+
+    <!-- Titre centralisé -->
+    <h1 class="text-center title">Liste des Poches Sanguines</h1>
+
+    <!-- Tableau des poches sanguines -->
+    <table class="table table-bordered table-striped table-poches">
+        <thead class="thead-dark">
+            <tr>
+                <th>Numéro de Poche</th>
+                <th>Groupe Sanguin</th>
+                <th>Date de Prélèvement</th>
+                <th>Banque de Sang</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let poche of poches">
+                <td>{{ poche.numero_poche }}</td>
+                <td>{{ poche.groupe_sanguin }}</td>
+                <td>{{ poche.date_prelevement | date:'dd/MM/yyyy' }}</td>
+                <td>{{ banquesSang[poche.banque_sang_id]?.matricule || 'Non disponible' }}</td> <!-- Affiche le matricule de la banque -->
+                <td>
+                    <!-- Actions -->
+                    <a [routerLink]="['/sidebar1/poche-sang/detail-poche-sang', poche.id]" class="icon-link">
+                        <span class="iconify" data-icon="mdi:eye"></span>
+                    </a>
+                    <a [routerLink]="['/sidebar1/poche-sang/modifier', poche.id]" class="icon-link">
+                        <span class="iconify" data-icon="mdi:pencil"></span>
+                    </a>
+                    <a class="icon-link" (click)="deletePoche(poche.id)">
+                        <span class="iconify" data-icon="mdi:delete"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,80 @@
+form {
+    font-family: 'Montserrat', sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: #1D3557; /* Texte avec la couleur demandée */
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #1D3557; /* Bordure colorée au focus */
+    outline: none;
+  }
+  
+  button[type="submit"] {
+    background-color: #DF2C26; /* Couleur de fond du bouton Ajouter */
+    color: #ffffff; /* Couleur du texte du bouton Ajouter */
+    padding: 10px 20px;
+    width: 130px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #b2221e; /* Couleur au survol */
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #DF2C26;
+    opacity: 0.6;
+  }
+  
+  button.btn-cancel {
+    background-color: #ffffff; /* Couleur de fond du bouton Annuler */
+    color: #DF2C26; /* Couleur du texte du bouton Annuler */
+    padding: 10px 20px;
+    width: 130px;
+    height: 50px;
+    border: 1px solid #DF2C26; /* Bordure du bouton Annuler */
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  button.btn-cancel:hover {
+    background-color: #DF2C26;
+    color: #ffffff;
+  }
+  

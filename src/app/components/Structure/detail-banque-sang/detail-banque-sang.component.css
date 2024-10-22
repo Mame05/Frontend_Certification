@@ -1,0 +1,86 @@
+.banque-sang-details {
+    font-family: 'Montserrat', sans-serif;
+    color: #1D3557;
+    padding: 40px;
+    background-color: #f9f9f9; /* Couleur de fond */
+    border-radius: 10px; /* Coins arrondis */
+    max-width: 800px; /* Largeur maximum */
+    margin: 0 auto; /* Centrer l'élément */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre pour le conteneur */
+  }
+  
+  .card {
+    background-color: #ffffff; /* Fond blanc pour les cartes */
+    border-radius: 10px; /* Coins arrondis pour les cartes */
+    padding: 20px; /* Espacement interne */
+    margin-bottom: 20px; /* Espacement entre les cartes */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre des cartes */
+   /* transition: transform 0.3s; /* Transition pour l'effet de survol */
+  }
+  
+  /*.card:hover {
+    transform: translateY(-5px); /* Effet de survol */
+  /*}*/
+  
+  h2, h3 {
+    border-bottom: 2px solid #DF2C26; /* Soulignement des titres */
+    padding-bottom: 10px;
+    color: #1D3557;
+  }
+  
+  .groupes-sanguins {
+    width: 100%;
+    border-collapse: collapse; /* Supprimer l'espacement entre les cellules */
+  }
+  
+  .groupes-sanguins th,
+  .groupes-sanguins td {
+    border: 1px solid #DF2C26; /* Bordure rouge pour les cellules */
+    padding: 12px; /* Espacement autour du texte */
+    text-align: left; /* Alignement du texte à gauche */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+  }
+  
+  .groupes-sanguins tr:hover {
+    background-color: #f1f1f1; /* Changer la couleur de fond au survol des lignes */
+  }
+  
+  .btn-back {
+    display: inline-block; /* Affichage en bloc pour le bouton */
+    background-color: #ffffff; /* Couleur de fond blanc */
+    color: #DF2C26; /* Couleur du texte rouge */
+    border: 1px solid #DF2C26; /* Bordure rouge */
+    padding: 10px 20px; /* Espacement autour du texte du bouton */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Changer le curseur au survol */
+    transition: background-color 0.3s, color 0.3s; /* Effet de transition */
+    text-decoration: none; /* Enlever le soulignement */
+    margin-top: 20px; /* Espacement au-dessus du bouton */
+  }
+  
+  .btn-back:hover {
+    background-color: #DF2C26; /* Changer le fond au survol */
+    color: #ffffff; /* Changer la couleur du texte au survol */
+  }
+  .detail p{
+    color: #1D3557;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .detail strong{
+    color: #1D3557;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .groupes-sanguins th{
+    color: #1D3557;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .groupes-sanguins td{
+    color: #1D3557;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  

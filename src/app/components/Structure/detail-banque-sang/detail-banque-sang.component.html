@@ -1,1 +1,31 @@
-<p>detail-banque-sang works!</p>
+<div *ngIf="banqueSang" class="banque-sang-details">
+    <div class="card">
+      <h2>Détails de la Banque de Sang</h2>
+      <div class="detail">
+        <p><strong>Matricule:</strong> {{ banqueSang.matricule }}</p>
+        <p><strong>Stock Actuel:</strong> {{ banqueSang.stock_actuelle }} poche(s)</p>
+        <p><strong>Date de Mise à Jour:</strong> {{ banqueSang.date_mise_a_jour | date:'dd/MM/yyyy' }}</p>
+      </div>
+    </div>
+  
+    <div class="card">
+      <h3>Groupes Sanguins</h3>
+      <table class="groupes-sanguins">
+        <thead>
+          <tr>
+            <th>Groupe Sanguin</th>
+            <th>Nombre de Poches</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let groupe of objectKeys(banqueSang.groupes_sanguins || {})">
+            <td>{{ groupe }}</td>
+            <td>{{ banqueSang.groupes_sanguins[groupe] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <button routerLink="/sidebar1/banque-sang" class="btn-back">Retour</button>
+  </div>
+  

@@ -1,0 +1,55 @@
+.poche-sang-container {
+    padding: 20px;
+}
+.add-poche-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+.add-poche-btn .btn-add-poche {
+    background-color: #DF2C26;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.add-poche-btn .btn-add-poche:hover {
+    background-color: #B22222;
+    color: #ffffff;
+}
+
+.title {
+    color: #1D3557;
+    margin-bottom: 20px;
+}
+
+.table-poches {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table-poches th, 
+.table-poches td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    color: #1D3557;
+}
+
+.thead-dark th {
+    background-color: #1D3557;
+    color: #ffffff;
+}
+
+.icon-link {
+    color: #1D3557;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.icon-link:hover {
+    color: #DF2C26;
+}

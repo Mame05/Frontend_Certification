@@ -1,18 +1,26 @@
-<form [formGroup]="banqueForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label>Matricule</label>
-      <input matInput formControlName="matricule" required>
+<form [formGroup]="banqueForm" (ngSubmit)="onSubmit()" class="banque-form">
+    <div class="form-group">
+      <label for="matricule">Matricule</label>
+      <input matInput formControlName="matricule" id="matricule" required>
     </div>
-
-    <div>
-      <label>Stock actuel</label>
-      <input matInput type="number" formControlName="stock_actuelle" required>
+  
+    <div class="form-group">
+      <label for="stock_actuelle">Stock actuel</label>
+      <input matInput type="number" formControlName="stock_actuelle" id="stock_actuelle" [disabled]="true">
     </div>
-
-    <div>
-      <label>Date de mise à jour</label>
-      <input matInput type="date" formControlName="date_mise_a_jour" required>
+  
+    <div class="form-group">
+      <label for="date_mise_a_jour">Date de mise à jour</label>
+      <input matInput type="date" formControlName="date_mise_a_jour" id="date_mise_a_jour" [disabled]="true">
     </div>
-
-    <button mat-raised-button color="primary" type="submit" [disabled]="banqueForm.invalid">Enregistrer</button>
+  
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit" [disabled]="banqueForm.invalid" class="btn-submit">
+        {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+      </button>
+      <button routerLink="/sidebar1/banque-sang" type="button" class="btn-cancel">
+        Annuler
+      </button>
+    </div>
   </form>
+  

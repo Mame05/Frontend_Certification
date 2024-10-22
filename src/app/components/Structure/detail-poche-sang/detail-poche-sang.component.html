@@ -1,0 +1,30 @@
+<div class="container poche-detail">
+    <h1 class="text-center title">Détails des Poches Sanguines</h1>
+    
+    <div *ngFor="let poche of poches" class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <!-- Détails de la poche sanguine -->
+        <div class="poche-info">
+          <p><strong>Numéro de Poche:</strong> {{ poche.numero_poche }}</p>
+          <p><strong>Groupe Sanguin:</strong> {{ poche.groupe_sanguin }}</p>
+          <p><strong>Date de Prélèvement:</strong> {{ poche.date_prelevement | date: 'dd/MM/yyyy' }}</p>
+        </div>
+        <!-- Détails de la banque de sang avec différenciation -->
+        <div class="banque-info">
+          <p class="banque"><strong>Matricule de la Banque de Sang:</strong> 
+            {{ getBanqueInfo(poche.banque_sang_id, 'matricule') }}
+          </p>
+          <p class="banque"><strong>Stock Actuel:</strong> 
+            {{ getBanqueInfo(poche.banque_sang_id, 'stock_actuelle') }} poche(s)
+          </p>
+        </div>
+      </div>
+    </div> 
+    
+    <div *ngIf="poches.length === 0" class="no-data">
+      <p>Aucune poche sanguine trouvée.</p>
+    </div>
+  
+    <button routerLink="/sidebar1/poche-sang" class="btn-back">Retour</button>
+  </div>
+  
