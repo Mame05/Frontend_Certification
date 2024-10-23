@@ -102,8 +102,5 @@ export class AnnonceService {
     });
     return this.http.delete(`${apiUrl}/rendez-vous/${rendezVousId}/supprimer`, { headers });
   }
-  
-  
-
 }
 
