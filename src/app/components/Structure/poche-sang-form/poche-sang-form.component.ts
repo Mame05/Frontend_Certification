@@ -26,10 +26,17 @@ export class PocheSangFormComponent implements OnInit{
     private router: Router
   ) {
     this.pocheSangForm = this.fb.group({
-      numero_poche: ['', Validators.required],
+      //numero_poche: ['', Validators.required],
       groupe_sanguin: ['', Validators.required],
       date_prelevement: ['', Validators.required],
-      banque_sang_id: ['', Validators.required]  
+      banque_sang_id: ['', Validators.required],
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
+      sexe: ['', Validators.required],
+      date_naiss: ['', Validators.required],
+      adresse: ['', Validators.required],
+      telephone: ['', Validators.required],
+       profession: ['', Validators.required]  
     });
   }
 

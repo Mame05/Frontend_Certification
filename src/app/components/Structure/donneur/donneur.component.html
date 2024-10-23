@@ -13,21 +13,23 @@
       <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
     </div>-->
     
-    <table class="donneur-table table table-striped mt-3">
+    <table class="donneur-table table table-hover ">
       <thead>
         <tr>
           <th>Nom Complet</th>
+          <th>Telephone</th>
           <th>Groupe sanguin</th>
           <th>Nombre de don</th>
           <th>Dernier don</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Ndéye Anta Coulibaly</td>
-          <td>A+</td>
-          <td>3</td>
-          <td>29/06/2024</td>
+        <tr *ngFor="let donneur of donneurs">
+          <td>{{ donneur.nom_complet }}</td>
+          <td>{{ donneur.telephone }}</td>
+          <td>{{ donneur.groupe_sanguin }}</td>
+          <td>{{ donneur.nombre_de_dons }}</td>
+          <td>{{ donneur.dernier_don ? (donneur.dernier_don | date:'dd/MM/yyyy') : 'Aucun' }}</td>
         </tr>
       </tbody>
     </table>

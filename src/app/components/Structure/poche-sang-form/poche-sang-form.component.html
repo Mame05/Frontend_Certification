@@ -1,9 +1,40 @@
 <form [formGroup]="pocheSangForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="numero_poche">Numéro de la poche</label>
       <input type="text" formControlName="numero_poche" class="form-control" required>
-    </div>
-  
+    </div> -->
+    <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" formControlName="nom" class="form-control" placeholder="Votre nom" required />
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" formControlName="prenom" class="form-control" placeholder="Votre nom" required/>
+      </div>
+      <div class="form-group">
+        <label for="sexe">Sexe:</label>
+        <select id="sexe" formControlName="sexe" class="form-control" required>
+          <option value="" selected disabled>Sélectionner votre sexe</option>
+          <option value="M">Masculin</option>
+          <option value="F">Féminin</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date_naiss">Date de naissance</label>
+        <input type="date" id="date_naiss" formControlName="date_naiss" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse" required />
+      </div>
+      <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Votre numéro de téléphone" required />
+      </div>
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input type="text" id="profession" formControlName="profession" class="form-control" placeholder="votre profession" required />
+      </div>
     <div class="form-group">
       <label for="groupe_sanguin">Groupe Sanguin</label>
       <select formControlName="groupe_sanguin" class="form-control" required>
