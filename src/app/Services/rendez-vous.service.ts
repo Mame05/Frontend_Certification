@@ -27,11 +27,28 @@ export class RendezVousService {
     });
     return this.http.get(`${apiUrl}/rendez-vous/${id}`, {headers});
   }
-  updateEtat(rendezVousId: number,  data: { etat: boolean }) {
+  updateEtatAddPoche(rendezVous: number,  data: any) {
     const token = localStorage.getItem('access_token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.put(`${apiUrl}/rendez-vous/${rendezVousId}/etat`, data, {headers});
+    return this.http.put(`${apiUrl}/rendez-vous/${rendezVous}/etat`, data, {headers});
   }
+   // Méthode pour obtenir une poche de sang spécifique
+   getPocheById(id: number) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any[]>(`${apiUrl}/poche-sanguins/${id}`, {headers});
+  }
+   // Méthode pour mettre à jour une poche de sang des utilisateurs simple
+   updatePocheUS(pocheId: number, data: any) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put(`${apiUrl}/poche-sanguin/${pocheId}`, data, {headers});
+  }
+  
 }

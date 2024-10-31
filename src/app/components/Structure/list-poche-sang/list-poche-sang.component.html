@@ -5,6 +5,14 @@
             Ajouter une Poche
         </a>
     </div>
+    <div class="filter-dropdown mb-3">
+        <label for="filter">Filtrer par :</label>
+        <select id="filter" (change)="onFilterChange($event)">
+            <option value="all">Toutes les Poches</option>
+            <option value="donneur_externe">Poches Donneurs Externes</option>
+            <option value="utilisateur_simple">Poches Utilisateurs Simples</option>
+        </select>
+    </div>
 
     <!-- Titre centralisé -->
     <h1 class="text-center title">Liste des Poches Sanguines</h1>
@@ -21,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let poche of poches">
+            <tr *ngFor="let poche of filteredPoches">
                 <td>{{ poche.numero_poche }}</td>
                 <td>{{ poche.groupe_sanguin }}</td>
                 <td>{{ poche.date_prelevement | date:'dd/MM/yyyy' }}</td>
@@ -31,7 +39,7 @@
                     <a [routerLink]="['/sidebar1/poche-sang/detail-poche-sang', poche.id]" class="icon-link">
                         <span class="iconify" data-icon="mdi:eye"></span>
                     </a>
-                    <a [routerLink]="['/sidebar1/poche-sang/modifier', poche.id]" class="icon-link">
+                    <a [routerLink]="isUtilisateurSimple(poche) ?['/sidebar1/poche-sang/modifier-poche-sang-US', poche.id] : ['/sidebar1/poche-sang/modifier-poche-sang-DE', poche.id]" class="icon-link">
                         <span class="iconify" data-icon="mdi:pencil"></span>
                     </a>
                     <a class="icon-link" (click)="deletePoche(poche.id)">

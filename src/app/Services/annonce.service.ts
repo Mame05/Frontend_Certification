@@ -33,8 +33,16 @@ export class AnnonceService {
       })
   );
   }
+   // Obtenir une annonce par ID
+   getAnnonce(id: number) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${apiUrl}/annonces/${id}`, {headers});
+  }
   // Obtenir une annonce par ID
-  getAnnonce(id: number) {
+  getAnnonceWithRendezVous(id: number) {
     const token = localStorage.getItem('access_token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`

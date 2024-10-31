@@ -55,4 +55,15 @@ export class PocheSangService {
     return this.http.delete<void>(`${apiUrl}/poche-sanguins/${id}`, {headers});
   }
 
+  // Méthode pour obtenir un poche un donneur externe par son id
+  getDonneurExterneById(id: number) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any[]>(`${apiUrl}/donneur-externes/${id}`, {headers});
+  }
+
+ 
+
 }

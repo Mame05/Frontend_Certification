@@ -1,0 +1,18 @@
+<div>
+  <h2>Mettre à jour la poche de sang</h2>
+  <form (ngSubmit)="handleUpdatePoche()">
+    <label>
+      Groupe sanguin:
+      <input type="text" [(ngModel)]="groupeSanguin" name="groupeSanguin" required />
+    </label>
+    <label>
+      Date de prélèvement:
+      <input type="date" [(ngModel)]="datePrelevement" name="datePrelevement" required />
+    </label>
+    <label>
+      Banque de sang ID:
+      <input type="number" [(ngModel)]="banqueSangId" name="banqueSangId" required />
+    </label>
+    <button type="submit">Mettre à jour la poche</button>
+  </form>
+</div>
