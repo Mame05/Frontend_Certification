@@ -12,7 +12,15 @@
       </div>
       <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
     </div>-->
-    
+     <!-- Sélection du type de donneur -->
+  <div class="d-flex mb-3">
+    <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select me-2">
+      <option value="all">Tous les donneurs</option>
+      <option value="utilisateurs">Utilisateurs Simples</option>
+      <option value="donneursExternes">Donneurs Externes</option>
+    </select>
+    <input type="text" [(ngModel)]="filterValue" (input)="applyFilters()" class="form-control" placeholder="Filtrer par nom, téléphone, etc.">
+  </div>
     <table class="donneur-table table table-hover ">
       <thead>
         <tr>
@@ -24,7 +32,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let donneur of donneurs">
+        <tr *ngFor="let donneur of filteredDonneurs">
           <td>{{ donneur.nom_complet }}</td>
           <td>{{ donneur.telephone }}</td>
           <td>{{ donneur.groupe_sanguin }}</td>
