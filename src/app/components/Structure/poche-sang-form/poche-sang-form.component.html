@@ -65,7 +65,7 @@
       <option *ngFor="let banque of banquesSang" [value]="banque.id">{{ banque.matricule }}</option>
     </select>
   </div>
-  <div class="form-group">
+  <div class="form-group"  *ngIf="isEditMode">
     <label for="donneur_externe_id">Donneur Externe:</label>
     <select formControlName="donneur_externe_id" class="form-control" required>
       <option value="">Sélectionnez un Donneur Externe</option>

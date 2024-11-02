@@ -28,6 +28,14 @@ export class DonneurExterneService {
     });
     return this.http.get<any[]>(`${apiUrl}/donneur-externes/${id}`, {headers});
   }
+  // Liste des donneurs pour chaque structure avec les infos sur le nombre et la date de don
+  getDonneursParStructure(){
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any[]>(`${apiUrl}/structure/donneurs`, {headers});
+  }
 
 
   
