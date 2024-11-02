@@ -1,45 +1,146 @@
+<!-- 
 <div class="detail-annonce-container" *ngIf="annonce">
-    <div class="image-banner">
-        <img src="assets/images/detail-annonce.png" alt="Grande collecte de sang">
-    </div>
-    <h2>{{ annonce.titre }}</h2>
-    
-    <div class="annonce-details">
-        <div class="left-column">
-            <p><strong>Type d'annonce :</strong> {{ annonce.type_annonce }}</p>
-            <p><strong>Lieu :</strong> {{ annonce.nom_lieu }}</p>
-            <p><strong>Date de début :</strong> {{ annonce.date_debut | date:'dd/MM/yyyy' }}</p>
-            <p><strong>Description :</strong> {{ annonce.description }}.</p>
-            <p><strong>Nombre de poches visées :</strong>{{ annonce.nombre_poches_vise }} poches</p>
+  <div class="image-banner">
+      <img src="assets/images/detail-annonce.png" alt="Grande collecte de sang">
+  </div>
+  <h2>{{ annonce.titre }}</h2>
+  
+  <div class="annonce-details">
+      <div class="left-column">
+          <p><strong>Type d'annonce :</strong> {{ annonce.type_annonce }}</p>
+          <p><strong>Lieu :</strong> {{ annonce.nom_lieu }}</p>
+          <p><strong>Date de début :</strong> {{ annonce.date_debut | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Description :</strong> {{ annonce.description }}.</p>
+          <p><strong>Nombre de poches visées :</strong>{{ annonce.nombre_poches_vise }} poches</p>
+      </div>
+      
+      <div class="right-column">
+          <p><strong>Groupe sanguin requis :</strong> {{ annonce.groupe_sanguin_requis }}</p>
+          <p><strong>Adresse :</strong> {{ annonce.adresse_lieu }}</p>
+          <p><strong>Date de la fin :</strong> {{ annonce.date_fin | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Heure de début :</strong> {{ annonce.heure_debut }}</p>
+          <p><strong>Contact du responsable :</strong> {{ annonce.contact_responsable }}</p>
+          <p><strong>Nombre d'inscrit :</strong> {{ annonce.nombre_inscrits }} volontaires</p>
+      </div>
+  </div>
+  <div class="inscriptions-section">
+      <h3>Inscriptions ({{ annonce.nombre_inscrits }})</h3>
+      <div *ngFor="let inscrit of annonce.inscrits">
+          <p>{{ inscrit.nom }} {{ inscrit.prenom }} - État: {{ inscrit.etat ? 'Effectué' : 'Non effectué' }}</p>
+          <button 
+          [ngClass]="{
+              'effectue': inscrit.etat, 
+              'non-effectue': !inscrit.etat
+          }"
+          (click)="changeEtat(inscrit.id, !inscrit.etat)">
+            {{ inscrit.etat ? 'Annuler' : 'Marquer comme effectué' }}
+          </button>
+     Formulaire pour ajouter la poche sanguine -->
+    <!-- <div *ngIf="isAddingPoche && selectedrendezVousId === inscrit.id" class="poche-form">
+      <h3>Ajouter une poche sanguine</h3>
+      <form (ngSubmit)="submitPocheForm()">
+        <div>
+          <label for="groupe_sanguin">Groupe sanguin :</label>
+          <input id="groupe_sanguin" [(ngModel)]="pocheFormData.groupe_sanguin" name="groupe_sanguin" required>
         </div>
-        
-        <div class="right-column">
-            <p><strong>Groupe sanguin requis :</strong> {{ annonce.groupe_sanguin_requis }}</p>
-            <p><strong>Adresse :</strong> {{ annonce.adresse_lieu }}</p>
-            <p><strong>Date de la fin :</strong> {{ annonce.date_fin | date:'dd/MM/yyyy' }}</p>
-            <p><strong>Heure de début :</strong> {{ annonce.heure_debut }}</p>
-            <p><strong>Contact du responsable :</strong> {{ annonce.contact_responsable }}</p>
-            <p><strong>Nombre d'inscrit :</strong> {{ annonce.nombre_inscrits }} volontaires</p>
+        <div>
+          <label for="date_prelevement">Date de prélèvement :</label>
+          <input type="date" id="date_prelevement" [(ngModel)]="pocheFormData.date_prelevement" name="date_prelevement" required>
         </div>
+        <div>
+          <label for="banque_sang_id">Banque de sang :</label>
+          <input id="banque_sang_id" [(ngModel)]="pocheFormData.banque_sang_id" name="banque_sang_id" required>
+        </div>
+        <button type="submit">Ajouter la poche sanguine</button>
+      </form>
+      </div>
     </div>
-    <div class="inscriptions-section">
-        <h3>Inscriptions ({{ annonce.nombre_inscrits }})</h3>
-        <div *ngFor="let inscrit of annonce.inscrits">
-            <p>{{ inscrit.nom }} {{ inscrit.prenom }} - État: {{ inscrit.etat ? 'Effectué' : 'Non effectué' }}</p>
-            <button 
-            [ngClass]="{
-                'effectue': inscrit.etat, 
-                'non-effectue': !inscrit.etat
-            }"
-            (click)="changeEtat(inscrit.id, !inscrit.etat)">
-              {{ inscrit.etat ? 'Annuler' : 'Marquer comme effectué' }}
-            </button>
-          </div>
-    </div>
-    
-    <div class="action-buttons">
-        <button [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="btn-edit" type="submit">Editer les informations</button>
-        <button routerLink="/sidebar1/annonce" class="btn-back">Retour</button>
-    </div>
+  </div> -->
+          
+  
+ <!-- <div class="action-buttons">
+      <button [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="btn-edit" type="submit">Editer les informations</button>
+      <button routerLink="/sidebar1/annonce" class="btn-back">Retour</button>
+  </div>
+</div> -->
+<div class="detail-annonce-container" *ngIf="annonce">
+  <div class="image-banner">
+      <img src="assets/images/detail-annonce.png" alt="Grande collecte de sang">
+  </div>
+  <h2>{{ annonce.titre }}</h2>
+  
+  <div class="annonce-details">
+      <div class="left-column">
+          <p><strong>Type d'annonce :</strong> {{ annonce.type_annonce }}</p>
+          <p><strong>Lieu :</strong> {{ annonce.nom_lieu }}</p>
+          <p><strong>Date de début :</strong> {{ annonce.date_debut | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Description :</strong> {{ annonce.description }}.</p>
+          <p><strong>Nombre de poches visées :</strong>{{ annonce.nombre_poches_vise }} poches</p>
+      </div>
+      
+      <div class="right-column">
+          <p><strong>Groupe sanguin requis :</strong> {{ annonce.groupe_sanguin_requis }}</p>
+          <p><strong>Adresse :</strong> {{ annonce.adresse_lieu }}</p>
+          <p><strong>Date de la fin :</strong> {{ annonce.date_fin | date:'dd/MM/yyyy' }}</p>
+          <p><strong>Heure de début :</strong> {{ annonce.heure_debut }}</p>
+          <p><strong>Contact du responsable :</strong> {{ annonce.contact_responsable }}</p>
+          <p><strong>Nombre d'inscrit :</strong> {{ annonce.nombre_inscrits }} volontaires</p>
+      </div>
+  </div>
+  <div class="inscriptions-section">
+      <h3>Inscriptions ({{ annonce.nombre_inscrits }})</h3>
+      <div *ngFor="let inscrit of annonce.inscrits">
+          <p>{{ inscrit.nom }} {{ inscrit.prenom }} - État: {{ inscrit.etat ? 'Effectué' : 'Non effectué' }}</p>
+          <button (click)="redirectToUpdateEtat(inscrit.id)" 
+          [disabled]="inscrit.etat">
+          {{ inscrit.etat ? 'Déjà effectué' : 'Marquer comme effectué' }} 
+          </button>
+      </div>
+  </div>
 </div>
-
+        <!-- <form [formGroup]="rendezVousForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="etat">État du rendez-vous</label>
+            <input type="checkbox" formControlName="etat" id="etat">
+          </div>
+        
+          <div>
+            <label for="groupe_sanguin">Groupe sanguin</label>
+            <select formControlName="groupe_sanguin" id="groupe_sanguin">
+              <option value="">Sélectionnez</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+          </div>
+        
+          <div>
+            <label for="date_prelevement">Date de prélèvement</label>
+            <input type="date" formControlName="date_prelevement" id="date_prelevement">
+          </div>
+        
+          <div>
+            <label for="banque_sang_id">Banque de sang</label>
+            <input type="number" formControlName="banque_sang_id" id="banque_sang_id">
+          </div>
+        
+          <div>
+            <label for="donneur_externe_id">Donneur externe (optionnel)</label>
+            <input type="number" formControlName="donneur_externe_id" id="donneur_externe_id">
+          </div>
+        
+          <button type="submit">Mettre à jour l'état</button>
+        </form>
+        </div>
+  </div>
+  
+  <div class="action-buttons">
+      <button [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="btn-edit" type="submit">Editer les informations</button>
+      <button routerLink="/sidebar1/annonce" class="btn-back">Retour</button>
+  </div>
+</div> -->

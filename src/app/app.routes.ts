@@ -30,6 +30,8 @@ import { BanqueSangFormComponent } from './components/Structure/banque-sang-form
 import { PocheSangFormComponent } from './components/Structure/poche-sang-form/poche-sang-form.component';
 import { ListPocheSangComponent } from './components/Structure/list-poche-sang/list-poche-sang.component';
 import { DetailPocheSangComponent } from './components/Structure/detail-poche-sang/detail-poche-sang.component';
+import { UpdateRendezVousComponent } from './components/Structure/update-rendez-vous/update-rendez-vous.component';
+import { UpdatePocheRendezVousComponent } from './components/Structure/update-poche-rendez-vous/update-poche-rendez-vous.component';
 
 
 export const routes: Routes = [
@@ -72,9 +74,11 @@ export const routes: Routes = [
     { path: 'banque-sang/detail-banque-sang/:id', component: DetailBanqueSangComponent},
     { path: 'banque-sang/modifier/:id', component: BanqueSangFormComponent},
     { path: 'poche-sang', component: ListPocheSangComponent},
-    { path: 'poche-sang/ajouter', component: PocheSangFormComponent},
+    { path: 'poche-sang/ajouter', component: PocheSangFormComponent},  // POUR LES DONEUR EXTERNE
     { path: 'poche-sang/detail-poche-sang/:id', component: DetailPocheSangComponent},
-    { path: 'poche-sang/modifier/:id', component: PocheSangFormComponent},
+    { path: 'poche-sang/modifier-poche-sang-DE/:id', component: PocheSangFormComponent},
+    { path: 'update-etat/:id', component: UpdateRendezVousComponent }, // Route pour changer l'état du rendez-vous et ajouter la poche.
+    { path: 'poche-sang/modifier-poche-sang-US/:id', component: UpdatePocheRendezVousComponent},
     { path: 'statistique', component: StatistiqueComponent }
   ]
 },

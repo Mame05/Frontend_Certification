@@ -26,7 +26,7 @@ export class BanqueSangFormComponent implements OnInit {
 
   ngOnInit() {
     this.banqueForm = this.fb.group({
-      matricule: ['', Validators.required],
+      matricule: '',
       stock_actuelle: [{ value: '', disabled: true }],
       date_mise_a_jour: [{ value: '', disabled: true }]
     });

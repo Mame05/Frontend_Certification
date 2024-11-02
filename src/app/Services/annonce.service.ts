@@ -33,8 +33,16 @@ export class AnnonceService {
       })
   );
   }
+   // Obtenir une annonce par ID
+   getAnnonce(id: number) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${apiUrl}/annonces/${id}`, {headers});
+  }
   // Obtenir une annonce par ID
-  getAnnonce(id: number) {
+  getAnnonceWithRendezVous(id: number) {
     const token = localStorage.getItem('access_token');
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
@@ -102,5 +110,16 @@ export class AnnonceService {
     });
     return this.http.delete(`${apiUrl}/rendez-vous/${rendezVousId}/supprimer`, { headers });
   }
+  // Récupérer les donneurs pour une structure donnée i.e ils ont aus moins une inscription avec etat=effecté
+  getUtilisateursWithCompletedInscriptions() {
+    const token = localStorage.getItem('access_token'); // Récupérer le token d'authentification
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}` // Ajouter le token au header
+    });
+    return this.http.get(`${apiUrl}/structure/utilisateurs-inscriptions`, { headers });
+  } 
+  
+  
+
 }
 
