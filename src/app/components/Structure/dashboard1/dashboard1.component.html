@@ -5,7 +5,7 @@
                 <span class="iconify" data-icon="mdi:blood-bag"></span>
             </div>
             <div class="stat-content">
-                <h3>124 poches de sang</h3>
+                <h3>{{ totalPochesDeSang }} poches de sang</h3>
                 <p>en stock</p>
             </div>
         </div>
@@ -14,8 +14,8 @@
                 <span class="iconify" data-icon="fontisto:blood-drop"></span>
             </div>
             <div class="stat-content">
-                <h3>20 collectes</h3>
-                <p>planifiées</p>
+                <h3>{{ totalAnnonces }} Annonce(s)</h3>
+                <p>publiée(s)</p>
             </div>
         </div>
         <div class="stat-card card3">
@@ -23,7 +23,7 @@
                 <span class="iconify" data-icon="mdi:person-group"></span>
             </div>
             <div class="stat-content">
-                <h3>50 donneurs</h3>
+                <h3>{{ totalDonneurs }} donneurs</h3>
                 <p>enregistrés</p>
             </div>
         </div>
@@ -33,7 +33,7 @@
         <a [routerLink]="['/sidebar1/annonce/ajouter']">
             <span class="iconify" data-icon="carbon:add-filled"></span>
         </a>
-        <h5>Ajouter une structure</h5> 
+        <h5>Ajouter une annonce</h5> 
     </div>
 
     <div class="content-section">
@@ -47,29 +47,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>O-</td><td>24</td></tr>
-                    <tr><td>O+</td><td>15</td></tr>
-                    <tr><td>A-</td><td>30</td></tr>
-                    <tr><td>A+</td><td>12</td></tr>
-                    <tr><td>B-</td><td>5</td></tr>
-                    <tr><td>B+</td><td>3</td></tr>
-                    <tr><td>AB-</td><td>0</td></tr>
-                    <tr><td>AB+</td><td>35</td></tr>
+                    <tr *ngFor="let groupe of pochesParGroupeSanguin">
+                        <td>{{ groupe.groupe }}</td>
+                        <td>{{ groupe.nombre }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="announcements">
             <h4>Dernières annonces publiées</h4>
-            <div class="announcement-card">
-                <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024 au Centre National de Transfusion Sanguin à 10h</p>
-                <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>
-                <p><span class="iconify icon3" data-icon="maki:blood-bank"></span>Type d'annonce : Collecte</p>
-            </div>
-            <div class="announcement-card">
-                <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024 au Centre National de Transfusion Sanguin à 09h</p>
-                <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>
-                <p><span class="iconify icon3" data-icon="maki:blood-bank"></span>Type d'annonce : Besoin urgent</p>
+            <div *ngFor="let annonce of derniereAnnonces" class="announcement-card">
+                <p><span class="iconify" data-icon="mage:calendar-fill"></span> Le {{ annonce.date_debut | date:'dd/MM/yyyy' }} au {{ annonce.nom_lieu }} à {{ annonce.heure_debut }} </p>
+                <p><span class="iconify" data-icon="icomoon-free:location"></span>{{ annonce.adresse_lieu }}</p>
+                <p><span class="iconify icon3" data-icon="maki:blood-bank"></span>Type d'annonce : {{ annonce.type_annonce }} </p>
+                 <!-- Ajout de la durée -->
+                 <p class="durée"><span class="iconify" data-icon="tabler:clock"></span> Durée: {{ calculerDuree(annonce.date_debut, annonce.date_fin) }} jours </p>
             </div>
         </div>
     </div>

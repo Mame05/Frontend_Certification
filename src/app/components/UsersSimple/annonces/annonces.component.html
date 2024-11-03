@@ -16,7 +16,9 @@
                     <p><strong>Groupe sanguin requis:</strong> {{ annonce.groupe_sanguin_requis }}</p>
                     <p><strong>Lieu de la collecte:</strong> {{ annonce.nom_lieu }}</p>
                     <p><strong>Adresse:</strong> {{ annonce.adresse_lieu }}</p>
-                    <p><strong>Date limite:</strong> {{ annonce.date_fin }}</p>
+                    <p><strong>Date:</strong> {{ annonce.date_debut }}</p>
+                    <!-- Ajout de la durée -->
+                 <p class="durée"><span class="iconify" data-icon="tabler:clock"></span> Durée: {{ calculerDuree(annonce.date_debut, annonce.date_fin) }} jours</p>
                 </div>
                 <!--<a href="/donate" class="cta-button">S'inscrire</a>-->
                 <a [routerLink]="['/detail-annonce-user', annonce.id]" class="cta-button">S'inscrire</a>
@@ -45,6 +47,7 @@
                     <p><strong>Lieu de la collecte:</strong> {{ annonce.nom_lieu }}</p>
                     <p><strong>Adresse:</strong> {{ annonce.adresse_lieu }}</p>
                     <p><strong>Date de la collecte:</strong> {{ annonce.date_debut }} à partir de {{ annonce.heure_debut }}</p>
+                 <p class="durée"><span class="iconify" data-icon="tabler:clock"></span> Durée: {{ calculerDuree(annonce.date_debut, annonce.date_fin) }} jours</p>
                     <p>Pour toutes autre information<br> supplémentaires, appelez le responsable de<br> la collecte au <strong>{{ annonce.contact_responsable }}</strong></p>
                 </div>
                 <!--<a href="/donate" class="cta-button">S'inscrire</a>-->
