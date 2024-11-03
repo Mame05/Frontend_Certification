@@ -8,14 +8,14 @@
         <div class="stat-card card1">
             <div class="stat-info">
                 <span class="iconify icon1" data-icon="uis:clinic-medical"></span>
-                <h4>5</h4>
+                <h4>{{ totalStructures }}</h4>
             </div>
             <p>Structures enregistrées</p>
         </div>
         <div class="stat-card card2">
             <div class="stat-info">
                 <span class="iconify icon2" data-icon="fluent:people-team-16-filled"></span>
-                <h4>120</h4>
+                <h4>{{ utilisateursSimples.length }}</h4>
             </div>
             <p>Utilisateurs inscrits</p>
         </div>
@@ -39,15 +39,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Centre National de Transfusion Sanguin</td>
-                        <td>100</td>
+                    <tr  *ngFor="let stock of stockData">
+                        <td>{{ stock.structureNom }}</td>
+                        <td>{{ stock.nombre }}</td>
                     </tr>
-                    <tr>
-                        <td>Banque de sang de Diourbel</td>
-                        <td>80</td>
-                    </tr>
-                <!-- Continuez à ajouter des lignes selon les données -->
                 </tbody>
             </table>
         </div>
@@ -55,32 +50,14 @@
         <!-- Section des annonces récentes -->
         <div class="recent-announcements">
             <h2>Annonces dernièrement mises en ligne</h2>
+            <div  *ngFor="let annonce of annoncesRecientes">
             <div class="announcement">
                 <div class="announcement-date">
-                    <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024</p>
-                    <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>                    
+                    <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le {{ annonce.date_debut | date:'dd/MM/yyyy' }}</p>
+                    <p><span class="iconify" data-icon="icomoon-free:location"></span>{{ annonce.adresse_lieu }}</p>                    
                 </div>
                 <div class="announcement-content">
-                    <p>Publiée par le centre national de transfusion sanguin</p>
-                </div>
-            </div>
-            <!-- Ajouter d'autres annonces ici -->
-            <div class="announcement2">
-                <div class="announcement2-content">
-                    <p>Publiée par le centre national de transfusion sanguin</p>
-                </div>
-                <div class="announcement2-date">
-                    <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024</p>
-                    <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>                    
-                </div>
-            </div>
-            <div class="announcement">
-                <div class="announcement-date">
-                    <p><span class="iconify" data-icon="mage:calendar-fill"></span>Le 17/09/2024</p>
-                    <p><span class="iconify" data-icon="icomoon-free:location"></span>Avenue Cheikh Anta Diop</p>                    
-                </div>
-                <div class="announcement-content">
-                    <p>Publiée par le centre national de transfusion sanguin</p>
+                    <p>Publiée par le {{ annonce.structureNom }}</p>
                 </div>
             </div>
         </div>

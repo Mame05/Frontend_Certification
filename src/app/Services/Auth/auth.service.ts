@@ -119,6 +119,15 @@ export class AuthService {
   return this.http.get(`${apiUrl}/profile`, { headers });
 }
 
+ // Méthode pour récupérer tous les utilisateurs
+ getUtilisateurs(): Observable<any[]> {
+  const token = localStorage.getItem('access_token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+  return this.http.get<any[]>(`${apiUrl}/utilisateurs-simples`, { headers });
+}
+
 // Mettre à jour le profil utilisateur
 updateProfile(userData: any): Observable<any> {
   const token = localStorage.getItem('access_token');
