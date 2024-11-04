@@ -1,49 +1,97 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgFor } from '@angular/common';  // Ajoutez cette ligne pour utiliser *ngFor dans le template
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { AnnonceService } from '../../../Services/annonce.service';
+import { DonneurExterneService } from '../../../Services/donneur-externe.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-donneur-structure',
   standalone: true,
-  imports: [RouterLink, NgFor],  // Ajoutez NgFor ici
+  imports: [RouterLink, CommonModule, FormsModule],  // Ajoutez NgFor ici
   templateUrl: './donneur-structure.component.html',
   styleUrls: ['./donneur-structure.component.css']
 })
 export class DonneurStructureComponent implements OnInit {
-  donneurs: any[] = [];  // Tableau pour stocker les donneurs récupérés
-  structure: any = {};  // Stocker les informations de la structure et des banques de sang
+  utilisateursSimples: any[] = [];
+  donneursExternes: any[] = [];
+  filteredDonneurs: any[] = [];
+  selectedType: string = 'all';
+  filterValue: string = '';
+  structureId: number | null = null;
 
-  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
-    this.getDonneurs();
-    this.getStructureDetails();
+  constructor(private annonceService: AnnonceService, private donneurExterneService: DonneurExterneService, private route: ActivatedRoute ) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      const structureId = +params.get('id')!;
+      console.log("Structure ID:", structureId); // Vérifiez si l'ID est correct
+
+      if (structureId) {
+        this.fetchUtilisateursWithCompletedInscriptions(structureId); // Passer structureId
+        this.fetchDonneursParStructure(structureId); // Si vous souhaitez récupérer les donneurs externes aussi
+      } else {
+        console.error('Structure ID is not provided');
+      }
+    });
+  }
+  fetchUtilisateursWithCompletedInscriptions(structureId: number) {
+    this.annonceService.getUtilisateursWithCompletedInscriptions(structureId)
+      .subscribe((response: any) => {
+        console.log("Réponse des utilisateurs:", response); // Ajout de log pour vérifier la réponse
+        this.utilisateursSimples = response; // Utilisez une valeur par défaut vide
+      }, error => {
+        console.error("Erreur lors de la récupération des utilisateurs :", error);
+      });
   }
 
-  getStructureDetails() {
-    this.http.get<any>('http://127.0.0.1:8000/api/structures/2')  // Remplacez l'URL par celle de votre API
-      .subscribe(
-        data => {
-          this.structure = data;  // Stocker les informations récupérées dans la variable structure
-          console.log('Détails de la structure:', this.structure);
-        },
-        error => {
-          console.error('Erreur lors de la récupération des détails de la structure', error);
+  // Méthode pour récupérer les donneurs d'une structure spécifique
+  fetchDonneursParStructure(structureId: number) {
+    this.donneurExterneService.getDonneursParStructure(structureId).subscribe(
+      (response: any) => {
+        console.log("Réponse des donneurs externes:", response); // Ajout de log pour vérifier la réponse
+        if (response.status) {
+          this.donneursExternes = response.donneurs.map((donneur: any) => ({
+            id: donneur.id,
+            nom_complet: `${donneur.prenom} ${donneur.nom}`,
+            telephone: donneur.telephone,
+            groupe_sanguin: donneur.groupe_sanguin,
+            nombre_de_dons: donneur.nombre_dons,
+            dernier_don: donneur.dernier_don
+          }));
+          this.applyFilters();
+        } else {
+          console.error("Erreur lors de la récupération des donneurs externes :", response.error);
         }
-      );
+      },
+      (error) => {
+        console.error("Erreur lors de la récupération des donneurs externes :", error);
+      }
+    );
   }
 
-  getDonneurs() {
-    this.http.get<any[]>('http://127.0.0.1:8000/api/poche-sanguins/4')  // Remplacez l'URL par celle de votre API
-      .subscribe(
-        data => {
-          this.donneurs = data;
-          console.log('Donneurs récupérés:', this.donneurs);
-        },
-        error => {
-          console.error('Erreur lors de la récupération des donneurs', error);
-        }
+  applyFilters() {
+    let donneursSource: any[] = [];
+
+    if (this.selectedType === 'utilisateurs') {
+      donneursSource = this.utilisateursSimples;
+    } else if (this.selectedType === 'donneursExternes') {
+      donneursSource = this.donneursExternes;
+    } else {
+      donneursSource = [...this.utilisateursSimples, ...this.donneursExternes];
+    }
+
+    if (this.filterValue) {
+      const lowerCaseFilterValue = this.filterValue.toLowerCase();
+      this.filteredDonneurs = donneursSource.filter(donneur =>
+        donneur.nom_complet.toLowerCase().includes(lowerCaseFilterValue) ||
+        donneur.telephone.toLowerCase().includes(lowerCaseFilterValue) ||
+        donneur.groupe_sanguin.toLowerCase().includes(lowerCaseFilterValue)
       );
+    } else {
+      this.filteredDonneurs = donneursSource;
+    }
   }
 }

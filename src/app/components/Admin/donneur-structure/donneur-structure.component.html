@@ -1,41 +1,32 @@
 <div class="donneur-container">
   
     <h2 class="donneur-title">Donneur du CNTS</h2>
-    <div class="structure-details">
-      <h2>Détails de la Structure</h2>
-      <p><strong>Nom :</strong> {{ structure.nom_structure }}</p>
-      <p><strong>Sigle :</strong> {{ structure.sigle }}</p>
-      <p><strong>Adresse :</strong> {{ structure.adresse }}</p>
-      <p><strong>Email :</strong> {{ structure.email }}</p>
-      <p><strong>Téléphone :</strong> {{ structure.telephone }}</p>
-      <p><strong>Région :</strong> {{ structure.region }}</p>
+    <div class="d-flex mb-3">
+      <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select me-2">
+        <option value="all">Tous les donneurs</option>
+        <option value="utilisateurs">Utilisateurs Simples</option>
+        <option value="donneursExternes">Donneurs Externes</option>
+      </select>
+      <input type="text" [(ngModel)]="filterValue" (input)="applyFilters()" class="form-control" placeholder="Filtrer par nom, téléphone, etc.">
     </div>
-    <!-- Filtrage des structures -->
-    <!--<div class="d-flex mb-3 ">
-      <div class="flex-grow-1">
-        <select id="filterCriteria" class="form-select" (change)="onFilterChange()">
-          <option value="">Choisir un critère</option>
-          <option value="nom">Nom de la structure</option>
-        </select>
-      </div>
-      <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
-    </div>-->
     
     <table class="donneur-table table table-striped mt-3">
       <thead>
         <tr>
           <th>Nom Complet</th>
+          <th>Telephone</th>
           <th>Groupe sanguin</th>
-          <th>Téléphone</th>
-              <th>Numéro de Poche</th>
-          <th>Date du Prélèvement</th>
+          <th>Nombre de don</th>
+          <th>Dernier don</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let banque of structure.banques_de_sang">
-          <td>{{ banque.matricule }}</td>
-          <td>{{ banque.stock_actuelle }}</td>
-          <td>{{ banque.date_mise_a_jour }}</td>
+        <tr *ngFor="let donneur of filteredDonneurs">
+          <td>{{ donneur.nom_complet }}</td>
+          <td>{{ donneur.telephone }}</td>
+          <td>{{ donneur.groupe_sanguin }}</td>
+          <td>{{ donneur.nombre_de_dons }}</td>
+          <td>{{ donneur.dernier_don ? (donneur.dernier_don | date:'dd/MM/yyyy') : 'Aucun' }}</td>
         </tr>
       </tbody>
     </table>

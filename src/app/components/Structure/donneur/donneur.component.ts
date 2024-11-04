@@ -76,6 +76,9 @@ donneursExternes: any[] = [];
 filteredDonneurs: any[] = [];
 selectedType: string = 'all'; // 'all', 'utilisateurs', 'donneursExternes'
 filterValue: string = '';
+structureId!: number;
+nomStructure!: string;
+
 
 constructor(private annonceService: AnnonceService, private donneurExterneService: DonneurExterneService) { }
 
