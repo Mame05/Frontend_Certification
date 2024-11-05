@@ -9,6 +9,7 @@ Chart.register(...registerables); // Enregistrer les éléments de Chart.js
 @Component({
   selector: 'app-statistique',
   standalone: true,
+  imports: [],
   templateUrl: './statistique.component.html',
   styleUrls: ['./statistique.component.css'],
 })
