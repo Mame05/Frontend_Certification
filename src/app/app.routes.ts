@@ -34,6 +34,7 @@ import { UpdateRendezVousComponent } from './components/Structure/update-rendez-
 import { UpdatePocheRendezVousComponent } from './components/Structure/update-poche-rendez-vous/update-poche-rendez-vous.component';
 import { GraphiqueSexeComponent } from './components/Structure/graphique-sexe/graphique-sexe.component';
 import { GraphiqueGroupeSanguinComponent } from './components/Structure/graphique-groupe-sanguin/graphique-groupe-sanguin.component';
+import { GraphiqueTrancheAgeComponent } from './components/Structure/graphique-tranche-age/graphique-tranche-age.component';
 
 
 export const routes: Routes = [

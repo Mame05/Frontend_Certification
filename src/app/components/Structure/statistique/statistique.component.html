@@ -1,4 +1,21 @@
-<div>
-    <canvas id="myChart"></canvas> <!-- Id utilisé dans le composant TypeScript -->
+<div class="statistique-page">
+  <h1 class="title">Statistiques Générales</h1>
+  <div class="chart-grid">
+    <div class="chart-card monthly-chart">
+      <canvas id="myChart"></canvas>
+      <h2>Nombre de poche ajoutée par mois</h2>
+    </div>
+    <div class="chart-card gender-chart">
+      <app-graphique-sexe></app-graphique-sexe>
+      <h2>Répartition des donneurs par sexe</h2>
+    </div>
+    <div class="chart-card blood-group-chart">
+      <app-graphique-groupe-sanguin></app-graphique-groupe-sanguin>
+      <h2>Répartition  des donneurs par groupe sanguin</h2>
+    </div>
+    <div class="chart-card age-range-chart">
+      <app-graphique-tranche-age></app-graphique-tranche-age>
+      <h2>Répartition  des donneurs par tranche d'âge</h2>
+    </div>
   </div>
-  
+</div>

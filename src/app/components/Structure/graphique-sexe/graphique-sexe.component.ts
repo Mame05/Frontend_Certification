@@ -97,7 +97,7 @@ export class GraphiqueSexeComponent implements OnInit {
 
 
     // Initialisation du graphique
-   const chartCanvas = document.getElementById('myChart') as HTMLCanvasElement;
+   const chartCanvas = document.getElementById('sexeChart') as HTMLCanvasElement;
     if (chartCanvas) {
       this.chart = new Chart(chartCanvas, chartConfig);
     }

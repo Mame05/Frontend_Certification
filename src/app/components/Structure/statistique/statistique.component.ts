@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'chart.js'; // Importer Chart.js
 import { StatistiqueService } from '../../../Services/statistique.service';
 import { Poche } from '../../../Services/poche'; // Importer l'interface Poche
+import { GraphiqueSexeComponent } from '../graphique-sexe/graphique-sexe.component';
+import { GraphiqueGroupeSanguinComponent } from '../graphique-groupe-sanguin/graphique-groupe-sanguin.component';
+import { GraphiqueTrancheAgeComponent } from '../graphique-tranche-age/graphique-tranche-age.component';
 
 
 Chart.register(...registerables); // Enregistrer les éléments de Chart.js
@@ -9,7 +12,7 @@ Chart.register(...registerables); // Enregistrer les éléments de Chart.js
 @Component({
   selector: 'app-statistique',
   standalone: true,
-  imports: [],
+  imports: [GraphiqueSexeComponent, GraphiqueGroupeSanguinComponent, GraphiqueTrancheAgeComponent],
   templateUrl: './statistique.component.html',
   styleUrls: ['./statistique.component.css'],
 })

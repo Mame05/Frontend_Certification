@@ -9,7 +9,7 @@ import { NgChartsModule } from 'ng2-charts';
   standalone: true,
   imports: [NgChartsModule],
   templateUrl: './graphique-groupe-sanguin.component.html',
-  styleUrl: './graphique-groupe-sanguin.component.css'
+  styleUrls: ['./graphique-groupe-sanguin.component.css']
 })
 export class GraphiqueGroupeSanguinComponent implements OnInit {
 
@@ -58,14 +58,15 @@ export class GraphiqueGroupeSanguinComponent implements OnInit {
       acc[groupe] = (acc[groupe] || 0) + 1;
       return acc;
     }, {});
-
+    
+    const colors = this.getColors(Object.keys(groupeSanguinCount));
     const chartData: ChartData<'bar'> = {
       labels: Object.keys(groupeSanguinCount),
       datasets: [{
         label: 'Nombre de donneurs',
         data: Object.values(groupeSanguinCount).map(num => Number(num)),
-        backgroundColor: this.getColors(Object.keys(groupeSanguinCount)),
-        hoverBackgroundColor: '#FFC107'  // Couleur de survol
+        backgroundColor: colors,
+        hoverBackgroundColor: colors  // Assurez-vous que la couleur reste identique au survol
       }]
     };
 
@@ -74,12 +75,20 @@ export class GraphiqueGroupeSanguinComponent implements OnInit {
       data: chartData,
       options: {
         responsive: true,
+        indexAxis: 'y',  // Barre horizontale
         scales: {
-          y: {
+          x: {
             beginAtZero: true,
             ticks: {
               precision: 0, // Afficher uniquement des entiers
-              callback: (value) =>`${value}`  // Formater les ticks pour éviter les décimales
+              callback: (value) => `${value}`  // Formater les ticks pour éviter les décimales
+            }
+          },
+          y: {
+            ticks: {
+              font: {
+                weight: 'bold'
+              }
             }
           }
         },
@@ -93,18 +102,19 @@ export class GraphiqueGroupeSanguinComponent implements OnInit {
           },
           tooltip: {
             callbacks: {
-              label: (context) =>`${context.dataset.label}: ${Math.floor(Number(context.raw))}` // Afficher uniquement les entiers
+              label: (context) => `${context.dataset.label}: ${Math.floor(Number(context.raw))}` // Afficher uniquement les entiers
             }
           }
         }
       }
     };
 
-    const chartCanvas = document.getElementById('myChart') as HTMLCanvasElement;
+    const chartCanvas = document.getElementById('groupeSanguinChart') as HTMLCanvasElement;
     if (chartCanvas) {
       this.chart = new Chart(chartCanvas, chartConfig);
     }
   }
+
   getColors(groups: string[]): string[] {
     // Définissez ici les couleurs pour chaque groupe sanguin
     const colors: { [key: string]: string } = {
@@ -122,5 +132,4 @@ export class GraphiqueGroupeSanguinComponent implements OnInit {
     // Retourner un tableau de couleurs selon l'ordre des groupes
     return groups.map(group => colors[group] || '#CCCCCC'); // Couleur par défaut pour les groupes non définis
   }
-
 }
