@@ -88,4 +88,42 @@
  input{
    width: 70%;
  }
+ /* Conteneur pour aligner les champs de filtre */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+/* Style pour le select de type de donneur */
+.filter-container select {
+  width: 48%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #1D3557;
+  border-radius: 5px;
+  color: #1D3557;
+  background-color: #f9f9f9;
+}
+
+/* Style pour le champ de recherche */
+.filter-container input[type="text"] {
+  width: 48%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #1D3557;
+  border-radius: 5px;
+  color: #1D3557;
+  background-color: #f9f9f9;
+}
+
+/* Style pour le focus des champs de filtre */
+.filter-container select:focus,
+.filter-container input[type="text"]:focus {
+  outline: none;
+  border-color: #DF2C26;
+  box-shadow: 0 0 5px rgba(223, 44, 38, 0.5);
+}
+
   

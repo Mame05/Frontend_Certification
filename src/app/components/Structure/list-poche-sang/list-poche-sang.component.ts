@@ -15,6 +15,8 @@ export class ListPocheSangComponent implements OnInit{
   poches: any[] = [];
   banquesSang: { [key: number]: any } = {};
   filteredPoches: any[] = []; // Poches filtrées
+  searchQuery: string = ''; // Variable pour stocker le texte de recherche
+
 
   constructor(private pocheSangService: PocheSangService, private banqueSangService: BanqueSangService) { }
 
@@ -38,11 +40,24 @@ export class ListPocheSangComponent implements OnInit{
     } else {
       this.filteredPoches = this.poches; // Afficher toutes les poches
     }
+    this.applySearchFilter();
   }
   onFilterChange(event: Event) {
     const selectElement = event.target as HTMLSelectElement; // Typage explicite
     const selectedValue = selectElement.value;
     this.filterPoches(selectedValue);
+  }
+  onSearch(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.searchQuery = inputElement.value.toLowerCase();
+    this.applySearchFilter();
+  }
+
+  applySearchFilter() {
+    this.filteredPoches = this.filteredPoches.filter((poche) =>
+      poche.groupe_sanguin.toLowerCase().includes(this.searchQuery) ||
+      (this.banquesSang[poche.banque_sang_id]?.matricule || '').toLowerCase().includes(this.searchQuery)
+    );
   }
   isUtilisateurSimple(poche: any): boolean {
     // Remplacez cette condition par celle qui vérifie si la poche est d'un utilisateur simple

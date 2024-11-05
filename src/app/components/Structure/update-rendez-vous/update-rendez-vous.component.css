@@ -1,0 +1,58 @@
+div {
+    font-family: 'Montserrat', sans-serif; /* Police Montserrat */
+    max-width: 600px; /* Largeur maximale du formulaire */
+    margin: 20px auto; /* Centrer le formulaire */
+    padding: 30px; /* Espacement intérieur */
+    border-radius: 15px; /* Arrondi des coins */
+    background-color: #ffffff; /* Couleur de fond du formulaire */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+h2 {
+    color: #1D3557; /* Couleur du titre */
+    text-align: center; /* Centrer le titre */
+    margin-bottom: 20px; /* Espace en bas du titre */
+}
+
+label {
+    display: block; /* Chaque label sur une nouvelle ligne */
+    margin-bottom: 8px; /* Espace entre les labels et les champs */
+    color: #1D3557; /* Couleur du texte des labels */
+    font-weight: 600; /* Épaissir le texte des labels */
+}
+
+select,
+input[type="date"] {
+    width: 100%; /* Champs prennent toute la largeur */
+    padding: 12px; /* Espacement intérieur */
+    border: 2px solid #1D3557; /* Bordure des champs */
+    border-radius: 8px; /* Arrondi des coins */
+    font-size: 16px; /* Taille de la police */
+    margin-bottom: 20px; /* Espace entre les champs */
+    transition: border-color 0.3s ease; /* Effet de transition pour la bordure */
+}
+
+select:focus,
+input[type="date"]:focus {
+    border-color: #DF2C26; /* Changer la couleur de la bordure au focus */
+    outline: none; /* Retirer le contour par défaut */
+}
+
+button[type="submit"] {
+    background-color: #DF2C26; /* Couleur de fond du bouton de soumission */
+    color: #ffffff; /* Couleur du texte du bouton de soumission */
+    border: none; /* Pas de bordure */
+    border-radius: 8px; /* Arrondi des coins du bouton */
+    padding: 12px 20px; /* Espacement intérieur */
+    font-size: 18px; /* Taille de la police */
+    cursor: pointer; /* Curseur pointer au survol */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Effets de transition */
+    display: block; /* Faire du bouton un bloc */
+    width: 100%; /* Prendre toute la largeur */
+    margin-top: 20px; /* Espace au-dessus du bouton */
+}
+
+button[type="submit"]:hover {
+    background-color: #c72a24; /* Couleur au survol */
+    transform: translateY(-2px); /* Légère élévation au survol */
+}

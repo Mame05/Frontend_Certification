@@ -10,9 +10,14 @@
       <input type="date" [(ngModel)]="datePrelevement" name="datePrelevement" required />
     </label>
     <label>
-      Banque de sang ID:
-      <input type="number" [(ngModel)]="banqueSangId" name="banqueSangId" required />
+      Banque de sang:
+      <select [(ngModel)]="banqueSangId" name="banqueSangId" required>
+        <option *ngFor="let banque of banquesSang" [value]="banque.id">
+          {{ banque.matricule }} <!-- Remplacez par l'attribut correct pour la matricule -->
+        </option>
+      </select>
     </label>
     <button type="submit">Mettre à jour la poche</button>
+    <button routerLink="/sidebar1/poche-sang" type="button" class="btn-cancel">Annuler</button>
   </form>
 </div>

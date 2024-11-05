@@ -32,7 +32,7 @@
           <td>{{ annonce.titre}}</td>
           <td>{{ annonce.date_debut}}</td>
           <td>{{ annonce.nom_lieu}}</td>
-          <td>20</td>
+          <td>{{ annonce.nombre_inscrits }}</td>
           <td>
             <a [routerLink]="['/sidebar1/annonce/detail-annonce', annonce.id]" class="icon-link">
               <span class="iconify" data-icon="mdi:eye"></span>

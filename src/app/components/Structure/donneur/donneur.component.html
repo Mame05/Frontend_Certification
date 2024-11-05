@@ -1,26 +1,15 @@
 <div class="donneur-container">
   
     <h2 class="donneur-title">Liste des donneurs</h2>
-  
-    <!-- Filtrage des structures -->
-    <!--<div class="d-flex mb-3 ">
-      <div class="flex-grow-1">
-        <select id="filterCriteria" class="form-select" (change)="onFilterChange()">
-          <option value="">Choisir un critère</option>
-          <option value="nom">Nom de la structure</option>
-        </select>
-      </div>
-      <input type="text" [(ngModel)]="filterValue" [placeholder]="getPlaceholder()" (input)="applyFilters()" class="form-control " placeholder="Entrez le mot">
-    </div>-->
      <!-- Sélection du type de donneur -->
-  <div class="d-flex mb-3">
-    <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select me-2">
-      <option value="all">Tous les donneurs</option>
-      <option value="utilisateurs">Utilisateurs Simples</option>
-      <option value="donneursExternes">Donneurs Externes</option>
-    </select>
-    <input type="text" [(ngModel)]="filterValue" (input)="applyFilters()" class="form-control" placeholder="Filtrer par nom, téléphone, etc.">
-  </div>
+     <div class="filter-container">
+      <select [(ngModel)]="selectedType" (change)="applyFilters()" class="form-select">
+          <option value="all">Tous les donneurs</option>
+          <option value="utilisateurs">Utilisateurs Simples</option>
+          <option value="donneursExternes">Donneurs Externes</option>
+      </select>
+      <input type="text" [(ngModel)]="filterValue" (input)="applyFilters()" class="form-control" placeholder="Filtrer par nom, téléphone, etc.">
+    </div>
     <table class="donneur-table table table-hover ">
       <thead>
         <tr>

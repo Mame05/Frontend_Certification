@@ -53,3 +53,47 @@
 .icon-link:hover {
     color: #DF2C26;
 }
+
+/* Conteneur pour les filtres */
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Style pour le sélecteur de filtre */
+.filter-dropdown {
+    flex: 1;
+    max-width: 45%;
+}
+
+.filter-dropdown label {
+    font-weight: bold;
+    color: #1D3557;
+    margin-right: 5px;
+}
+
+.filter-dropdown select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style pour le champ de recherche */
+.search-input {
+    flex: 1;
+    max-width: 45%;
+}
+
+.search-input input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
