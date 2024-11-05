@@ -1,0 +1,7 @@
+/* graphique-groupe-sanguin.component.css */
+#myChart {
+    max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
+    height: 400px; /* Ajustez la hauteur selon vos besoins */
+    margin: auto; /* Centrer le graphique */
+  }
+  

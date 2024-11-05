@@ -1,49 +1,93 @@
-.stat-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto ;
-    font-family: Montserrat, sans-serif;
-
-}
-
-.left-table, .right-table {
-    width: 45%;
-}
-
-h2 {
+/* Styles généraux */
+.statistique-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
     text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #1D3557;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    border: 1px solid #1D3557;
-
-}
-
-.table th {
-    background-color: #1D3557;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.table th, 
-.table td {
-    padding: 10px;
-}
-
-.table tr {
-    color: #1D3557;
-    font-weight: 400;
-    font-size: 18px;
-    border: 1px solid #1D3557;
   }
-
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Grille de disposition pour les graphiques */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Style commun de carte pour chaque graphique */
+  .chart-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chart-card h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-top: 15px;
+  }
+  
+  /* Styles spécifiques pour chaque graphique */
+  
+  /* Graphique mensuel */
+  .monthly-chart {
+    border-left: 5px solid #ff6384; /* Rouge léger */
+  }
+  
+  .monthly-chart h2 {
+    color: #ff6384;
+  }
+  
+  /* Graphique de répartition par sexe */
+  .gender-chart {
+    border-left: 5px solid #36a2eb; /* Bleu */
+    background-image: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  }
+  
+  .gender-chart h2 {
+    color: #1e88e5;
+  }
+  
+  /* Graphique de répartition par groupe sanguin */
+  .blood-group-chart {
+    border-left: 5px solid #ffcd56; /* Jaune */
+    background-image: linear-gradient(135deg, #fff9e6, #ffecb3);
+  }
+  
+  .blood-group-chart h2 {
+    color: #ffb300;
+  }
+  
+  /* Graphique de répartition par tranche d'âge */
+  .age-range-chart {
+    border-left: 5px solid #4bc0c0; /* Vert d'eau */
+    background-image: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  }
+  
+  .age-range-chart h2 {
+    color: #00897b;
+  }
+  
+  /* Ajustement pour petits écrans */
+  @media (max-width: 768px) {
+    .chart-card {
+      height: auto;
+    }
+  }
+  

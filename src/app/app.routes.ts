@@ -32,6 +32,9 @@ import { ListPocheSangComponent } from './components/Structure/list-poche-sang/l
 import { DetailPocheSangComponent } from './components/Structure/detail-poche-sang/detail-poche-sang.component';
 import { UpdateRendezVousComponent } from './components/Structure/update-rendez-vous/update-rendez-vous.component';
 import { UpdatePocheRendezVousComponent } from './components/Structure/update-poche-rendez-vous/update-poche-rendez-vous.component';
+import { GraphiqueSexeComponent } from './components/Structure/graphique-sexe/graphique-sexe.component';
+import { GraphiqueGroupeSanguinComponent } from './components/Structure/graphique-groupe-sanguin/graphique-groupe-sanguin.component';
+import { GraphiqueTrancheAgeComponent } from './components/Structure/graphique-tranche-age/graphique-tranche-age.component';
 
 
 export const routes: Routes = [
@@ -79,7 +82,9 @@ export const routes: Routes = [
     { path: 'poche-sang/modifier-poche-sang-DE/:id', component: PocheSangFormComponent},
     { path: 'update-etat/:id', component: UpdateRendezVousComponent }, // Route pour changer l'état du rendez-vous et ajouter la poche.
     { path: 'poche-sang/modifier-poche-sang-US/:id', component: UpdatePocheRendezVousComponent},
-    { path: 'statistique', component: StatistiqueComponent }
+    { path: 'statistique', component: StatistiqueComponent },
+    { path: 'graphSexe', component: GraphiqueSexeComponent},
+    { path: 'graphBlood', component: GraphiqueGroupeSanguinComponent}
   ]
 },
 
