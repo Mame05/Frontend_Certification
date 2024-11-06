@@ -7,9 +7,7 @@ import { apiUrl } from './apiUrl';
 })
 export class DonneurExterneService {
   private http = inject(HttpClient);
-  @Injectable({
-    providedIn: 'root'
-  })
+
   // Méthode pour obtenir tous les donneurs externes
   getDonneurExternes() {
     const token = localStorage.getItem('access_token');

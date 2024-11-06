@@ -7,9 +7,7 @@ import { apiUrl } from './apiUrl';
 })
 export class BanqueSangService {
   private http = inject(HttpClient);
-  @Injectable({
-    providedIn: 'root'
-  })
+ 
    // Méthode pour obtenir toutes les banques de sang
    getBanques() {
     const token = localStorage.getItem('access_token');

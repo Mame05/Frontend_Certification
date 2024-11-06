@@ -7,9 +7,7 @@ import { apiUrl } from './apiUrl';
 })
 export class PocheSangService {
   private http = inject(HttpClient);
-  @Injectable({
-    providedIn: 'root'
-  })
+
    // Méthode pour obtenir toutes les poches de sang
    getPoches() {
     const token = localStorage.getItem('access_token');

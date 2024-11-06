@@ -9,9 +9,7 @@ import { apiUrl } from './apiUrl';
 })
 export class StructureService {
   private http = inject(HttpClient);
-  @Injectable({
-    providedIn: 'root'
-  })
+
   //constructor(private http: HttpClient) { }
 
    // Obtenir toutes les structures

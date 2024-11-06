@@ -8,9 +8,7 @@ import { apiUrl } from './apiUrl';
 export class RendezVousService {
   //constructor() { }
   private http = inject(HttpClient);
-  @Injectable({
-    providedIn: 'root'
-  })
+ 
    // Récupérer tous les rendez-vous pour chaque structure
     getRendezVouss() {
     const token = localStorage.getItem('access_token');

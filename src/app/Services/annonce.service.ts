@@ -10,9 +10,7 @@ export class AnnonceService {
   //constructor() { }
   private http = inject(HttpClient);
   private annonceAjouteSubject = new Subject<void>();
-  @Injectable({
-    providedIn: 'root'
-  })
+
   // Méthode pour notifier les composants d'un changement
   notifyAnnonceAjoute() {
     this.annonceAjouteSubject.next();
