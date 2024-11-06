@@ -39,7 +39,8 @@
         <ul>
           <li *ngFor="let notification of notifications"><span [class.lue]="notification.lue">{{ notification.contenu }}</span>
             <div class="d-flex justify-content-between mt-2">
-              <button class="btn btn-success btn-sm" (click)="markAsRead(notification.id)">Marquer comme lu</button>
+              <a [routerLink]="['/detail-annonce-user', notification.annonce_id]" (click)="markAsRead(notification.id)"  class="btn btn-success btn-sm"  data-bs-dismiss="modal" aria-label="Close">S'inscrire</a>
+
               <button class="btn btn-danger btn-sm" (click)="deleteNotification(notification.id)">Supprimer</button>
             </div>
           </li>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NotificationAnnonceService } from '../../../Services/notification-annonce.service';
 
@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
       modalInstance.show();
     }
   }
-  
+
   
 
   // Marquer une notification comme lue

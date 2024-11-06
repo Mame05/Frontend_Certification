@@ -32,7 +32,6 @@
               </div>
           </div>
       </section>
-
       <section class="don-history">
           <h2>Historique de mes dons
             <div class="border2"></div>
@@ -44,27 +43,10 @@
                   <p><span class="iconify" data-icon="icomoon-free:location"></span>{{ annonce.annonce.adresse_lieu}}</p>
                 </div>
                 <span *ngIf="annonce.etat">Effectuée</span><span *ngIf="!annonce.etat">Non effectuée</span>
-                <button (click)="supprimerHistorique(annonce.id)" class="delete-btn">Supprimer</button>
               </div>
           </div>
       </section>
   </div>
 </section>
-<!--<h2>Inscriptions en cours</h2>
-<ul>
-  <li *ngFor="let annonce of inscriptionsEnCours">
-    {{ annonce.annonce.titre }} - {{ annonce.annonce.date_fin }}
-    <button (click)="annulerInscription(annonce.id)">Annuler</button>
-  </li>
-</ul>
-
-<h2>Historique des inscriptions</h2>
-<ul>
-  <li *ngFor="let annonce of historiqueInscriptions">
-    {{ annonce.annonce.titre }} - {{ annonce.annonce.date_fin }} -  <span *ngIf="annonce.etat">Effectuée</span>
-    <span *ngIf="!annonce.etat">Non effectuée</span>
-    <button (click)="supprimerHistorique(annonce.id)">Supprimer</button>
-  </li>
-</ul>-->
 <app-footer></app-footer>
 
