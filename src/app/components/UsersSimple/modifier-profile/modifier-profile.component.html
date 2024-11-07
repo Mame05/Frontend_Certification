@@ -1,8 +1,27 @@
 <app-header></app-header>
+<!-- Section de la bannière -->
+<section class="banner">   
+</section>
+<!-- Section de la carte de profil -->
+<div class="container profile-card-container">
+  <div class="profile-card">
+    <!-- Profil Image -->
+    <div class="profile-image">
+      <img src="assets/default-profile.jpg" alt="Photo de profil" id="profile-photo" />
+    </div>
+    <!-- Informations Utilisateur -->
+    <div class="profile-info">
+      <!-- <h3>{{ utilisateur.nom }} {{ utilisateur.prenom }}</h3>
+      <p><strong>Email:</strong> {{ utilisateur.email }}</p>
+      <p><strong>Téléphone:</strong> {{ utilisateur.telephone }}</p>
+      <p><strong>Profession:</strong> {{ utilisateur.profession }}</p>
+      <p><strong>Groupe Sanguin:</strong> {{ utilisateur.groupe_sanguin || 'Non spécifié' }}</p> -->
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="profile-form-container">
-    <h2>Modifier le profil</h2>
-    
+    <h2>Modifier le profil</h2>  
     <form [formGroup]="profileForm" (ngSubmit)="submitProfile()" novalidate>
       <div class="form-group">
         <label for="email">Email</label>

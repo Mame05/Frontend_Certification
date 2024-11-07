@@ -1,3 +1,82 @@
+*
+ {
+    font-family: Montserrat,sans-serif;
+    margin: 0;
+    padding: 0;
+ }
+
+/* Bannière */
+.banner {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/profil.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+        /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+        background-size: cover; /* Ajuste l'image pour couvrir l'élément */
+        background-position: center; /* Centre l'image */
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #ffffff;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-card-container {
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  width: 100%;
+  transition: box-shadow 0.3s;
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.profile-image {
+  flex: 1;
+  max-width: 150px;
+  padding: 10px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.profile-info h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.profile-info p strong {
+  color: #333;
+}
 .container {
     max-width: 600px;
     margin: 20px auto;
@@ -24,4 +103,14 @@
   button {
     width: 100%;
   }
+  /* Responsive styling */
+@media (max-width: 768px) {
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-info {
+    padding-left: 0;
+  }
+}
   
