@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { AnnonceService } from '../../../Services/annonce.service';
 
 
 @Component({
@@ -19,12 +20,17 @@ export class ModifierProfileComponent implements OnInit {
   profileForm!: FormGroup;
   loading = false;
   initialProfile: any;
+  utilisateur: any = {}; // Déclarer l'objet utilisateur
+  nombreDeDons :number | null = null;
+  groupeSanguin: string | null = null;
+  photoUrl: string = 'assets/images/profil1.png'; // Image par défaut
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private annonceService: AnnonceService) {}
 
   ngOnInit(): void {
     this.initForm();
     this.loadProfile();
+    this.loadDonationInfo();
   }
 
   // Initialiser le formulaire avec des validations
@@ -61,14 +67,30 @@ export class ModifierProfileComponent implements OnInit {
             groupe_sanguin: data.groupe_sanguin,
         };
         this.profileForm.patchValue(this.initialProfile);
-    },
+      },
       (error) => {
         Swal.fire('Erreur', 'Impossible de charger le profil.', 'error');
       }
     );
   }
-
-
+  // Charger les informations des dons et du groupe sanguin
+  loadDonationInfo() {
+    this.annonceService.getUtilisateursWithCompletedInscriptions().subscribe(
+        (response: any) => {
+            if (response.status && response.utilisateur) {
+                this.utilisateur = response.utilisateur;
+                this.groupeSanguin = this.utilisateur.groupe_sanguin || 'Non spécifié';
+                this.nombreDeDons = this.utilisateur.nombre_de_dons ?? 'Non spécifié';
+                this.photoUrl = this.utilisateur.photoUrl || 'assets/images/profil1.png';
+            } else {
+                console.error('Les informations utilisateur sont manquantes dans la réponse.');
+            }
+        },
+        (error) => {
+            console.error('Erreur lors de la récupération des informations utilisateur :', error);
+        }
+    );
+}
   submitProfile() {
     if (this.profileForm.invalid) {
       Swal.fire('Erreur', 'Veuillez vérifier les champs du formulaire.', 'error');
@@ -79,6 +101,7 @@ export class ModifierProfileComponent implements OnInit {
     console.log('Initial Profile:', this.initialProfile); // Vérifiez les valeurs initiales
 
     this.loading = true;
+    
 
     // Créer une instance de FormData
     const formData = new FormData();
@@ -98,18 +121,24 @@ export class ModifierProfileComponent implements OnInit {
       profession: this.profileForm.get('profession')?.value,
       groupe_sanguin: this.profileForm.get('groupe_sanguin')?.value,
   };
-  console.log('data', currentProfile)
-    // Ajoutez seulement les champs qui ont été modifiés
-    Object.keys(this.profileForm.value).forEach(key => {
-      const value = this.profileForm.get(key)?.value;
+  console.log('Current Profile Data:', currentProfile)
+   // Append each profile field to FormData
+   for (const key in currentProfile) {
+    if (currentProfile.hasOwnProperty(key)) {
+      const profileKey = key as ProfileKeys;
+      const value = currentProfile[profileKey];
       if (value) {
-          formData.append(key, value);
+        formData.append(profileKey, value);
       }
-  });
+    }
+  }
+   // Handle photo file upload
+   const photo = this.profileForm.get('photo')?.value;
+   if (photo) {
+       formData.append('photo', photo, photo.name); // Add the photo file with its name
+   }
 
-
-    
-
+   // Envoi du formulaire avec le FormData
     this.authService.updateProfile(currentProfile).subscribe(
       (response) => {
         if (response.status) {
@@ -128,68 +157,6 @@ export class ModifierProfileComponent implements OnInit {
       }
     );
   }
-  // Soumettre le formulaire de mise à jour
-  // submitProfile() {
-  //   if (this.profileForm.invalid) {
-  //     Swal.fire('Erreur', 'Veuillez vérifier les champs du formulaire.', 'error');
-  //     console.log(this.profileForm.errors); // Ajout d'un log pour vérifier les erreurs du formulaire
-  //     return;
-  //   }
-  //   console.log(this.profileForm.value); // Vérifiez les données ici
-  //   console.log('Initial Profile:', this.initialProfile); // Vérifiez les valeurs initiales
-
-  //   this.loading = true;
-
-  //   // Créer une instance de FormData
-  //   const formData = new FormData();
-
-  // //     // Type définissant les propriétés de l'objet profile
-  //     type ProfileKeys = 'email' | 'nom' | 'prenom' | 'telephone' | 'adresse' | 'sexe' | 'date_naiss' | 'profession' | 'groupe_sanguin';
-
-  // //   // Comparez les valeurs actuelles avec les valeurs du formulaire
-  //   const currentProfile: Record<ProfileKeys, any> = {
-  //     email: this.profileForm.get('email')?.value,
-  //     nom: this.profileForm.get('nom')?.value,
-  //     prenom: this.profileForm.get('prenom')?.value,
-  //     telephone: this.profileForm.get('telephone')?.value,
-  //     adresse: this.profileForm.get('adresse')?.value,
-  //     sexe: this.profileForm.get('sexe')?.value === 'M' ? 'M' : 'F',
-  //     date_naiss: this.profileForm.get('date_naiss')?.value,
-  //     profession: this.profileForm.get('profession')?.value,
-  //     groupe_sanguin: this.profileForm.get('groupe_sanguin')?.value,
-  // };
-  //   // Ajoutez seulement les champs qui ont été modifiés
-  //   Object.keys(this.profileForm.value).forEach(key => {
-  //     const value = this.profileForm.get(key)?.value;
-  //     if (value) {
-  //         formData.append(key, value);
-  //     }
-  // });
-
-
-  //   // const photoControl = this.profileForm.get('photo');
-  //   // if (photoControl?.value) {
-  //   //   formData.append('photo', photoControl.value);
-  //   // }
-
-  //   this.authService.updateProfile(formData).subscribe(
-  //     (response) => {
-  //       if (response.status) {
-  //         Swal.fire('Succès', 'Profil mis à jour avec succès.', 'success');
-  //          // Rechargez les données du profil après la mise à jour
-  //          this.loadProfile();
-  //       } else {
-  //         Swal.fire('Erreur', response.message, 'error');
-  //       }
-  //       this.loading = false;
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //       Swal.fire('Erreur', 'Erreur lors de la mise à jour du profil.', 'error');
-  //       this.loading = false;
-  //     }
-  //   );
-  // }
 
   // Gestion du changement de fichier photo
   onFileChange(event: any) {
