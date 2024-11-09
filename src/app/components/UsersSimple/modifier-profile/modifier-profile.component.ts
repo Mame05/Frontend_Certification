@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../../Services/Auth/auth.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
@@ -37,18 +37,19 @@ export class ModifierProfileComponent implements OnInit {
   initForm() {
     this.profileForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.minLength(8)]],
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
-      telephone: ['', [Validators.required, Validators.pattern(/^\d{2}\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
-      adresse:[''],
-      sexe: [''],
-      date_naiss: [''],
-      photo: [null],
-      profession: [''],
-      groupe_sanguin: ['']
+      password: ['', [Validators.required, Validators.minLength(8),Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/)]],
+      nom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      prenom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      telephone: ['', [Validators.required, Validators.pattern(/^(77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
+      adresse:['',[Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      sexe: ['', Validators.required],
+      date_naiss: ['',[Validators.required, this.ageValidator]],
+      photo: [null, this.imageValidator],
+      profession: ['',[Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      groupe_sanguin: ['', Validators.required]
     });
   }
+  
 
   // Charger les informations du profil utilisateur
   loadProfile() {
@@ -159,13 +160,32 @@ export class ModifierProfileComponent implements OnInit {
   }
 
   // Gestion du changement de fichier photo
-  onFileChange(event: any) {
+  onPhotoChange(event: any) {
     const file = event.target.files[0];
     if (file) {
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+      const isValidType = allowedTypes.includes(file.type);
       this.profileForm.patchValue({
         photo: file
       });
+      const photoControl = this.profileForm.get('photo');
+      if (photoControl) {
+        photoControl.setErrors(isValidType ? null : { invalidImage: true });
+      }
     }
+  }
+  private ageValidator(control: AbstractControl): ValidationErrors | null {
+    const dateOfBirth = new Date(control.value);
+    const age = new Date().getFullYear() - dateOfBirth.getFullYear();
+    return age >= 18 && age <= 50 ? null : { ageNotAllowed: true };
+  }
+  imageValidator(control: FormControl) {
+    const file = control.value;
+    if (file && file instanceof File) {
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+      return allowedTypes.includes(file.type) ? null : { invalidImage: true };
+    }
+    return null;
   }
 
 }

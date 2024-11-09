@@ -33,7 +33,7 @@
         <label for="password">Mot de passe</label>
         <input type="password" id="password" class="form-control" formControlName="password" placeholder="Laissez vide pour ne pas changer" />
         <div *ngIf="profileForm.get('password')?.invalid && profileForm.get('password')?.touched" class="error">
-          Le mot de passe doit contenir au moins 8 caractères
+          Le mot de passe doit contenir au moins 8 caractères, incluant des lettres et des chiffres.
         </div>
       </div>
 
@@ -41,7 +41,7 @@
         <label for="nom">Nom</label>
         <input type="text" id="nom" class="form-control" formControlName="nom" placeholder="Entrez votre nom" />
         <div *ngIf="profileForm.get('nom')?.invalid && profileForm.get('nom')?.touched" class="error">
-          Le nom est requis
+          Nom invalide (Le nom doit être valide et commencer par une majuscule).
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         <label for="prenom">Prénom</label>
         <input type="text" id="prenom" class="form-control" formControlName="prenom" placeholder="Entrez votre prénom" />
         <div *ngIf="profileForm.get('prenom')?.invalid && profileForm.get('prenom')?.touched" class="error">
-          Le prénom est requis
+          Prénom invalide (Le prénom doit être valide et commencer par une majuscule).
         </div>
       </div>
 
@@ -57,19 +57,21 @@
         <label for="telephone">Téléphone</label>
         <input type="text" id="telephone" class="form-control" formControlName="telephone" placeholder="Entrez votre numéro de téléphone" />
         <div *ngIf="profileForm.get('telephone')?.invalid && profileForm.get('telephone')?.touched" class="error">
-          Numéro de téléphone invalide
+          Numéro de téléphone invalide (format : 77 000 00 00).
         </div>
       </div>
 
       <div class="form-group">
         <label for="adresse">Adresse</label>
         <input type="text" id="adresse" class="form-control" formControlName="adresse" placeholder="Entrez votre adresse" />
+        <div *ngIf="profileForm.get('adresse')?.invalid && profileForm.get('adresse')?.touched" class="error">
+          Le champ adresse doit contenir uniquement des lettres, des chiffres, et ne doit pas être vide.
+        </div>
       </div>
 
       <div class="form-group">
         <label for="sexe">Sexe</label>
-        <select id="sexe" class="form-control" formControlName="sexe">
-          
+        <select id="sexe" class="form-control" formControlName="sexe">  
           <option value="M">Homme</option>
           <option value="F">Femme</option>
         </select>
@@ -78,21 +80,39 @@
       <div class="form-group">
         <label for="date_naiss">Date de Naissance</label>
         <input type="date" id="date_naiss" class="form-control" formControlName="date_naiss" />
+        <div *ngIf="profileForm.get('date_naiss')?.invalid && profileForm.get('date_naiss')?.touched" class="error">
+          Vous devez être agé(e)s entre 18 et 50 ans.
+        </div>
       </div>
 
       <div class="form-group">
         <label for="profession">Profession</label>
         <input type="text" id="profession" class="form-control" formControlName="profession" placeholder="Entrez votre profession" />
+        <div *ngIf="profileForm.get('profession')?.invalid && profileForm.get('profession')?.touched" class="error">
+          Le champ profession doit contenir uniquement des lettres, des chiffres, et ne doit pas être vide.
+        </div>
       </div>
 
       <div class="form-group">
         <label for="groupe_sanguin">Groupe Sanguin</label>
-        <input type="text" id="groupe_sanguin" class="form-control" formControlName="groupe_sanguin" placeholder="Entrez votre groupe sanguin" />
+        <select id="groupe_sanguin" formControlName="groupe_sanguin" class="form-control" required>
+          <option value="" selected disabled>Sélectionner votre groupe sanguin</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
       </div>
-
       <div class="form-group">
         <label for="photo">Photo</label>
-        <input type="file" id="photo" class="form-control" (change)="onFileChange($event)" />
+        <input type="file" id="photo" class="form-control" (change)="onPhotoChange($event)" class="form-control"  />
+        <div *ngIf="profileForm.get('photo')?.errors?.['invalidImage']" class="error">
+          Seuls les fichiers JPEG et PNG sont autorisés.
+        </div>
       </div>
 
       <button type="submit" class="btn btn-primary" [disabled]="loading || profileForm.invalid">

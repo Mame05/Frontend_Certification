@@ -122,4 +122,9 @@ input[type="password"] {
     font-weight: 500;
     text-decoration: underline;
 }
+.error {
+    color: #df2c26;
+    font-size: 14px;
+    margin-top: 5px;
+  }
   
