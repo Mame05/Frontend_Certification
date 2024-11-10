@@ -5,10 +5,20 @@
             <div class="form-group">
                 <label for="titre">Titre</label>
                 <input type="text" id="titre" formControlName="titre" placeholder="Titre">
+                <div *ngIf="annonceForm.get('titre')?.hasError('required')" class="error">
+                    Le titre est obligatoire.
+                  </div>
+                  <div *ngIf="annonceForm.get('titre')?.hasError('pattern')" class="error">
+                    Le titre doit commencer par une lettre majuscule et doit contenir que des lettres.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="nom_lieu">Lieu de collecte</label>
                 <input type="text" id="nom_lieu" formControlName="nom_lieu" placeholder="Nom du lieu">
+                <div *ngIf="annonceForm.get('nom_lieu')?.errors && annonceForm.get('nom_lieu')?.touched" class="error">
+                    <span *ngIf="annonceForm.get('nom_lieu')?.hasError('required')">Ce champ est requis.</span>
+                    <span *ngIf="annonceForm.get('nom_lieu')?.hasError('pattern')">Le nom du lieu doit commencer par une lettre majuscule et peut contenir des lettres, chiffres et espaces.</span>
+                  </div>
             </div>
         </div>
 
@@ -20,10 +30,17 @@
                     <option value="collecte">Collecte</option>
                     <option value="besoin_urgence">Besoin Urgence</option>
                 </select>
+                <div *ngIf="annonceForm.get('type_annonce')?.hasError('required')" class="error">
+                    Le type d'annonce est obligatoire.
+                </div>
             </div>
             <div class="form-group">
                 <label for="adresse_lieu">Adresse du lieu</label>
                 <input type="text" id="adresse_lieu" formControlName="adresse_lieu" placeholder="Adresse du lieu">
+                <div *ngIf="annonceForm.get('adresse_lieu')?.errors && annonceForm.get('adresse_lieu')?.touched" class="error">
+                    <span *ngIf="annonceForm.get('adresse_lieu')?.hasError('required')">Ce champ est requis.</span>
+                    <span *ngIf="annonceForm.get('adresse_lieu')?.hasError('pattern')">L'adresse doit commencer par une lettre majuscule et peut contenir des lettres, chiffres et espaces.</span>
+                  </div>
             </div>
             
         </div>
@@ -32,6 +49,15 @@
             <div class="form-group">
                 <label for="date_debut">Date de début</label>
                 <input type="date" id="date_debut" formControlName="date_debut">
+                <div *ngIf="annonceForm.get('date_debut')?.hasError('required')" class="error">
+                    La date de début est obligatoire.
+                  </div>
+                  <div *ngIf="annonceForm.get('date_debut')?.hasError('dateInThePast')" class="error">
+                    La date de début ne peut pas être dans le passé.
+                  </div>
+                  <div *ngIf="annonceForm.get('date_debut')?.hasError('dateTooFar')" class="error">
+                    La date de début ne peut pas dépasser un an à partir d'aujourd'hui.
+                  </div>
             </div>
             <div class="form-group">
                 <label for="groupe_sanguin_requis">Groupe sanguin requis</label>
@@ -47,6 +73,9 @@
                     <option value="O-">O-</option>
                     <option value="Tous les groupes">Tous les groupes</option>
                 </select>
+                <div *ngIf="annonceForm.get('groupe_sanguin_requis')?.hasError('required')" class="error">
+                    Le groupe sanguin est obligatoire.
+                </div>
             </div>
         </div>
 
@@ -54,10 +83,28 @@
             <div class="form-group">
                 <label for="date_fin">Date de la fin</label>
                 <input type="date" id="date_fin" formControlName="date_fin">
+                <div *ngIf="annonceForm.get('date_fin')?.hasError('required')" class="error">
+                    La date de fin est obligatoire.
+                </div>
+                <div *ngIf="annonceForm.get('date_fin')?.hasError('dateFinBeforeDebut')" class="error">
+                    La date de fin doit être après la date de début.
+                </div>
+                <div *ngIf="annonceForm.get('date_fin')?.hasError('dateDiffTooLong')" class="error">
+                    La date de fin ne doit pas dépasser 7 jours après la date de début.
+                </div>
             </div>
             <div class="form-group">
                 <label for="nombre_poches_vise">Nombre de poches visées</label>
                 <input type="number" id="nombre_poches_vise" formControlName="nombre_poches_vise" placeholder="Nombre de poches visées">
+                <div *ngIf="annonceForm.get('nombre_poches_vise')?.hasError('required')" class="error">
+                    Le nombre de poches est obligatoire.
+                </div>
+                <div *ngIf="annonceForm.get('nombre_poches_vise')?.hasError('min')" class="error">
+                    Le nombre de poches doit être au moins de 4.
+                </div>
+                <div *ngIf="annonceForm.get('nombre_poches_vise')?.hasError('max')" class="error">
+                    Le nombre de poches ne peut pas dépasser 1000.
+                </div>
             </div>
         </div>
 
@@ -65,10 +112,21 @@
             <div class="form-group">
                 <label for="heure_debut">Heure de début</label>
                 <input type="time" id="heure_debut" formControlName="heure_debut">
+                <div *ngIf="annonceForm.get('heure_debut')?.hasError('required')" class="error">
+                    L'heure de début est obligatoire.
+                </div>
+                <div *ngIf="annonceForm.get('heure_debut')?.hasError('invalidHeureDebut')" class="error">
+                    L'heure de début doit être entre 08:00 et 11:00.
+                </div>
             </div>
             <div class="form-group description-group">
                 <label for="description">Description</label>
                 <textarea id="description" formControlName="description" placeholder="Description de l'annonce"></textarea>
+                <div *ngIf="annonceForm.get('description')?.errors && annonceForm.get('description')?.touched" class="error">
+                    <span *ngIf="annonceForm.get('description')?.hasError('required')">Ce champ est requis.</span>
+                    <span *ngIf="annonceForm.get('description')?.hasError('minlength')">La description doit contenir au moins 15 caractères.</span>
+                    <span *ngIf="annonceForm.get('description')?.hasError('maxlength')">La description ne peut pas dépasser 500 caractères.</span>
+                </div>
             </div>
         </div>
 
@@ -76,10 +134,22 @@
             <div class="form-group">
                 <label for="heure_fin">Heure de la fin</label>
                 <input type="time" id="heure_fin" formControlName="heure_fin">
+                <div *ngIf="annonceForm.get('heure_fin')?.hasError('required')" class="error">
+                    L'heure de fin est obligatoire.
+                </div>
+                <div *ngIf="annonceForm.get('heure_fin')?.hasError('invalidHeureFin')" class="error">
+                    L'heure de fin doit être entre 16:00 et 19:00.
+                </div>
             </div>
             <div class="form-group">
                 <label for="contact_resposable">Contact du responsable</label>
                 <input type="text" id="contact_responsable" formControlName="contact_responsable" placeholder="Contact responsable collecte">
+                <div *ngIf="annonceForm.get('contact_responsable')?.hasError('required')" class="error">
+                    Le contact est obligatoire.
+                </div>
+                <div *ngIf="annonceForm.get('contact_responsable')?.hasError('pattern')" class="error">
+                    Le contact doit être au format sénégalais (77, 78, 76, 75, 70).
+                </div>
             </div>
             
         </div>

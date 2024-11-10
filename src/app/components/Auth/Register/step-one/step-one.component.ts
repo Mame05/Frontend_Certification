@@ -21,7 +21,7 @@ export class StepOneComponent {
       prenom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
       sexe:['', Validators.required],
       date_naiss: ['',[Validators.required, this.ageValidator]],
-      adresse: ['', [Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      adresse: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÿ0-9 ,.'-]+$/)]],
       telephone: ['', [Validators.required, Validators.pattern(/^(77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
     });
   }

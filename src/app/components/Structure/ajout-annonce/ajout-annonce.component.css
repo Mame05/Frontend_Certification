@@ -86,3 +86,8 @@ textarea {
     background-color: #DF2C26;
     color: #ffffff; 
 }
+.error {
+    color: #df2c26;
+    font-size: 14px;
+    margin-top: 5px;
+  }
