@@ -13,9 +13,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './update-rendez-vous.component.css'
 })
 export class UpdateRendezVousComponent implements OnInit  {
-  rendezVousId: number;
+  rendezVousId!: number;
   rendezVousForm!: FormGroup;
   banques: any[] = []; // Liste des banques de sang récupérées de l'API
+  dateDebut!: string;
+  dateFin!: string;
+  annoncesDates: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -24,15 +27,27 @@ export class UpdateRendezVousComponent implements OnInit  {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.rendezVousId = this.route.snapshot.params['id'];
+      //this.rendezVousId = this.route.snapshot.params['id'];
+      
   }
   ngOnInit(): void {
+    this.rendezVousId = Number(this.route.snapshot.paramMap.get('id')); // Récupérer l'ID du rendez-vous depuis l'URL
+
+    // Appeler le service pour récupérer les données du rendez-vous
+    this.rendezVousService.getRendezVousWithAnnonceDates(this.rendezVousId).subscribe((response) => {
+      console.log(response); // Vérifiez la réponse de l'API
+      this.dateDebut = response.dateDebut;
+      this.dateFin = response.dateFin;
+
+      // Appel de la méthode pour générer la liste des dates
+      this.loadAnnonceDates(this.dateDebut, this.dateFin);
+    });
     // Initialiser le formulaire
     this.rendezVousForm = this.fb.group({
       etat: [null, Validators.required],
-      groupe_sanguin: [''],
-      date_prelevement: [''],
-      banque_sang_id: ['']
+      groupe_sanguin: ['', Validators.required],
+      date_prelevement: ['', Validators.required],
+      banque_sang_id: ['', Validators.required]
     });
    // Ecouter les changements de valeur du champ 'etat' pour ajuster les validations
 
@@ -70,6 +85,22 @@ export class UpdateRendezVousComponent implements OnInit  {
       }
     });
   }
+  // Méthode pour générer les dates entre dateDebut et dateFin
+  loadAnnonceDates(dateDebut: string, dateFin: string) {
+    const startDate = new Date(dateDebut);
+    const endDate = new Date(dateFin);
+    const dates = [];
+
+    // Remplir la liste des dates entre dateDebut et dateFin
+    for (let i = 0; i <= (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24); i++) {
+      const newDate = new Date(startDate);
+      newDate.setDate(startDate.getDate() + i);
+      dates.push(newDate.toISOString().split('T')[0]); // Format 'YYYY-MM-DD'
+    }
+
+    this.annoncesDates = dates;
+    console.log('Dates générées :', this.annoncesDates); // Vérifiez que les dates sont générées correctement
+  }
   // Méthode pour mettre à jour l'état du rendez-vous
   updateEtat() {
     if (this.rendezVousForm.invalid) {
@@ -104,4 +135,3 @@ export class UpdateRendezVousComponent implements OnInit  {
   }
 
 }
-

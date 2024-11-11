@@ -7,10 +7,10 @@
                 <input type="text" id="titre" formControlName="titre" placeholder="Titre">
                 <div *ngIf="annonceForm.get('titre')?.hasError('required')" class="error">
                     Le titre est obligatoire.
-                  </div>
-                  <div *ngIf="annonceForm.get('titre')?.hasError('pattern')" class="error">
+                </div>
+                <div *ngIf="annonceForm.get('titre')?.hasError('pattern')" class="error">
                     Le titre doit commencer par une lettre majuscule et doit contenir que des lettres.
-                  </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="nom_lieu">Lieu de collecte</label>

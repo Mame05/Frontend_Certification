@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PocheSangService } from '../../../Services/poche-sang.service';
 import { BanqueSangService } from '../../../Services/banque-sang.service';
@@ -34,21 +34,40 @@ export class PocheSangFormComponent implements OnInit{
     private router: Router
   ) {
     this.pocheSangForm = this.fb.group({
-      //numero_poche: ['', Validators.required],
       groupe_sanguin: ['', Validators.required],
-      date_prelevement: ['', Validators.required],
+      date_prelevement: ['', [Validators.required, this.datePrelevementValidator]],
       banque_sang_id: ['', Validators.required],
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
+      nom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      prenom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
       sexe: ['', Validators.required],
-      date_naiss: ['', Validators.required],
-      adresse: ['', Validators.required],
-      telephone: ['', Validators.required],
-      profession: ['', Validators.required],
+      date_naiss: ['', [Validators.required, this.ageValidator]],
+      adresse: ['', [Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
+      telephone: ['', [Validators.required, Validators.pattern(/^(77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
+      profession: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
       rendez_vouse_id: [''],
       donneur_externe_id: [''] // Champ caché pour stocker l'ID du donneur externe  
     });
   }
+  // Validators
+  private datePrelevementValidator(control: AbstractControl): ValidationErrors | null {
+    const datePrelevement = new Date(control.value);
+    const today = new Date();
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(today.getMonth() - 6);
+
+    if (datePrelevement > today) {
+      return { futureDateNotAllowed: true };
+    } else if (datePrelevement < sixMonthsAgo) {
+      return { dateTooOld: true };
+    }
+    return null;
+  }
+  
+private ageValidator(control: AbstractControl): ValidationErrors | null {
+  const dateOfBirth = new Date(control.value);
+  const age = new Date().getFullYear() - dateOfBirth.getFullYear();
+  return age >= 18 && age <= 50 ? null : { ageNotAllowed: true };
+}
 
   ngOnInit() {
     this.loadBanquesSang();
