@@ -48,5 +48,14 @@ export class RendezVousService {
     });
     return this.http.put(`${apiUrl}/poche-sanguin/${pocheId}`, data, {headers});
   }
+
+   // Méthode pour récupérer les détails du rendez-vous avec les dates de l'annonce
+   getRendezVousWithAnnonceDates(rendezVousId: number) {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${apiUrl}/rendezvous/${rendezVousId}`, {headers});
+  }
   
 }

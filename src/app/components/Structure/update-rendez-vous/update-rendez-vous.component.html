@@ -1,38 +1,39 @@
 <div>
-    <h2>Modifier l'état du Rendez-vous #{{ rendezVousId }}</h2>
-  
-    <form [formGroup]="rendezVousForm" (ngSubmit)="updateEtat()">
-      <label for="etat">État du Rendez-vous</label>
-      <select formControlName="etat">
-        <option [value]="true">Effectué</option>
+  <h2>Modifier l'état du Rendez-vous #{{ rendezVousId }}</h2>
+
+  <form [formGroup]="rendezVousForm" (ngSubmit)="updateEtat()">
+    <label for="etat">État du Rendez-vous</label>
+    <select formControlName="etat">
+      <option [value]="true">Effectué</option>
+    </select>
+
+    <!-- Afficher les autres champs si l'état est validé -->
+    <div *ngIf="rendezVousForm.get('etat')?.value === 'true'">
+      <label for="groupe_sanguin">Groupe Sanguin</label>
+      <select formControlName="groupe_sanguin">
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
       </select>
-  
-      <!-- Afficher les autres champs si l'état est validé -->
-      <div *ngIf="rendezVousForm.get('etat')?.value === 'true'">
-        <label for="groupe_sanguin">Groupe Sanguin</label>
-        <select formControlName="groupe_sanguin">
-          <option value="A+">A+</option>
-          <option value="A-">A-</option>
-          <option value="B+">B+</option>
-          <option value="B-">B-</option>
-          <option value="O+">O+</option>
-          <option value="O-">O-</option>
-          <option value="AB+">AB+</option>
-          <option value="AB-">AB-</option>
-        </select>
-  
-        <label for="date_prelevement">Date du prélèvement</label>
-        <input type="date" formControlName="date_prelevement" />
-  
-        <label for="banque_sang_id">Banque de Sang</label>
-        <select formControlName="banque_sang_id">
-          <option *ngFor="let banque of banques" [value]="banque.id">
-            {{ banque.matricule }}
-          </option>
-        </select>
-      </div>
-  
-      <button type="submit">Mettre à jour</button>
-    </form>
-  </div>
-  
+
+      <label for="date_prelevement">Date du prélèvement</label>
+      <select id="date_prelevement" formControlName="date_prelevement">
+        <option *ngFor="let date of annoncesDates" [value]="date">{{ date | date:'dd/MM/yyyy' }}</option>
+      </select>
+
+      <label for="banque_sang_id">Banque de Sang</label>
+      <select formControlName="banque_sang_id">
+        <option *ngFor="let banque of banques" [value]="banque.id">
+          {{ banque.matricule }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit">Ajouter la poche</button>
+  </form>
+</div>
