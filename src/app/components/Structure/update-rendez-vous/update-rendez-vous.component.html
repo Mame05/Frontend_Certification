@@ -20,11 +20,17 @@
         <option value="AB+">AB+</option>
         <option value="AB-">AB-</option>
       </select>
+      <div *ngIf="rendezVousForm.get('groupe_sanguin')?.hasError('required')" class="error">
+        Le groupe sanguin est obligatoire.
+      </div>
 
       <label for="date_prelevement">Date du prélèvement</label>
       <select id="date_prelevement" formControlName="date_prelevement">
         <option *ngFor="let date of annoncesDates" [value]="date">{{ date | date:'dd/MM/yyyy' }}</option>
       </select>
+      <div *ngIf="rendezVousForm.get('date_prelevement')?.hasError('required')" class="error">
+        La date du prélèvement est obligatoire.
+      </div>
 
       <label for="banque_sang_id">Banque de Sang</label>
       <select formControlName="banque_sang_id">
@@ -32,6 +38,9 @@
           {{ banque.matricule }}
         </option>
       </select>
+      <div *ngIf="rendezVousForm.get('banque_sang_id')?.hasError('required')" class="error">
+        La banque de sang est obligatoire.
+      </div>
     </div>
 
     <button type="submit">Ajouter la poche</button>

@@ -45,9 +45,9 @@ export class UpdateRendezVousComponent implements OnInit  {
     // Initialiser le formulaire
     this.rendezVousForm = this.fb.group({
       etat: [null, Validators.required],
-      groupe_sanguin: [''],
+      groupe_sanguin: ['', Validators.required],
       date_prelevement: ['', Validators.required],
-      banque_sang_id: ['']
+      banque_sang_id: ['', Validators.required]
     });
    // Ecouter les changements de valeur du champ 'etat' pour ajuster les validations
 
