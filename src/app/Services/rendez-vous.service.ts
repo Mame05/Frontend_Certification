@@ -57,5 +57,14 @@ export class RendezVousService {
     });
     return this.http.get<any>(`${apiUrl}/rendezvous/${rendezVousId}`, {headers});
   }
+
+   // Méthode pour récupérer les données de gamification
+   showGamification() {
+    const token = localStorage.getItem('access_token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<any>(`${apiUrl}/utilisateur-simple/gamification`, {headers});
+  }
   
 }

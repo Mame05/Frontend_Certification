@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { AnnonceService } from '../../../Services/annonce.service';
+import { RendezVousService } from '../../../Services/rendez-vous.service';
 
 
 @Component({
@@ -24,13 +25,15 @@ export class ModifierProfileComponent implements OnInit {
   nombreDeDons :number | null = null;
   groupeSanguin: string | null = null;
   photoUrl: string = 'assets/images/profil1.png'; // Image par défaut
+  badgeCode: string | null = null;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private annonceService: AnnonceService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private annonceService: AnnonceService, private rendezVousService: RendezVousService) {}
 
   ngOnInit(): void {
     this.initForm();
     this.loadProfile();
     this.loadDonationInfo();
+    this.loadGamificationInfo();
   }
 
   // Initialiser le formulaire avec des validations
@@ -91,6 +94,22 @@ export class ModifierProfileComponent implements OnInit {
             console.error('Erreur lors de la récupération des informations utilisateur :', error);
         }
     );
+}
+// Récupérer les informations de gamification
+loadGamificationInfo(){
+  this.rendezVousService.showGamification().subscribe(
+    (response: any) => {
+        if (response && response.badge_code) {
+          this.badgeCode = response.badge_code;
+          console.log('Badge Code:', this.badgeCode); // Vérifier la valeur de badgeCode
+        } else {
+            console.error('Les informations de gamification sont manquantes dans la réponse.');
+        }
+    },
+    (error) => {
+        console.error('Erreur lors de la récupération des informations de gamification :', error);
+    }
+  )
 }
   submitProfile() {
     if (this.profileForm.invalid) {

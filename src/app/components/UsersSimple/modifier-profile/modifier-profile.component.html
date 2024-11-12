@@ -9,6 +9,10 @@
     <div class="profile-image">
       <img [src]="photoUrl" alt="Photo de profil" id="profile-photo" />
     </div>
+    <!-- Badge de Gamification -->
+    <div class="gamification-badge">
+      <img *ngIf="badgeCode" [src]="'assets/image/' + badgeCode + '.png'" alt="Badge de Gamification" />
+    </div>
     <!-- Informations Utilisateur -->
     <div class="profile-info">
       <h3>{{ utilisateur.nom_complet || 'Nom non spécifié' }}</h3>
