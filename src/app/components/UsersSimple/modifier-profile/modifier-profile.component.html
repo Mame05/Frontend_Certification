@@ -7,17 +7,17 @@
   <div class="profile-card">
     <!-- Profil Image -->
     <div class="profile-image">
-      <img [src]="photoUrl" alt="Photo de profil" id="profile-photo" />
-    </div>
-    <!-- Badge de Gamification -->
-    <div class="gamification-badge">
-      <img *ngIf="badgeCode" [src]="'assets/image/' + badgeCode + '.png'" alt="Badge de Gamification" />
+      <img [src]="photoProfile" alt="Photo de profil" id="profile-photo" />
     </div>
     <!-- Informations Utilisateur -->
     <div class="profile-info">
       <h3>{{ utilisateur.nom_complet || 'Nom non spécifié' }}</h3>
       <p><span class="iconify" data-icon="healthicons:blood-bag"></span><span class="label">Groupe Sanguin:</span><span class="value">{{ groupeSanguin }}</span></p>
       <p><span class="iconify" data-icon="mdi:blood-check"></span><span class="label">Nombre de dons:</span><span class="value"> {{ nombreDeDons }}</span></p>
+    </div>
+    <!-- Badge de Gamification -->
+    <div class="gamification-badge">
+      <img *ngIf="badgeCode" [src]="'assets/image/' + badgeCode + '.png'" alt="Badge de Gamification" />
     </div>
   </div>
 </div>

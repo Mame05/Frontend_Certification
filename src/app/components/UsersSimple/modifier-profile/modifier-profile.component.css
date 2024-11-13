@@ -175,7 +175,8 @@ body {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 5px solid #457b9d;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Informations utilisateur */
@@ -222,6 +223,29 @@ body {
   color: #DF2C26; /* Couleur rouge de la valeur */
 }
 
+/* Style pour la section du badge de gamification */
+.gamification-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  max-width: 100px;
+  margin-left: auto; /* Positionne la badge à droite de la carte */
+}
+
+.gamification-badge img {
+  width: 70px; /* Taille du badge */
+  height: 70px;
+  border-radius: 50%; /* Donne un effet circulaire au badge */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour effet */
+  background-color: #ffffff;
+  padding: 5px; /* Espace autour de l'image */
+  transition: transform 0.3s ease-in-out; /* Animation au survol */
+}
+
+.gamification-badge img:hover {
+  transform: scale(1.1); /* Agrandit le badge au survol */
+}
 
 
 .profile-form-container {
@@ -306,37 +330,6 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
-/* Container pour le badge */
-.badge-container {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-/* Icone du badge */
-.badge-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-}
-
-/* Libellé du badge */
-.badge-label {
-  font-weight: bold;
-  text-transform: capitalize;
-  color: #333;
-}
-
-/* Appliquez un effet de survol sur l'image du badge */
-.badge-icon:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
   .profile-card-container {
@@ -365,5 +358,13 @@ button[type="submit"]:disabled {
 
   h2 {
     font-size: 24px;
+  }
+  .gamification-badge {
+    margin: 20px auto; /* Centré sur les petits écrans */
+  }
+
+  .gamification-badge img {
+    width: 60px;
+    height: 60px;
   }
 }
