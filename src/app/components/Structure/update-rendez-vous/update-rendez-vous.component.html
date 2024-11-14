@@ -1,4 +1,8 @@
-<div>
+<!-- Flèche de retour -->
+<div class="back-arrow">
+  <i routerLink="/sidebar1/annonce" class="fa-solid fa-arrow-left" style="color: #DF2C26; font-size: 30px;"></i>
+</div>
+<div class="container-principale">
   <h2>Modifier l'état du Rendez-vous #{{ rendezVousId }}</h2>
 
   <form [formGroup]="rendezVousForm" (ngSubmit)="updateEtat()">
