@@ -18,7 +18,7 @@
           <a [routerLink]="['/sidebar1/banque-sang/detail-banque-sang', banque.id]" class="icon-link">
             <span class="iconify" data-icon="mdi:eye"></span>
           </a>
-          <a class="icon-link" (click)="deleteBanque(banque.id)">
+          <a class="icon-link" (click)="deleteBanque(banque.id, banque.stock_actuelle)">
             <span class="iconify" data-icon="mdi:delete"></span>
           </a>
         </div>

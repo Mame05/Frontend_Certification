@@ -24,7 +24,18 @@ export class ListBanqueSangComponent implements OnInit{
       this.banques = data;
     });
   }
-  deleteBanque(id: number) {
+  deleteBanque(id: number, stock_actuelle: number) {
+    // Vérifier si la banque a des poches de sang
+    if (stock_actuelle > 0) {
+      Swal.fire({
+        title: 'Suppression impossible',
+        text: 'Cette banque de sang contient des poches et ne peut pas être supprimée.',
+        icon: 'warning',
+        showConfirmButton: false,
+        timer: 3000 // L'alerte disparaît après 3 secondes
+      });
+      return;
+    }
     // Afficher la boîte de confirmation
     Swal.fire({
       title: 'Êtes-vous sûr?',
@@ -48,7 +59,8 @@ export class ListBanqueSangComponent implements OnInit{
               title: 'Supprimé!',
               text: 'La banque de sang a été supprimée avec succès.',
               icon: 'success',
-              confirmButtonColor: '#3085d6'
+              showConfirmButton: false,
+              timer: 2000 // L'alerte disparaît après 3 secondes  
             });
           },
           error: (error) => {
