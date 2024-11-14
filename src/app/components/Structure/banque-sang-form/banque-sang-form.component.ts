@@ -51,7 +51,7 @@ export class BanqueSangFormComponent implements OnInit {
         })
           // Rediriger vers la liste des annonces après la confirmation de l'alerte
           setTimeout(() => {
-          // Rediriger vers la liste des annonces après confirmation
+          // Rediriger vers la liste des banques de sang  après confirmation
           this.router.navigate(['/sidebar1/banque-sang']); // Redirection après succès
         }, 2000);
       },
@@ -62,7 +62,7 @@ export class BanqueSangFormComponent implements OnInit {
           text: 'Une erreur est survenue lors de l\'ajout de la banque de sang.',
           icon: 'error',
           showConfirmButton: false,
-          timer: 3000 // L'alerte disparaît après 2 secondes
+          timer: 3000 // L'alerte disparaît après 3 secondes
         });
       }
     });
