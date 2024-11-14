@@ -6,6 +6,7 @@ import { BanqueSangService } from '../../../Services/banque-sang.service';
 import { CommonModule } from '@angular/common';
 import { RendezVousService } from '../../../Services/rendez-vous.service';
 import { DonneurExterneService } from '../../../Services/donneur-externe.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-poche-sang-form',
@@ -95,13 +96,6 @@ private ageValidator(control: AbstractControl): ValidationErrors | null {
     });
   }
 
- /* loadRendezVous() {
-    // Appelez votre service pour récupérer les rendez-vous
-    this.rendezVousService.getRendezVouss().subscribe((data) => {
-      this.rendezVousList = data; // Assurez-vous que les données sont au bon format
-    });
-  }*/
-
   loadPocheSang(id: number) {
     this.pocheSangService.getPocheById(id).subscribe((data: any) => {
     /*if (data.donneur_externe_id) { // Vérifiez si donneur_externe_id est bien présent
@@ -129,15 +123,65 @@ private ageValidator(control: AbstractControl): ValidationErrors | null {
     if (this.pocheSangForm.valid) {
       const formValue = this.pocheSangForm.value;
         console.log('Form Value:', formValue); // Ajoutez ce log pour déboguer
-      if (this.isEditMode) {
-        this.pocheSangService.updatePoche(this.pocheId, formValue).subscribe(() => {
-          this.router.navigate(['/sidebar1/poche-sang']);
-        });
-      } else {
-        this.pocheSangService.createPoche(this.pocheSangForm.value).subscribe(() => {
-          this.router.navigate(['/sidebar1/poche-sang']);
-        });
+        if (this.isEditMode) {
+          this.pocheSangService.updatePoche(this.pocheId, formValue).subscribe({
+            next: () => {
+              Swal.fire({
+                title: 'Succès!',
+                text: 'La poche de sang a été mise à jour avec succès.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000 // L'alerte disparaît après 2 secondes
+              })
+                // Rediriger vers la liste des annonces après la disparition de l'alerte
+                 setTimeout(() => {
+                this.router.navigate(['/sidebar1/poche-sang']);
+              }, 2000);
+            },
+            error: (error) => {
+              this.handleError(error);
+            }
+          });
+        } else {
+          this.pocheSangService.createPoche(formValue).subscribe({
+            next: () => {
+              Swal.fire({
+                title: 'Succès!',
+                text: 'La poche de sang a été ajoutée avec succès.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000 // L'alerte disparaît après 2 secondes
+              })
+                // Rediriger vers la liste des poches de sang après la disparition de l'alerte
+                setTimeout(() => {
+                this.router.navigate(['/sidebar1/poche-sang']);
+              }, 2000);
+            },
+            error: (error) => {
+              this.handleError(error);
+            }
+          });
+        }
       }
+  }
+  private handleError(error: any) {
+    if (error.status === 422 && error.error?.errors) {
+      const errorMessages = Object.values(error.error.errors).flat().join('<br>');
+      Swal.fire({
+        title: 'Erreur de validation',
+        html: errorMessages,
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 3000 // L'alerte disparaît après 3 secondes
+      });
+    } else {
+      Swal.fire({
+        title: 'Erreur!',
+        text: 'Une erreur est survenue lors de l\'opération.',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 3000 // L'alerte disparaît après 3 secondes
+      });
     }
   }
 }

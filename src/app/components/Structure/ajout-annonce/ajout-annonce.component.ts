@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { AnnonceService } from '../../../Services/annonce.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajout-annonce',
@@ -28,7 +29,7 @@ export class AjoutAnnonceComponent {
       titre: ['',[Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
       type_annonce: ['', Validators.required],
       nom_lieu: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
-      adresse_lieu: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
+      adresse_lieu: ['',[Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'\-+/]*$/)]],
       date_debut: ['',[Validators.required, this.dateValidator(today, oneYearLater)]],
       date_fin: ['', Validators.required],
       heure_debut: ['', [Validators.required, this.timeDebutValidator]],
@@ -103,8 +104,30 @@ export class AjoutAnnonceComponent {
       this.annonceService.createAnnonce(this.annonceForm.value).subscribe((response) => {
         console.log('Annonce ajoutée avec succès', response);
         this.annonceService.notifyAnnonceAjoute(); // Émettez la notification ici
-        this.router.navigate(['/sidebar1/annonce']);  // Rediriger vers la liste des structures
-      },
+       // Affiche un message de succès avec SweetAlert
+       Swal.fire({
+        title: 'Succès!',
+        text: 'L\'annonce a été ajoutée avec succès.',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2000 // L'alerte disparaît après 2 secondes
+        });
+        // Rediriger vers la liste des annonces après la confirmation de l'alerte
+        setTimeout(() => {
+          this.router.navigate(['/sidebar1/annonce']);
+        }, 2000);
+    },
+      (error) => {
+      console.error('Erreur lors de l\'ajout de l\'annonce', error);
+      Swal.fire({
+        title: 'Erreur',
+        text: 'Une erreur est survenue lors de l\'ajout de l\'annonce.',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 3000 // L'alerte disparaît après 2 secondes
+      });
+    }
+      
     );
     
   }

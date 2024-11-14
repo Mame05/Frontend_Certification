@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule } from '@angular/forms';
 import { RendezVousService } from '../../../Services/rendez-vous.service';
 import { BanqueSangService } from '../../../Services/banque-sang.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-poche-rendez-vous',
@@ -105,18 +106,49 @@ export class UpdatePocheRendezVousComponent implements OnInit {
     };
     console.log("Données envoyées pour mise à jour :", data);
 
-    this.rendezVousService.updatePocheUS(this.pocheId, data).subscribe(
-      (response) => {
-        console.log('Mise à jour de la poche réussie:', response);
-        // Si nécessaire, rechargez les données ici pour vérifier la mise à jour.
-      this.reloadPocheData();
-      this.router.navigate(['/sidebar1/poche-sang']);
+    this.rendezVousService.updatePocheUS(this.pocheId, data).subscribe({
+      next: (response) => {
+        // Message de succès avec SweetAlert
+        Swal.fire({
+          title: 'Mise à jour réussie!',
+          text: 'Les informations de la poche de sang ont été mises à jour avec succès.',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 2000 // L'alerte disparaît après 2 secondes
+        })
+          // Rediriger vers la liste des annonces après la confirmation de l'alerte
+          setTimeout(() => {
+          this.router.navigate(['/sidebar1/poche-sang']);
+        }, 2000);
       },
-      (error) => {
+      error: (error) => {
         console.error('Erreur lors de la mise à jour de la poche:', error);
+        if (error.status === 422 && error.error?.errors) {
+          // Gestion des erreurs de validation
+          const errors = error.error.errors;
+          const errorMessages = Object.values(errors).flat().join('<br>');
+
+          Swal.fire({
+            title: 'Erreur de validation',
+            html: errorMessages,
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 3000 // L'alerte disparaît après 3 secondes
+          });
+        } else {
+          // Erreur générique
+          Swal.fire({
+            title: 'Erreur!',
+            text: 'Une erreur est survenue lors de la mise à jour.',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 3000 // L'alerte disparaît après 3 secondes
+          });
+        }
       }
-    );
+    });
   }
+  
   reloadPocheData() {
     this.rendezVousService.getPocheById(this.pocheId).subscribe(
       (response: any) => {

@@ -1,4 +1,10 @@
-div {
+.back-arrow {
+    cursor: pointer;
+    margin-left: 3%;
+    margin-top: 10px;
+    margin-bottom: -50px;
+}
+.container-principale {
     font-family: 'Montserrat', sans-serif; /* Police Montserrat */
     max-width: 600px; /* Largeur maximale du formulaire */
     margin: 20px auto; /* Centrer le formulaire */
