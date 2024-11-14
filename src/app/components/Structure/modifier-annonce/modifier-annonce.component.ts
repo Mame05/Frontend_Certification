@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AnnonceService } from '../../../Services/annonce.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-modifier-annonce',
@@ -30,7 +31,7 @@ export class ModifierAnnonceComponent implements OnInit {
      titre: ['',[Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
       type_annonce: ['', Validators.required],
       nom_lieu: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
-      adresse_lieu: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
+      adresse_lieu: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'\-+/]*$/)]],
       date_debut: ['',[Validators.required, this.dateValidator(today, oneYearLater)]],
       date_fin: ['', Validators.required],
       heure_debut: ['', [Validators.required, this.timeDebutValidator]],
@@ -113,9 +114,59 @@ export class ModifierAnnonceComponent implements OnInit {
 
   onSubmit() {
     if (this.annonceForm.valid && this.annonceId) {
-      this.annonceService.updateAnnonce(this.annonceId, this.annonceForm.value).subscribe(() => {
-        this.router.navigate(['/sidebar1/annonce']);  // Rediriger vers la liste des annonces
+      // Formater heure_debut et heure_fin avant l'envoi
+      const heureDebut = this.formatHeure(this.annonceForm.get('heure_debut')?.value);
+      const heureFin = this.formatHeure(this.annonceForm.get('heure_fin')?.value);
+
+      // Mise à jour des valeurs formatées dans le formulaire
+      this.annonceForm.patchValue({
+          heure_debut: heureDebut,
+          heure_fin: heureFin
       });
+      this.annonceService.updateAnnonce(this.annonceId, this.annonceForm.value).subscribe({
+      next: () => {
+        // Affiche un message de succès avec SweetAlert
+        Swal.fire({
+            title: 'Succès!',
+            text: 'L\'annonce a été modifiée avec succès.',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000 // L'alerte disparaît après 2 secondes
+        });
+          // Rediriger vers la liste des annonces après la confirmation de l'alerte
+        setTimeout(() => {
+            // Rediriger vers la liste des annonces après confirmation
+            this.router.navigate(['/sidebar1/annonce']);
+        }, 2000);
+      },
+      error: (error) => {
+        console.error('Erreur lors de la modification de l\'annonce:', error);
+
+        // Affiche un message d'erreur avec SweetAlert
+        Swal.fire({
+            title: 'Erreur!',
+            text: 'Une erreur est survenue lors de la modification de l\'annonce.',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 3000 // L'alerte disparaît après 2 secondes
+        });
     }
+    });
+  } else {
+  // Affiche un message d'avertissement si le formulaire est invalide
+  Swal.fire({
+    title: 'Formulaire incomplet',
+    text: 'Veuillez vérifier les champs du formulaire avant de soumettre.',
+    icon: 'warning',
+    showConfirmButton: false,
+    timer: 3000 // L'alerte disparaît après 2 secondes
+});
+}
   }
+  
+  // Fonction de formatage d'heure en HH:mm
+formatHeure(heure: string): string {
+  const [hour, minute] = heure.split(':').map(val => val.padStart(2, '0'));
+  return `${hour}:${minute}`;
+}
 }
