@@ -5,12 +5,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;  /* Espacement autour du header */
-    background-color: #ffffff; /* Fond blanc */
+    background-color: rgba(255, 255, 255, 0.9); /* Fond semi-transparent */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Légère ombre pour délimiter */
+    /*border-bottom: 1px solid #df2c26; /* Bordure rouge en bas */
     position: sticky;  /* Reste en haut lors du défilement */
     top: 0;
     z-index: 1000;  /* Priorité sur d'autres éléments */
     font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition pour les animations */
   }
   
   /* Section du logo */
@@ -20,13 +22,62 @@
   }
   
   .logo-img {
-    width: 120px;  /* Taille du logo */
+    width: 150px; 
+    transition: transform 0.3s ease; /* Animation au survol */
   }
+  .logo-img:hover {
+    transform: scale(1.1); /* Agrandir légèrement le logo au survol */
+  }
+  /* --- Bouton Menu Burger --- */
+.burger-menu {
+  display: none; /* Caché par défaut pour les écrans larges */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger-menu .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #1d3557;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Transformation des barres en croix (menu ouvert) --- */
+.burger-menu.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger-menu.open .bar:nth-child(2) {
+  opacity: 0; /* Cacher la deuxième barre */
+}
+
+.burger-menu.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
   
   /* Style du menu de navigation */
   .nav-menu {
     display: flex;
     align-items: center;
+    transition: transform 0.3s ease;
+  }
+  .nav-menu.open {
+    display: block;
+    position: absolute;
+    top: 70px; /* Sous le header */
+    right: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    text-align: center;
+    padding: 10px 0;
   }
   
   /* Liste des liens de navigation */
@@ -35,6 +86,14 @@
     display: flex;
     gap: 30px;  /* Espacement entre les liens */
   }
+  /* --- Empiler les liens sur les petits écrans --- */
+.nav-menu.open .nav-links {
+  flex-direction: column;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
   
   /* Style des liens */
   .nav-links li a {
@@ -43,6 +102,7 @@
     font-size: 18px;
     font-weight: bold;  /* Texte en semi-gras */
     transition: color 0.3s ease;  /* Effet de transition sur la couleur */
+    position: relative;
   }
   
   /* Changement de couleur au survol */
@@ -50,88 +110,90 @@
     color: #0056b3;  /* Couleur plus foncée au survol */
   }
   
-  /* Style pour les liens actifs (lorsqu'on est sur la section) */
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Espacement sous le texte */
+    width: 0;
+    height: 2px;
+    background-color: #df2c26;
+    transition: width 0.3s ease; /* Animation pour le soulignement */
+  }
+  
+  .nav-links li a:hover::after,
+  .nav-links li a.active::after {
+    width: 100%; /* Soulignement complet au survol ou lorsqu'actif */
+  }
+  
   .nav-links li a.active {
-    color: #df2c26;  /* Couleur rouge pour indiquer la section active */
-    border-bottom: 2px solid #df2c26;  /* Soulignement pour l'actif */
-    padding-bottom: 5px;
+    color: #df2c26; /* Couleur rouge pour l’actif */
   }
-  
-  /* Adaptation pour les écrans plus petits */
-  @media (max-width: 768px) {
-    .header-container {
-      padding: 10px 20px;
-    }
-    
-    .logo-img {
-      width: 100px;
-    }
-  
-    .nav-links {
-      gap: 20px;
-    }
-  
-    .nav-links a {
-      font-size: 14px;
-    }
-  }
+  /* Changement visuel au défilement */
+.header-container.scrolled {
+  background-color: #f1f1f1; /* Fond rouge lorsqu'on défile */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée */
+}
 
-  /*    Accueil      */
+.nav-links li a.scrolled {
+  color: #ffffff; /* Couleur blanche pour les liens */
+}
+  
 /* Style pour la section home */
 .home-section {
-    position: relative;
-    background-image: url('/assets/images/Rectangle 12.png'); /* Ajoutez le chemin de l'image de la maquette */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/Rectangle 12.png'); /* Image de fond */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  color: #ffffff;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.home-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background: rgba(0, 0, 0, 0.4); /* Ombre de fond pour améliorer la lisibilité */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.home-section .content {
+  z-index: 2; /* S'assurer que le contenu est au-dessus de l'overlay */
   
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay sombre pour le contraste avec le texte */
-  }
-  
-  .content {
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
-    margin-left: 22%;
-  }
-  
-  .content h1 {
-    font-size: 32px;
-    font-weight: bold;
-    padding-top: 120px;
-    margin-bottom: 30px;
-  }
-  
-  .content p {
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 12px;
-    margin-bottom: 60px;
-    line-height: 1.8;
-  }
+}
+
+.home-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.home-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
   
   .buttons {
     display: flex;
     justify-content: center;
-    padding-top: 120px;
+    /* padding-top: 120px; */
     gap: 40px; /* Espace entre les boutons */
   }
   
   .btn {
-    padding: 15px 30px;
+    margin: 10px;
+    padding: 10px 20px;
     font-size: 1.2rem;
     font-weight: bold;
     border-radius: 5px;
@@ -160,10 +222,21 @@
   /*    A PROPOS   */
   /* Style général pour la section about */
 .about-section {
-    padding: 0 20px;
+    padding: 40 20px;
     background-color: #ffffff;
     font-family: 'Montserrat', sans-serif;
   }
+  .highlight {
+    color: #DF2C26; /* Couleur principale */
+    font-weight: bold; /* Met en avant le texte */
+    font-size: 1.5rem; /* Augmente la taille */
+    font-style: italic; /* Ajoute une touche élégante */
+    text-shadow: 2px 2px 5px rgba(29, 53, 87, 0.3); /* Ombre légère pour donner du relief */
+    padding: 2px 5px; /* Ajoute un léger espace autour */
+    border-bottom: 2px solid #1D3557; /* Ligne décorative en couleur secondaire */
+    border-radius: 3px; /* Arrondi subtil pour adoucir */
+}
+
   .deco-about1{
     width: 156px;
     height: 149px;
@@ -204,20 +277,29 @@
     width: 30px; /* Ajuster la taille de l'icône selon la maquette */
     height: 30px;
     margin-top: -70px;
-
   }
-  
-  
   /* Style pour les rangées (texte et image) */
-  .about-row {
+  .about-section .about-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
+  .about-section .about-text {
+    width: 50%;
+  }
+
+.about-section .about-image {
+    width: 50%;
+}
+
+.about-section .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
   
   /* Inversion de la disposition pour le deuxième bloc (image à gauche, texte à droite) */
-  .about-row.reverse {
+  .about-section .about-row.reverse {
     flex-direction: row-reverse;
   }
   
@@ -232,7 +314,11 @@
   }
   .about-text1{
     margin-bottom: 220px;
-    margin-left: 50px;
+    margin-left: 40px;
+  }
+  .about-text2{
+    margin-left: 10px;
+    margin-top: -20px;
   }
   
   /* Style de l'image */
@@ -245,9 +331,7 @@
     width: 100%;
     max-width: 500px;
     height: auto;
-    margin-left: -48px;
-    /*border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour effet esthétique */
+    margin-left: -30px;
   }
   .about-img2 {
     width: 100%;
@@ -255,39 +339,16 @@
     height: auto;
     margin-left: 50px;
     margin-top: -250px;
-
   }
   .deco-about2{
     width: 156px;
     height: 149px;
     margin-top: -120px;
-    margin-left: 86%;
+    margin-left: 80%;
   }
-  
-  /* Adaptation pour les petits écrans */
-  @media (max-width: 768px) {
-    .about-row {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .about-row.reverse {
-      flex-direction: column;
-    }
-  
-    .about-text, .about-image {
-      padding: 0;
-    }
-  
-    .about-img1, .about-img2 {
-      max-width: 100%;
-    }
-  }
-
-  /*  Comment ça marche */
-  /* Section générale "Comment ça marche" */
+  /* Section "Comment ça marche" */
 .how-it-works-section {
-    padding: 30px 20px;
+    padding: 60px 20px;
     background-color: rgb(29, 53, 87, 0.05);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -302,7 +363,7 @@
     font-size: 32px;
     font-weight: bold;
     color: #1D3557; 
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-transform: uppercase;
   }
     .title-container {
@@ -329,7 +390,7 @@
   }
   
   /* Conteneur des étapes */
-  .steps-container {
+   .steps-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px; /* Espace entre les colonnes */
@@ -339,18 +400,8 @@
   
   /* Style pour chaque carte d'étape */
   .step-card {
-    /*border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
     display:flex;
   }
-  
-  /*.step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }*/
   
   /* Style pour l'icône */
   .step-icon {
@@ -360,7 +411,7 @@
   }
   
   /* Style pour les titres et descriptions */
-  .step-card p strong {
+ .step-card p strong {
     font-size: 24px;
     font-weight: bold;
     color: #1D3557;
@@ -372,15 +423,7 @@
     font-weight: 500;
     color: #1D3557;
     text-align: left;
-    /*line-height: 1.6;*/
-  }
-  
-  /* Responsivité pour les petits écrans */
-  @media (max-width: 768px) {
-    .steps-container {
-      grid-template-columns: 1fr; /* Les étapes s'empilent sur une colonne sur mobile */
-    }
-  }
+  } 
 
   /*  Statistiques  */
   .statistics-section {
@@ -425,7 +468,7 @@
     text-align: center;
     border-radius: 20px;
     width: 95%;
-    height: 350px;
+    height: 355px;
     margin: 0 auto;
     background-color: rgb(223, 44, 56, 0.1);    
   }
@@ -439,23 +482,23 @@
   .statistics-content-item{
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
+    margin-top: 25px;
     flex-wrap: wrap;
   }
 
   .statistics-item {
     text-align: center;
-    width: 30%;
+    width: 28%;
     margin-bottom: 20px;
   }
 
   .statistics-item img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
   }
 
  .statistics-content-item .statistics-item p {
-    font-size: 18px;
+    font-size: 16px;
     color: #1D3557;
     margin: 10px 0;
     font-weight: 600;
@@ -517,6 +560,247 @@
     font-size: 14px;
     color: #ffffff;
   }
+  /* --- Responsivité : Menu Burger pour écrans étroits --- */
+@media (max-width:768px) {
+  /*  Header */
+  .burger-menu {
+    display: flex; /* Afficher le menu burger */
+  }
+
+  .nav-menu {
+    display: none; /* Cacher le menu par défaut */
+  }
+
+  .nav-menu.open {
+    display: flex; /* Afficher le menu quand il est ouvert */
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Empiler les liens */
+    gap: 15px;
+  }
+  /*  Home  */
+  .home-section h1 {
+    font-size: 2rem;
+}
+
+.home-section p {
+    font-size: 1rem;
+}
+
+.home-section .buttons a {
+    padding: 8px 15px;
+}
+
+/*  section about  */
+.about-section {
+  padding: 20px;
+}
+.about-content h2 {
+  font-size: 28px;
+  margin-top: -90px;
+  margin-bottom: 10px;
+}
+
+.about-section .about-row {
+  flex-direction: row; /* Texte et image restent face à face */
+  justify-content: space-between;
+}
+
+.about-section .about-text p {
+  font-size: 1rem; /* Taille du texte légèrement réduite */
+  text-align: justify;
+  hyphens: auto; /* Active la césure automatique */
+  word-break: break-word; /* Permet de couper les mots longs */
+  line-height: 1.6; /* Ajuste l'espacement entre les lignes pour un meilleur rendu */
+}
+
+.about-img1, .about-img2 {
+  max-width: 100%; /* Images s'adaptent à la largeur */ 
+}
+.about-img1 {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-left: 2px;
+  margin-top: -10px;
+}
+.about-text1{
+  margin-bottom: 0px;
+  margin-left: 0;
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-word;
+  line-height: 1.6;
+}
+.about-text1 br {
+  display: none;
+}
+.about-img2 {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-left: 2px;
+  margin-top: -40px;
+}
+.about-text2{
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-word;
+  line-height: 1.6;
+  margin-top: -90px;
+}
+.about-text2 br {
+  display: none;
+}
+
+.deco-about1, .deco-about2 {
+  width: 70px; /* Taille réduite pour les décorations */
+  height: 70px;
+}
+
+
+/*   Comment ça marche */
+.step-icon {
+  width: 100px;
+  height: 100px;
+}
+.step-card p strong {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  font-size: 16px;
+  text-align: left;
+} 
+
+/*  Statistiques  */
+.statistics-item {
+  width: 45%;
+}
+.statistics-content p{
+  font-size: 20px;
+  font-weight: 600;
+  color: #1D3557;
+  text-align: center;
+  padding-top: 20px;
+}
+.statistics-content-item{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.statistics-item {
+  text-align: center;
+  width: 25%;
+  margin-bottom: 20px;
+}
+
+.statistics-item img {
+  width: 90px;
+  height: 90px;
+}
+
+.statistics-content-item .statistics-item p {
+  font-size: 16px;
+  color: #1D3557;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+/* footer */
+footer .footer-nav a {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+footer .footer-icon img {
+  max-width: 30px;
+}
+
+}
+
+@media (max-width: 480px) {
+  /*  section about */
+.about-section .about-row {
+  flex-direction: column; /* Empile chaque élément verticalement */
+  align-items: center; /* Centrage des éléments */
+  text-align: center;
+}
+.about-content h2 {
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.about-section .about-text, .about-section .about-image {
+  width: 100%; /* Chaque élément occupe toute la largeur */
+  padding: 10px; /* Ajout d'un léger espacement */
+}
+
+.about-section .about-row.reverse {
+  flex-direction: column; /* Garde l'ordre du flux naturel */
+}
+.highlight {
+  font-size: 1rem; /* Augmente la taille */
+}
+
+.about-section .about-text p {
+  font-size: 1rem; /* Réduction supplémentaire du texte */
+  line-height: 1.4;
+}
+.about-text2{
+  margin-top: -50px;
+}
+
+.about-img1, .about-img2 {
+  max-width: 90%; /* Réduction des images pour petits écrans */
+  margin: 0 auto; /* Centrage des images */
+}
+
+.deco-about1, .deco-about2 {
+  display: none; /* Masque les décorations */
+}
+
+/* Section comment ça marche*/
+  .how-it-works-section .step-card {
+      width: 100%; /* Une seule colonne sur les très petits écrans */
+  }
+  .how-it-works-content h2 {
+    font-size: 28px;
+  }
+  .steps-container {
+    grid-template-columns: 1fr; /* Une seule colonne */
+    justify-content: start; /* Alignement à gauche si nécessaire */
+  }
+
+/* Section statistique */  
+  .statistics-item {
+    width: 100%;
+    text-align: center;
+}
+.statistics-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+.statistics-content {
+  width: 98%;
+  height: auto;  
+}
+.statistics-content p{
+  font-size: 18px;
+}
+
+}
+
+
+
+
+
  
   
 
