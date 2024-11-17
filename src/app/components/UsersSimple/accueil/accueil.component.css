@@ -23,7 +23,7 @@
     border-radius: 10px;
   }
   
-  .platform-name {
+   .platform-name {
     color: #df2c26; /* Couleur de la plateforme en rouge */
   }
   
@@ -35,15 +35,17 @@
   .deco-accueil{
     margin-bottom: 20px;
     display: flex;
+    margin-left: 10%;
   }
   .deco-accueil1{
     width: 64px;
     height: 74px;
+
   }
   .deco-accueil2{
     width: 64px;
     height: 74px;
-    margin-left: 90%;
+    margin-left: 76%;
   }
   
   .processus-section h2 {
@@ -69,12 +71,10 @@
   
   .processus-section .step {
     width: 100%;
-    height: 230px;
+    height: 300px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-    /*margin: 0; /* Retire les marges par défaut */
-    /*padding: 0; /* Retire les padding par défaut */
     position: relative;
   }
   .processus-section .step1{
@@ -86,7 +86,7 @@
   
   .processus-section .step img {
     width: 40%;
-    height: 230px;
+    height: 300px;
   }
   .processus-section .step .img1 {
     margin-left: auto;
@@ -97,12 +97,18 @@
     color: #1D3557;
     margin-top: 40px;
     padding: 0;
-    margin-top: 60px;
-
-    
+    margin-top: 60px;   
   }
   .processus-section .step .p1{
-    margin-left: 10%;
+    margin-left: 5%;
+    text-align: justify;
+    word-break: break-word;
+  }
+  .processus-section .step .p2{
+    margin-right: 5%;
+    text-align: justify;
+    hyphens: auto;
+    word-break: break-word;
   }
   
   /* Style de la numérotation */
@@ -155,32 +161,62 @@
     color: #1D3557;
     text-align: center;
  }
- .video-container{
-    width: 80%;
-    max-width: 800px; /* Limite la taille maximale */
-    margin: 0 auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
- }
  .border2 {
-    width: 10%; /* Ajuste la largeur de la bordure */
-    height: 3px; /* Épaisseur de la bordure */
-    background-color: #df2c26; /* Couleur de la bordure */
-   /* margin-left: 45% ; /* Centre la bordure sous le titre */
-    margin: 0 auto;
-    margin-top: -10px;
-  }
- 
- 
-  
+  width: 10%; /* Ajuste la largeur de la bordure */
+  height: 3px; /* Épaisseur de la bordure */
+  background-color: #df2c26; /* Couleur de la bordure */
+ /* margin-left: 45% ; /* Centre la bordure sous le titre */
+  margin: 0 auto;
+  margin-top: -10px;
+}
+.video-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #df2c2660;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
 
+.video-text {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+.video-text p {
+  font-size: 16px;
+  color: #1D3557;
+  line-height: 1.6;
+}
+.video-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.video-container iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+ 
+ 
   /*  Temoignage */
-  .testimonials-section {
+  .testimonials {
     padding: 40px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     text-align: center;
  }
- .testimonials-section h2{
+ .testimonials h2{
     font-size: 24px;
     font-weight: bold;
     color: #1D3557;
@@ -192,42 +228,55 @@
     background-color: #df2c26; /* Couleur de la bordure */
     margin: 0 auto;
    /* margin-left: 46.5% ; /* Centre la bordure sous le titre */
-    margin-top: -8px;
+    margin-top: -5px;
   }
- .testimonials {
+  .testimonial-section {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
- }
- .testimonial {
-    width: 30%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Carte de témoignage */
+.testimonial-card {
     background-color: #ffffff;
-    border-radius: 10px;
-    margin-top: 20px; /* Ajoute un espacement entre les témoignages */
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 350px;
+    max-width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
- }
- .testimonial img {
-    width: 80px;
-    height: 80px;
+/* Image du témoignage */
+.testimonial-card img {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
- }
- .testimonial p {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    color: #1D3557;
+    border: 5px solid #457b9d;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
- }
- .testimonial span {
+/* Nom */
+.testimonial-card h3 {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: bold;
     color: #df2c26;
- }
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
 
-
+/* Texte */
+.testimonial-card p {
+    font-size: 14px;
+    color: #1D3557;
+    line-height: 1.6;
+}
 
  /* Button call action */
  .cta-section {
@@ -252,6 +301,97 @@
 
 
  }
+ @media (max-width: 768px) {
+  /* Bannières */
+  .hero-content h1 {
+    font-size: 24px; /* Texte ajusté pour petits écrans */
+}
+
+/* Processus du don */
+.deco-accueil{
+  margin-left: 8%;
+}
+.deco-accueil1{
+  width: 44px;
+  height: 54px;
+}
+.deco-accueil2{
+  width: 44px;
+  height: 54px;
+  margin-left: 74%;
+}
+  .steps {
+    flex-direction: column; /* Étapes empilées sur mobile */
+  }
+.steps .step img {
+  flex-shrink: 0; /* Empêche l'image de se redimensionner */
+  border-radius: 10px;
+}
+
+/* Section videos */
+.video-card {
+  flex-direction: column;
+  text-align: center;
+}
+
+.video-text {
+  padding: 10px;
+}
+
+.video-container {
+  padding: 10px;
+}
+ /* Temoignages */
+  .testimonial {
+      width: 90%; /* Témoignages plus larges sur petit écran */
+      margin: auto;
+  }
+  .testimonial p {
+    text-align: justify;
+    line-height: 1.6; /* Améliore la lisibilité */
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+  /* Processus du don */
+.deco-accueil{
+  display: none;
+}
+.processus-section h2 {
+  font-size: 22px;
+  margin-top: -30px;
+}
+.steps {
+  flex-direction: column; /* Étapes empilées sur mobile */
+}
+.processus-section .step {
+  padding: 15px; /* Réduit le padding sur des petits écrans */
+  max-width: 100%; /* Ajuste la largeur de la card */
+  height: auto;
+  
+}
+.steps .step img {
+  display: none;
+}
+.step-title {
+  font-size: 18px;
+}
+.number {
+  font-size: 16px;
+  height: 38px;
+  width: 38px; 
+}
+.processus-section .step p {
+  font-size: 16px; 
+}
+
+}
+
+
+
+
  
 
  
