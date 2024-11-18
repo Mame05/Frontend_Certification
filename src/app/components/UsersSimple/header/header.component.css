@@ -12,9 +12,19 @@
     width: 100%; /* S'étend sur toute la largeur */
     z-index: 1000; /* Assure que l'en-tête est au-dessus des autres éléments */
   }
-  
-  .logo img {
-    height: 40px; /* Ajustez la taille du logo */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo-img {
+    width: 40px; 
+    height: auto;
+    transition: transform 0.3s ease; /* Animation au survol */
+    image-rendering: crisp-edges; /* Rendu net */
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .logo-img:hover {
+    transform: scale(1.1); /* Agrandir légèrement le logo au survol */
   }
   
   .nav ul {
@@ -112,11 +122,17 @@
   font-size: 1.5rem;
   cursor: pointer;
 }
-
-
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo-img {
+    content: url('/assets/images/logo@2x.png'); /* Logo haute résolution */
+  }
+}
 @media (max-width: 768px) {
   .burger-menu {
     display: block; /* Afficher le bouton burger */
+  }
+  .logo-img {
+    width: 30px; /* Réduit la taille */
   }
 
   .nav {
@@ -141,6 +157,12 @@
 
   .nav ul li {
     margin: 10px 0; /* Espacement entre les items */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+    width: 25px; /* Encore plus petit pour les très petits écrans */
   }
 }
   
