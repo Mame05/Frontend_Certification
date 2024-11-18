@@ -3,6 +3,7 @@ import { PocheSangService } from '../../../Services/poche-sang.service';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BanqueSangService } from '../../../Services/banque-sang.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-poche-sang',
@@ -71,9 +72,47 @@ export class ListPocheSangComponent implements OnInit{
     }
   }
   deletePoche(id: number) {
-    this.pocheSangService.deletePoche(id).subscribe(() => {
-      this.poches = this.poches.filter(s => s.id !== id);
+    // Afficher la boîte de confirmation
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: "Cette action est irréversible.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Oui, supprimer!',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Effectuer la suppression après confirmation
+        this.banqueSangService.deleteBanque(id).subscribe({
+          next: () => {
+            // Mise à jour de la liste des poches après suppression
+            this.poches = this.poches.filter(s => s.id !== id);
+
+
+            // Afficher un message de succès
+            Swal.fire({
+              title: 'Supprimé!',
+              text: 'La banque de sang a été supprimée avec succès.',
+              icon: 'success',
+              confirmButtonColor: '#3085d6'
+            });
+          },
+          error: (error) => {
+            console.error('Erreur lors de la suppression:', error);
+            Swal.fire({
+              title: 'Erreur',
+              text: 'Une erreur est survenue lors de la suppression.',
+              icon: 'error',
+              confirmButtonColor: '#d33'
+            });
+          }
+        });
+      }
     });
+    
   }
 
 }
+

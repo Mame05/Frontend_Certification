@@ -3,11 +3,22 @@
   <form (ngSubmit)="handleUpdatePoche()">
     <label>
       Groupe sanguin:
-      <input type="text" [(ngModel)]="groupeSanguin" name="groupeSanguin" required />
+      <select id="groupeSanguin" [(ngModel)]="groupeSanguin" name="groupeSanguin">
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
     </label>
-    <label>
+    <label for="datePrelevement">
       Date de prélèvement:
-      <input type="date" [(ngModel)]="datePrelevement" name="datePrelevement" required />
+      <select id="datePrelevement" [(ngModel)]="datePrelevement" name="datePrelevement" required>
+        <option *ngFor="let date of annoncesDates" [value]="date">{{ date | date: 'dd/MM/yyyy' }}</option>
+      </select>
     </label>
     <label>
       Banque de sang:

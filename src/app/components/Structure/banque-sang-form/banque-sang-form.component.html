@@ -1,9 +1,4 @@
 <form [formGroup]="banqueForm" (ngSubmit)="onSubmit()" class="banque-form">
-    <!-- <div class="form-group">
-      <label for="matricule">Matricule</label>
-      <input matInput formControlName="matricule" id="matricule" [disabled]="true">
-    </div> -->
-  
     <div class="form-group">
       <label for="stock_actuelle">Stock actuel</label>
       <input matInput type="number" formControlName="stock_actuelle" id="stock_actuelle" [disabled]="true">
@@ -16,7 +11,7 @@
   
     <div class="form-actions">
       <button mat-raised-button color="primary" type="submit" [disabled]="banqueForm.invalid" class="btn-submit">
-        {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+        Ajouter
       </button>
       <button routerLink="/sidebar1/banque-sang" type="button" class="btn-cancel">
         Annuler

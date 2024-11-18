@@ -1,9 +1,12 @@
 <!-- header.component.html -->
 <header class="header">
     <div class="logo">
-      <img src="/assets/logo.png" alt="Logo" /> <!-- Remplacez par le chemin vers votre logo -->
+      <img src="/assets/images/logo.png" alt="Logo" class="logo-img" />
     </div>
-    <nav class="nav">
+    <button class="burger-menu" (click)="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="nav" [class.open]="isMenuOpen">
       <ul>
         <li><a routerLink="/accueil" routerLinkActive="active">Accueil</a></li>
         <li><a routerLink="/annonces" routerLinkActive="active">Annonces</a></li>
@@ -39,7 +42,8 @@
         <ul>
           <li *ngFor="let notification of notifications"><span [class.lue]="notification.lue">{{ notification.contenu }}</span>
             <div class="d-flex justify-content-between mt-2">
-              <button class="btn btn-success btn-sm" (click)="markAsRead(notification.id)">Marquer comme lu</button>
+              <a [routerLink]="['/detail-annonce-user', notification.annonce_id]" (click)="markAsRead(notification.id)"  class="btn btn-success btn-sm"  data-bs-dismiss="modal" aria-label="Close">S'inscrire</a>
+
               <button class="btn btn-danger btn-sm" (click)="deleteNotification(notification.id)">Supprimer</button>
             </div>
           </li>

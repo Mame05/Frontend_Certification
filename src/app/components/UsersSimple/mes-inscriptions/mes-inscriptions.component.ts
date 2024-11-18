@@ -16,6 +16,7 @@ import { FooterComponent } from '../footer/footer.component';
 export class MesInscriptionsComponent implements OnInit {
   inscriptionsEnCours: any[] = [];
   historiqueInscriptions: any[] = [];
+  filtreEtat: boolean | null = null; // Variable pour stocker le filtre de l'état
 
   constructor(private annonceService: AnnonceService) {}
 
@@ -69,18 +70,6 @@ export class MesInscriptionsComponent implements OnInit {
     const diffTime = Math.abs(fin.getTime() - debut.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convertir le temps en jours
     return diffDays + 1;
-  }
-
-  supprimerHistorique(rendezVousId: number) {
-    this.annonceService.supprimerHistorique(rendezVousId).subscribe(
-      (response: any) => {
-        Swal.fire('Succès', response.message, 'success');
-        this.loadInscriptions(); // Recharger l'historique
-      },
-      (error) => {
-        Swal.fire('Erreur', 'Erreur lors de la suppression de l\'historique.', 'error');
-      }
-    );
   }
 
 }

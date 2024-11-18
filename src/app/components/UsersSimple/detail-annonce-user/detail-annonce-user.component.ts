@@ -89,7 +89,16 @@ export class DetailAnnonceUserComponent implements OnInit{
     this.annonceService.inscrire(this.annonceId).subscribe(
       (response: any) => {
         if (response.message === 'Inscription réussie !') {
-          Swal.fire('Succès',response.message,'success');
+          // Swal.fire('Succès',response.message,'success');
+
+          Swal.fire(
+            {
+              icon: 'success',
+              title: 'Inscription réussie!',
+              text: response.message,
+              confirmButtonText: 'Okay'
+            }
+          )
           this.isInscrit = true; // Met à jour l'état pour désactiver le bouton
         } else if (response.message === 'Vous êtes déjà inscrit à cette annonce.') {
           Swal.fire('Information',response.message,'info');

@@ -1,27 +1,253 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f0f4f8;
+  position: relative;
+  overflow-x: hidden; /* Pour éviter le défilement horizontal dû aux gouttes */
+  margin: 0;
+  padding: 0;
+  
+}
+
+.banner {
+  background: linear-gradient(135deg, #1d3557, #457b9d);
+  padding: 100px 0;
+  text-align: center;
+  color: #ffffff;
+}
+/* .banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/profil.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+  /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
+ /* background-size: cover; /* Ajuste l'image pour couvrir l'élément */
+ /* background-position: center; /* Centre l'image */
+ /* height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+} */
+ 
+
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+/* Conteneur principal de la carte de profil */
+.profile-card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Carte de profil */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 900px; /* Largeur de la carte augmentée */
+  width: 100%;
+}
+
+/* Image de profil */
+.profile-image img {
+  width: 200px; /* Taille de l'image augmentée */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #457b9d;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Informations utilisateur */
+.profile-info {
+  flex: 1;
+  padding-left: 20px; /* Décalage de la section */
+}
+
+/* Titre centré par rapport aux paragraphes */
+.profile-info h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #1D3557;
+  font-weight: bold;
+ 
+}
+
+/* Style des paragraphes */
+.profile-info p {
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+  color: #1D3557;
+  margin: 8px 0;
+  font-weight: 600;
+  padding-left: 25%; /* Ajoute un décalage vers la gauche pour chaque ligne de texte */
+  line-height: 2; /* Ajuste la hauteur de ligne pour ajouter plus d'espace entre les lignes */
+}
+
+/* Ajout d'espace entre les icônes et le texte */
+.profile-info p .iconify {
+  margin-right: 12px;
+  font-size: 1.6em;
+  color: #df2c26;
+}
+/* Style pour le texte "Groupe Sanguin:" */
+.profile-info p .label {
+  margin-right: 10px; /* Espace entre le texte "Groupe Sanguin:" et la valeur */
+}
+
+/* Style pour la valeur ({{ groupeSanguin }}) */
+.profile-info p .value {
+  color: #DF2C26; /* Couleur rouge de la valeur */
+}
+
+/* Style pour la section du badge de gamification */
+.gamification-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  max-width: 100px;
+  margin-left: auto; /* Positionne la badge à droite de la carte */
+}
+
+.gamification-badge img {
+  width: 70px; /* Taille du badge */
+  height: 70px;
+  border-radius: 50%; /* Donne un effet circulaire au badge */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour effet */
+  background-color: #ffffff;
+  padding: 5px; /* Espace autour de l'image */
+  transition: transform 0.3s ease-in-out; /* Animation au survol */
+}
+
+.gamification-badge img:hover {
+  transform: scale(1.1); /* Agrandit le badge au survol */
+}
+
+
+.profile-form-container {
+  background: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #1d3557;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  color: #1d3557;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus,
+input[type="file"]:focus {
+  border-color: #457b9d;
+  outline: none;
+}
+
+.error {
+  color: #df2c26;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  background-color: #df2c26;
+  color: #ffffff;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #b21c1b;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-card-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .profile-form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .error {
-    color: red;
-    font-size: 0.9em;
-  }
-  
-  button {
+
+  .profile-card {
     width: 100%;
+    padding: 20px;
   }
-  
+
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-info h3 {
+    font-size: 20px;
+  }
+
+  .profile-form-container {
+    width: 90%;
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+  .gamification-badge {
+    margin: 20px auto; /* Centré sur les petits écrans */
+  }
+
+  .gamification-badge img {
+    width: 60px;
+    height: 60px;
+  }
+}

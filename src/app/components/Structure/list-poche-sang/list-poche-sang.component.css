@@ -95,5 +95,12 @@
     border-radius: 5px;
     font-size: 16px;
 }
+/* Style pour le focus des champs de filtre */
+.filter-container select:focus,
+.filter-container input[type="text"]:focus {
+  outline: none;
+  border-color: #DF2C26;
+  box-shadow: 0 0 5px rgba(223, 44, 38, 0.5);
+}
 
 

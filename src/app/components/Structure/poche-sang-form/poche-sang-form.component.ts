@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { PocheSangService } from '../../../Services/poche-sang.service';
 import { BanqueSangService } from '../../../Services/banque-sang.service';
 import { CommonModule } from '@angular/common';
 import { RendezVousService } from '../../../Services/rendez-vous.service';
 import { DonneurExterneService } from '../../../Services/donneur-externe.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-poche-sang-form',
@@ -34,21 +35,40 @@ export class PocheSangFormComponent implements OnInit{
     private router: Router
   ) {
     this.pocheSangForm = this.fb.group({
-      //numero_poche: ['', Validators.required],
       groupe_sanguin: ['', Validators.required],
-      date_prelevement: ['', Validators.required],
+      date_prelevement: ['', [Validators.required, this.datePrelevementValidator]],
       banque_sang_id: ['', Validators.required],
-      nom: ['', Validators.required],
-      prenom: ['', Validators.required],
+      nom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      prenom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
       sexe: ['', Validators.required],
-      date_naiss: ['', Validators.required],
-      adresse: ['', Validators.required],
-      telephone: ['', Validators.required],
-      profession: ['', Validators.required],
+      date_naiss: ['', [Validators.required, this.ageValidator]],
+      adresse: ['', [Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
+      telephone: ['', [Validators.required, Validators.pattern(/^(77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
+      profession: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'-]*$/)]],
       rendez_vouse_id: [''],
       donneur_externe_id: [''] // Champ caché pour stocker l'ID du donneur externe  
     });
   }
+  // Validators
+  private datePrelevementValidator(control: AbstractControl): ValidationErrors | null {
+    const datePrelevement = new Date(control.value);
+    const today = new Date();
+    const sixMonthsAgo = new Date();
+    sixMonthsAgo.setMonth(today.getMonth() - 6);
+
+    if (datePrelevement > today) {
+      return { futureDateNotAllowed: true };
+    } else if (datePrelevement < sixMonthsAgo) {
+      return { dateTooOld: true };
+    }
+    return null;
+  }
+  
+private ageValidator(control: AbstractControl): ValidationErrors | null {
+  const dateOfBirth = new Date(control.value);
+  const age = new Date().getFullYear() - dateOfBirth.getFullYear();
+  return age >= 18 && age <= 50 ? null : { ageNotAllowed: true };
+}
 
   ngOnInit() {
     this.loadBanquesSang();
@@ -75,13 +95,6 @@ export class PocheSangFormComponent implements OnInit{
       this.donneursExternes = data; // Assurez-vous que les données sont au bon format
     });
   }
-
- /* loadRendezVous() {
-    // Appelez votre service pour récupérer les rendez-vous
-    this.rendezVousService.getRendezVouss().subscribe((data) => {
-      this.rendezVousList = data; // Assurez-vous que les données sont au bon format
-    });
-  }*/
 
   loadPocheSang(id: number) {
     this.pocheSangService.getPocheById(id).subscribe((data: any) => {
@@ -110,15 +123,65 @@ export class PocheSangFormComponent implements OnInit{
     if (this.pocheSangForm.valid) {
       const formValue = this.pocheSangForm.value;
         console.log('Form Value:', formValue); // Ajoutez ce log pour déboguer
-      if (this.isEditMode) {
-        this.pocheSangService.updatePoche(this.pocheId, formValue).subscribe(() => {
-          this.router.navigate(['/sidebar1/poche-sang']);
-        });
-      } else {
-        this.pocheSangService.createPoche(this.pocheSangForm.value).subscribe(() => {
-          this.router.navigate(['/sidebar1/poche-sang']);
-        });
+        if (this.isEditMode) {
+          this.pocheSangService.updatePoche(this.pocheId, formValue).subscribe({
+            next: () => {
+              Swal.fire({
+                title: 'Succès!',
+                text: 'La poche de sang a été mise à jour avec succès.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000 // L'alerte disparaît après 2 secondes
+              })
+                // Rediriger vers la liste des annonces après la disparition de l'alerte
+                 setTimeout(() => {
+                this.router.navigate(['/sidebar1/poche-sang']);
+              }, 2000);
+            },
+            error: (error) => {
+              this.handleError(error);
+            }
+          });
+        } else {
+          this.pocheSangService.createPoche(formValue).subscribe({
+            next: () => {
+              Swal.fire({
+                title: 'Succès!',
+                text: 'La poche de sang a été ajoutée avec succès.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000 // L'alerte disparaît après 2 secondes
+              })
+                // Rediriger vers la liste des poches de sang après la disparition de l'alerte
+                setTimeout(() => {
+                this.router.navigate(['/sidebar1/poche-sang']);
+              }, 2000);
+            },
+            error: (error) => {
+              this.handleError(error);
+            }
+          });
+        }
       }
+  }
+  private handleError(error: any) {
+    if (error.status === 422 && error.error?.errors) {
+      const errorMessages = Object.values(error.error.errors).flat().join('<br>');
+      Swal.fire({
+        title: 'Erreur de validation',
+        html: errorMessages,
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 3000 // L'alerte disparaît après 3 secondes
+      });
+    } else {
+      Swal.fire({
+        title: 'Erreur!',
+        text: 'Une erreur est survenue lors de l\'opération.',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 3000 // L'alerte disparaît après 3 secondes
+      });
     }
   }
 }

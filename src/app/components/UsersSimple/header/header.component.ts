@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { NotificationAnnonceService } from '../../../Services/notification-annonce.service';
 
@@ -11,12 +11,17 @@ import { NotificationAnnonceService } from '../../../Services/notification-annon
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  // header.component.ts
+  isMenuOpen = false;
   isDropdownOpen = false;
+  //isDropdownOpen = false;
   notifications: any[] = [];
   unreadCount: number = 0;
 
   constructor (private notificationAnnonceService: NotificationAnnonceService, private router: Router ) {}
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
@@ -64,7 +69,7 @@ export class HeaderComponent implements OnInit {
       modalInstance.show();
     }
   }
-  
+
   
 
   // Marquer une notification comme lue

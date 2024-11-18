@@ -2,11 +2,19 @@
   <div class="form-group">
     <label for="nom">Nom:</label>
     <input type="text" id="nom" formControlName="nom" class="form-control" placeholder="Votre nom" required />
+    <div *ngIf="pocheSangForm.get('nom')?.touched && pocheSangForm.get('nom')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('nom')?.errors?.['required']">Le nom est requis.</small>
+      <small *ngIf="pocheSangForm.get('nom')?.errors?.['pattern']">Le nom doit commencer par une majuscule et ne doit pas contenir de caractères spéciaux.</small>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="prenom">Prénom:</label>
     <input type="text" id="prenom" formControlName="prenom" class="form-control" placeholder="Votre prénom" required />
+    <div *ngIf="pocheSangForm.get('prenom')?.touched && pocheSangForm.get('prenom')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('prenom')?.errors?.['required']">Le prénom est requis.</small>
+      <small *ngIf="pocheSangForm.get('prenom')?.errors?.['pattern']">Le prénom doit commencer par une majuscule et ne doit pas contenir de caractères spéciaux.</small>
+    </div>
   </div>
 
   <div class="form-group">
@@ -16,26 +24,45 @@
       <option value="M">Masculin</option>
       <option value="F">Féminin</option>
     </select>
+    <div *ngIf="pocheSangForm.get('sexe')?.touched && pocheSangForm.get('sexe')?.invalid" class="error">
+      <small>Le sexe est requis.</small>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="date_naiss">Date de naissance:</label>
     <input type="date" id="date_naiss" formControlName="date_naiss" class="form-control" required />
+    <div *ngIf="pocheSangForm.get('date_naiss')?.touched && pocheSangForm.get('date_naiss')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('date_naiss')?.errors?.['required']">La date de naissance est requise.</small>
+      <small *ngIf="pocheSangForm.get('date_naiss')?.errors?.['ageNotAllowed']">L'âge doit être compris entre 18 et 50 ans.</small>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="adresse">Adresse:</label>
     <input type="text" id="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse" required />
+    <div *ngIf="pocheSangForm.get('adresse')?.touched && pocheSangForm.get('adresse')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('adresse')?.errors?.['required']">L'adresse est requise.</small>
+      <small *ngIf="pocheSangForm.get('adresse')?.errors?.['pattern']">L'adresse doit commencer par une majuscule.</small>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="telephone">Téléphone:</label>
     <input type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Votre numéro de téléphone" required />
+    <div *ngIf="pocheSangForm.get('telephone')?.touched && pocheSangForm.get('telephone')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('telephone')?.errors?.['required']">Le téléphone est requis.</small>
+      <small *ngIf="pocheSangForm.get('telephone')?.errors?.['pattern']">Le numéro doit respecter le format: 77 123 45 67.</small>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="profession">Profession:</label>
     <input type="text" id="profession" formControlName="profession" class="form-control" placeholder="Votre profession" required />
+    <div *ngIf="pocheSangForm.get('profession')?.touched && pocheSangForm.get('profession')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('profession')?.errors?.['required']">La profession est requise.</small>
+      <small *ngIf="pocheSangForm.get('profession')?.errors?.['pattern']">La profession doit commencer par une majuscule.</small>
+    </div>
   </div>
 
   <div class="form-group">
@@ -51,11 +78,19 @@
       <option value="O+">O+</option>
       <option value="O-">O-</option>
     </select>
+    <div *ngIf="pocheSangForm.get('groupe_sanguin')?.touched && pocheSangForm.get('groupe_sanguin')?.invalid" class="error">
+      <small>Le groupe sanguin est requis.</small>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="date_prelevement">Date du prélèvement:</label>
     <input type="date" formControlName="date_prelevement" class="form-control" required />
+    <div *ngIf="pocheSangForm.get('date_prelevement')?.touched && pocheSangForm.get('date_prelevement')?.invalid" class="error">
+      <small *ngIf="pocheSangForm.get('date_prelevement')?.errors?.['required']">La date du prélèvement est requise.</small>
+      <small *ngIf="pocheSangForm.get('date_prelevement')?.errors?.['futureDateNotAllowed']">La date du prélèvement ne doit pas dépasser la date d'aujourd'hui.</small>
+      <small *ngIf="pocheSangForm.get('date_prelevement')?.errors?.['dateTooOld']">La date du prélèvement doit être dans les 6 derniers mois.</small>
+   </div>
   </div>
 
   <div class="form-group">

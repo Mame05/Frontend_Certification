@@ -1,5 +1,4 @@
-<div class="donneur-container">
-  
+ <div class="donneur-container"> 
     <h2 class="donneur-title">Liste des donneurs</h2>
      <!-- Sélection du type de donneur -->
      <div class="filter-container">
@@ -8,6 +7,7 @@
           <option value="utilisateurs">Utilisateurs Simples</option>
           <option value="donneursExternes">Donneurs Externes</option>
       </select>
+      <!-- Filtre par nom, telephone, ... -->
       <input type="text" [(ngModel)]="filterValue" (input)="applyFilters()" class="form-control" placeholder="Filtrer par nom, téléphone, etc.">
     </div>
     <table class="donneur-table table table-hover ">

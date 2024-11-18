@@ -3,6 +3,12 @@
     padding: 20px;
     font-family: Montserrat, sans-serif;
   }
+  .back-arrow {
+    cursor: pointer;
+    margin-left: 3%;
+    margin-top: 10px;
+    margin-bottom: -50px;
+}
   
   .filter-btn {
     background-color: #ffffff;

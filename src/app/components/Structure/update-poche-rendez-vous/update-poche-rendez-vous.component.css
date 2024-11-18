@@ -64,3 +64,8 @@ button[type="submit"]:hover {
     background-color: #DF2C26; /* Couleur de fond au survol */
     color: #ffffff; /* Couleur du texte au survol */
 }
+.error {
+    color: #df2c26;
+    font-size: 14px;
+    margin-top: 5px;
+  }

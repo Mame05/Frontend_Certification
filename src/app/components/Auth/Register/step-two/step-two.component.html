@@ -5,6 +5,9 @@
       <div class="form-group">
         <label for="profession">Profession</label>
         <input type="text" id="profession" formControlName="profession" class="form-control" placeholder="votre profession" required />
+        <div *ngIf="parentForm.get('profession')?.invalid && parentForm.get('profession')?.touched" class="error">
+          Le champ profession doit contenir uniquement des lettres, des chiffres, et ne doit pas être vide.
+        </div>
       </div>
       <div class="form-group">
         <label for="groupe_sanguin">Groupe sanguin:</label>
@@ -24,14 +27,23 @@
       <div class="form-group">
         <label for="photo">Photo de profil</label>
         <input type="file" id="photo" (change)="onPhotoChange($event)" class="form-control" />
+        <div *ngIf="parentForm.get('photo')?.errors?.['invalidImage']" class="error">
+          Seuls les fichiers JPEG et PNG sont autorisés.
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" id="email" formControlName="email" class="form-control" placeholder="Votre email" required />
+        <div *ngIf="parentForm.get('email')?.invalid && parentForm.get('email')?.touched" class="error">
+          Veuillez entrer une adresse email valide.
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Mot de passe</label>
         <input type="password" id="password" formControlName="password" class="form-control" placeholder="Votre mot de passe" required />
+        <div *ngIf="parentForm.get('password')?.invalid && parentForm.get('password')?.touched" class="error">
+          Le mot de passe doit contenir au moins 8 caractères, incluant des lettres et des chiffres.
+        </div>
       </div>
       <div class="button-group">
         <button type="submit" [disabled]="parentForm.invalid" class="btn1">S'inscrire</button>

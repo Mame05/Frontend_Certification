@@ -109,5 +109,10 @@ label {
     color: #ffffff; /* Le texte devient blanc */
     transform: scale(1.05); /* Légère agrandissement */
 }
+.error {
+  color: #df2c26;
+  font-size: 14px;
+  margin-top: 5px;
+}
   
   

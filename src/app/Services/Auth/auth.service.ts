@@ -134,7 +134,7 @@ updateProfile(userData: any): Observable<any> {
   const headers = new HttpHeaders({
     'Authorization': `Bearer ${token}`
   });
-  return this.http.put(`${apiUrl}/updateProfile`, userData, { headers })
+  return this.http.post(`${apiUrl}/updateProfile`, userData, { headers })
 }
 
 }
