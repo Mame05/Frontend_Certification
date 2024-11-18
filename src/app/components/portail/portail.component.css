@@ -22,8 +22,11 @@
   }
   
   .logo-img {
-    width: 150px; 
+    width: 40px; 
+    height: auto;
     transition: transform 0.3s ease; /* Animation au survol */
+    image-rendering: crisp-edges; /* Rendu net */
+    image-rendering: -webkit-optimize-contrast;
   }
   .logo-img:hover {
     transform: scale(1.1); /* Agrandir légèrement le logo au survol */
@@ -560,11 +563,19 @@
     font-size: 14px;
     color: #ffffff;
   }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-img {
+      content: url('/assets/images/logo@2x.png'); /* Logo haute résolution */
+    }
+  }
   /* --- Responsivité : Menu Burger pour écrans étroits --- */
 @media (max-width:768px) {
   /*  Header */
   .burger-menu {
     display: flex; /* Afficher le menu burger */
+  }
+  .logo-img {
+    width: 30px; /* Réduit la taille */
   }
 
   .nav-menu {
@@ -725,6 +736,9 @@ footer .footer-icon img {
 }
 
 @media (max-width: 480px) {
+  .logo-img {
+    width: 25px; /* Encore plus petit pour les très petits écrans */
+  }
   /*  section about */
 .about-section .about-row {
   flex-direction: column; /* Empile chaque élément verticalement */

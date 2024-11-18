@@ -11,12 +11,17 @@ import { NotificationAnnonceService } from '../../../Services/notification-annon
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-  // header.component.ts
+  isMenuOpen = false;
   isDropdownOpen = false;
+  //isDropdownOpen = false;
   notifications: any[] = [];
   unreadCount: number = 0;
 
   constructor (private notificationAnnonceService: NotificationAnnonceService, private router: Router ) {}
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
