@@ -28,21 +28,21 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="date_naiss">Date de naissance</label>
+        <label for="date_naiss">Date de naissance:</label>
         <input type="date" id="date_naiss" formControlName="date_naiss" class="form-control" required />
         <div *ngIf="stepOneForm.get('date_naiss')?.invalid && stepOneForm.get('date_naiss')?.touched" class="error">
           Vous devez avoir entre 18 et 50 ans.
         </div>
       </div>
       <div class="form-group">
-        <label for="adresse">Adresse</label>
+        <label for="adresse">Adresse:</label>
         <input type="text" id="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse" required />
         <div *ngIf="stepOneForm.get('adresse')?.invalid && stepOneForm.get('adresse')?.touched" class="error">
           Adresse invalide.
         </div>
       </div>
       <div class="form-group">
-        <label for="telephone">Téléphone</label>
+        <label for="telephone">Téléphone:</label>
         <input type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Votre numéro de téléphone" required />
         <div *ngIf="stepOneForm.get('telephone')?.invalid && stepOneForm.get('telephone')?.touched" class="error">
           Numéro de téléphone invalide (format : 77 000 00 00).
@@ -50,7 +50,7 @@
       </div>
       <div class="button-group">
         <button type="submit" [disabled]="stepOneForm.invalid" class="btn1">Suivant</button>
-        <button routerLink="/login" class="btn2">Retour</button>
+        <button routerLink="/" class="btn2">Retour</button>
       </div>
     </form>
   </div>
