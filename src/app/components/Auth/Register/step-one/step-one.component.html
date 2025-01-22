@@ -8,15 +8,31 @@
       <div class="form-group">
         <label for="nom">Nom:</label>
         <input type="text" id="nom" formControlName="nom" class="form-control" placeholder="Votre nom" required />
-        <div *ngIf="stepOneForm.get('nom')?.invalid && stepOneForm.get('nom')?.touched" class="error">
-          Nom invalide (doit commencer par une majuscule).
+        <!-- Messages d'erreur pour 'nom' -->
+        <div *ngIf="stepOneForm.get('nom')?.touched">
+        <!-- Message pour champ requis -->
+          <div *ngIf="stepOneForm.get('nom')?.errors?.['required']" class="error">
+          Le nom est requis.
+          </div>
+          <!-- Message pour le format (commence par une majuscule et caractères valides) -->
+          <div *ngIf="stepOneForm.get('nom')?.errors?.['pattern']" class="error">
+          Le nom doit commencer par une majuscule et ne contenir que des lettres et au moins deux caractères.
         </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="prenom">Prénom:</label>
         <input type="text" id="prenom" formControlName="prenom" class="form-control" placeholder="Votre nom" required/>
-        <div *ngIf="stepOneForm.get('prenom')?.invalid && stepOneForm.get('prenom')?.touched" class="error">
-          Prénom invalide (doit commencer par une majuscule).
+        <!-- Messages d'erreur pour 'prenom' -->
+        <div *ngIf="stepOneForm.get('prenom')?.touched">
+          <!-- Message pour champ requis -->
+          <div *ngIf="stepOneForm.get('prenom')?.errors?.['required']" class="error">
+            Le prénom est requis.
+          </div>
+          <!-- Message pour le format (commence par une majuscule et caractères valides) -->
+          <div *ngIf="stepOneForm.get('prenom')?.errors?.['pattern']" class="error">
+            Le prénom doit commencer par une majuscule et ne contenir que des lettres et au moins deux caractères.
+          </div>
         </div>
       </div>
       <div class="form-group">
@@ -37,15 +53,29 @@
       <div class="form-group">
         <label for="adresse">Adresse:</label>
         <input type="text" id="adresse" formControlName="adresse" class="form-control" placeholder="Votre adresse" required />
-        <div *ngIf="stepOneForm.get('adresse')?.invalid && stepOneForm.get('adresse')?.touched" class="error">
-          Adresse invalide.
+        <div *ngIf="stepOneForm.get('adresse')?.touched">
+          <!-- Message pour champ requis -->
+          <div *ngIf="stepOneForm.get('adresse')?.errors?.['required']" class="error">
+            L'adresse est requise.
+          </div>
+          <!-- Message pour format invalide -->
+          <div *ngIf="stepOneForm.get('adresse')?.errors?.['pattern']" class="error">
+            L'adresse doit commencer par une majuscule, contenir au moins 4 caractères et être composée de lettres, chiffres ou caractères spéciaux autorisés (,.'-).
+          </div>
         </div>
       </div>
       <div class="form-group">
         <label for="telephone">Téléphone:</label>
         <input type="text" id="telephone" formControlName="telephone" class="form-control" placeholder="Votre numéro de téléphone" required />
-        <div *ngIf="stepOneForm.get('telephone')?.invalid && stepOneForm.get('telephone')?.touched" class="error">
-          Numéro de téléphone invalide (format : 77 000 00 00).
+        <div *ngIf="stepOneForm.get('telephone')?.touched">
+          <!-- Message pour champ requis -->
+          <div *ngIf="stepOneForm.get('telephone')?.errors?.['required']" class="error">
+            Le numéro de téléphone est obligatoire.
+          </div>
+          <!-- Message pour format invalide -->
+          <div *ngIf="stepOneForm.get('telephone')?.errors?.['pattern']" class="error">
+            Le numéro de téléphone doit commencer par 77, 78, 76, 75 ou 70, et suivre le format : 77 123 45 67.
+          </div>
         </div>
       </div>
       <div class="button-group">

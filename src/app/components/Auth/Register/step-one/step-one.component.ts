@@ -17,11 +17,11 @@ export class StepOneComponent {
 
   constructor(private fb: FormBuilder) {
     this.stepOneForm = this.fb.group({
-      nom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
-      prenom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      nom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]{1,}$/)]],
+      prenom: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]{1,}$/)]],
       sexe:['', Validators.required],
       date_naiss: ['',[Validators.required, this.ageValidator]],
-      adresse: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÿ0-9 ,.'-]+$/)]],
+      adresse: ['', [Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'+°\-@_]{3,}$/)]],
       telephone: ['', [Validators.required, Validators.pattern(/^(77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
     });
   }
