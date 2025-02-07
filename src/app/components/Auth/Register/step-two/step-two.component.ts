@@ -16,7 +16,7 @@ export class StepTwoComponent {
 
   constructor(private fb: FormBuilder) {
     this.parentForm = this.fb.group({
-      profession: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]*$/)]],
+      profession: ['',[Validators.required, Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ '-]{2,}$/)]],
       groupe_sanguin: ['', Validators.required],
       photo: [null, this.imageValidator],
       email: ['', [Validators.required, Validators.email]],
