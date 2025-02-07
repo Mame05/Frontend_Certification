@@ -1,115 +1,219 @@
 /* Styles globaux pour le conteneur */
 .container {
-    display: flex; /* Alignement horizontal */
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .illustration {
-    flex: 1;
-    /*padding: 20px;*/
-    margin-left: 5%;
+  display: flex; /* Alignement horizontal */
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.illustration {
+  flex: 1;
+  /*padding: 20px;*/
+  margin-left: 5%;
+  margin-top: 150px;
 }
 
 .illustration img {
-    width: 500px;
-    height: 600px;
+  width: 500px;
+  height: 600px;
 }
-  
-  /* Section du formulaire */
-  .form-container {
-    flex: 1; /* Prendre la moitié de l'espace */
-    padding: 40px; /* Espacement intérieur */
-    margin-right: 10%;
-    display: flex;
-    flex-direction: column; /* Disposition verticale pour le formulaire */
-    justify-content: center; /* Centrer le formulaire verticalement */
-    background-color: #ffffff; /* Couleur de fond blanche */
-  }
-  h2 {
-    margin-bottom: 40px;
-    color: #DF2C26;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
+
+/* Section du formulaire */
+.form-container {
+  flex: 1; /* Prendre la moitié de l'espace */
+  padding: 40px; /* Espacement intérieur */
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column; /* Disposition verticale pour le formulaire */
+  justify-content: center; /* Centrer le formulaire verticalement */
+  background-color: #ffffff; /* Couleur de fond blanche */
+}
+h2 {
+  margin-bottom: 40px;
+  margin-top: 160px;
+  margin-right: 30%;
+  color: #DF2C26;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
 }
 
 label {
-    display: block;
-    margin-left:12%;
-    margin-bottom: 8px;
-    color: #1D3557;
-    font-size: 18px;
-    font-weight: 500;
+  display: block;
+  margin-left:12%;
+  margin-bottom: 8px;
+  color: #1D3557;
+  font-size: 18px;
+  font-weight: 500;
 }
-  
-  /* Styles des champs de formulaire */
-  .form-group input,
-  .form-group select {
-    width: 70%;
-    margin-left: 10%;
-    padding: 12px;
-    margin-bottom: 20px; /* Ajoute de l'espace sous chaque input */
-    border: 1px solid #1D3557;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: transparent;
-  }
-  
-  /* Style du bouton */
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  .btn1 {
-    background-color: #DF2C26;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 10px;
-    width: 200px;
-    height: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    /*flex: 1;*/
-    margin-left: 3%;
+
+/* Styles des champs de formulaire */
+.form-group input,
+.form-group select {
+  width: 70%;
+  margin-left: 10%;
+  padding: 12px;
+  margin-bottom: 20px; /* Ajoute de l'espace sous chaque input */
+  border: 1px solid #1D3557;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+/* Style du bouton */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.btn1 {
+  background-color: #DF2C26;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 170px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /*flex: 1;*/
+  /*margin-left: 3%;*/
 }
 
 .btn1:hover {
-    background-color: #B82420; 
-    transform: scale(1.05); 
+  background-color: #B82420; 
+  transform: scale(1.05); 
 }
 
 .btn2 {
-    background-color: #ffffff;
-    color: #DF2C26;
-    border: 1px solid #DF2C26;
-    padding: 12px 20px;
-    font-size: 20px;
-    font-weight: bold;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    /*flex: 1;*/
-    margin-right: 8%;
+  background-color: #ffffff;
+  color: #DF2C26;
+  border: 1px solid #DF2C26;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 170px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /*flex: 1;*/
+  /*margin-right: 8%;*/
 }
 
 .btn2:hover {
-    background-color: #DF2C26; /* Passe au rouge au survol */
-    color: #ffffff; /* Le texte devient blanc */
-    transform: scale(1.05); /* Légère agrandissement */
+  background-color: #DF2C26; /* Passe au rouge au survol */
+  color: #ffffff; /* Le texte devient blanc */
+  transform: scale(1.05); /* Légère agrandissement */
 }
 .error {
-  color: #df2c26;
-  font-size: 14px;
-  margin-top: 5px;
+color: #df2c26;
+font-size: 14px;
+margin-top: 5px;
 }
-  
-  
+
+/* Media Query pour les écrans de 768px à 1024px (tablettes) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: row; /* Disposition horizontale */
+    padding: 20px;
+  }
+
+  .illustration {
+    flex: 1;
+    margin-left: 2%; /* Réduire la marge gauche */
+    margin-top: -100px; /* Réduire l'espacement supérieur */
+  }
+
+  .illustration img {
+    width: 350px; /* Réduire la largeur de l'image */
+    height: auto; /* Maintenir les proportions */
+  }
+
+  .form-container {
+    flex: 1;
+    padding: 20px; /* Réduire l'espacement interne */
+    margin-right: 2%; /* Réduire la marge droite */
+  }
+
+  h2 {
+    font-size: 28px; /* Ajuster la taille de police */
+    margin-bottom: 30px;
+    margin-top: -150px;
+  }
+
+  label {
+    font-size: 16px; /* Réduire légèrement la taille des labels */
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%; /* Réduire la largeur des champs */
+    margin-left: 10%; /* Centrer les champs */
+  }
+
+  .button-group {
+    margin-top: 10px; /* Réduire l'espacement en haut */
+  }
+
+  .btn1,
+  .btn2 {
+    width: 48%; /* Les boutons occupent 48% chacun, alignés côte à côte */
+    margin: 0 1%; /* Ajouter un petit espace entre eux */
+  }
+}
+
+
+/* Media Query pour les écrans de moins de 768px */
+@media screen and (max-width: 768px) {
+  /* Cacher l'image sur les petits écrans */
+  .illustration {
+    display: none;
+  }
+
+  /* Ajuster le conteneur principal pour qu'il occupe tout l'espace */
+  .container {
+    flex-direction: column; /* Disposition verticale */
+    padding: 20px; /* Espacement autour du contenu */
+  }
+
+  /* Formulaire sur toute la largeur */
+  .form-container {
+    width: 100%; /* Occuper toute la largeur */
+    margin-right: 0; /* Supprimer la marge droite */
+    padding: 20px; /* Réduire l'espacement interne */
+  }
+
+  h2 {
+    margin-top: 20px; /* Réduire la marge supérieure */
+    margin-bottom: 20px; /* Réduire la marge inférieure */
+    font-size: 24px; /* Diminuer la taille de police */
+  }
+
+  label {
+    font-size: 16px; /* Réduire la taille de police des labels */
+    margin-left: 0; /* Centrer les labels */
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%; /* Champ de formulaire sur toute la largeur */
+    margin-left: 0; /* Supprimer la marge gauche */
+  }
+
+  /* Boutons responsifs */
+  .button-group {
+    flex-direction: column; /* Aligner les boutons verticalement */
+    gap: 10px; /* Espacement entre les boutons */
+  }
+
+  .btn1,
+  .btn2 {
+    width: 100%; /* Boutons sur toute la largeur */
+  }
+}
+
+
