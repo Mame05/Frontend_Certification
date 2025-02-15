@@ -10,17 +10,32 @@
     flex-direction: column; /* Les éléments sont disposés en colonne */
     padding: 20px;
     position: fixed;
+    /*overflow-y: auto; /* Permettre le scroll si nécessaire */
   }
 
-  .logo {
+  .sidebar-header {
     text-align: center;
-    margin: 40px 0;
-  }
+    padding-bottom: 20px;
+}
 
-  .logo img {
+.logo {
+    width: 100px; /* Ajuste selon ton besoin */
+}
+
+  .sidebar-header img {
     max-width: 100%; /* S'adapte à la largeur de son conteneur */
     height: auto; /* Maintient le ratio d'aspect de l'image */
     max-height: 80px; /* Limite la hauteur maximale du logo */
+}
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto; /* Permet le scroll uniquement sur les liens */
+  scrollbar-width: none; /* Supprime la barre de scroll sur Firefox */
+    -ms-overflow-style: none; /* Supprime la barre de scroll sur IE/Edge */
+}
+/* Pour Chrome, Safari et Edge */
+.sidebar-content::-webkit-scrollbar {
+  display: none;
 }
 
   .menu-links {
