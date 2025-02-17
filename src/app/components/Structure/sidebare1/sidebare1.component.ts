@@ -15,7 +15,7 @@ export class Sidebare1Component implements OnInit {
   nomstructure: string | undefined;
   notifications: any[] = [];
   unreadCount: number = 0;
-
+  
   constructor (private structureService: StructureService, private notificationAnnonceService: NotificationAnnonceService, private router: Router ) {}
   ngOnInit() {
     this.structureService.getStructureConnectee().subscribe(
