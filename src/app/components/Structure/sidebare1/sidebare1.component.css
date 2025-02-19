@@ -62,7 +62,8 @@
     font-weight: bold;
     font-family: Montserrat,sans-serif;
     padding: 10px; /* Ajoute un peu de padding pour l'effet du rectangle */
-    border-radius: 5px;
+    border-radius: 5px; /* Arrondit légèrement les coins du rectangle */
+
   }
   .menu-links li a:hover, /* Style au survol */
   .menu-links li a.active { /* Style du lien actif (lorsqu'il est cliqué) */
