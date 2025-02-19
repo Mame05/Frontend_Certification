@@ -62,12 +62,13 @@
     font-weight: bold;
     font-family: Montserrat,sans-serif;
     padding: 10px; /* Ajoute un peu de padding pour l'effet du rectangle */
-    border-radius: 5px; /* Arrondit légèrement les coins du rectangle */
+    border-radius: 5px;
   }
   .menu-links li a:hover, /* Style au survol */
-.menu-links li a.active { /* Style du lien actif (lorsqu'il est cliqué) */
+  .menu-links li a.active { /* Style du lien actif (lorsqu'il est cliqué) */
   background-color: #ffffff; /* Fond blanc */
   color: #1D3557; /* Couleur du texte et de l'icône identique à celle de la sidebar */
+
 }
 
 .menu-links li a:hover .iconify,
