@@ -12,12 +12,15 @@
     position: fixed;
   }
 
-  .logo {
+  .sidebar-header {
     text-align: center;
-    margin: 40px 0;
+    padding-bottom: 20px;
+}
+  .logo {
+    width: 100px; /* Ajuste selon ton besoin */
   }
 
-  .logo img {
+  .sidebar-header img {
     max-width: 100%; /* S'adapte à la largeur de son conteneur */
     height: auto; /* Maintient le ratio d'aspect de l'image */
     max-height: 80px; /* Limite la hauteur maximale du logo */
