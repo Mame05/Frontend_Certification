@@ -32,7 +32,7 @@
     <div class="main-content">
       <div class="topbar">
         <div class="left-section">
-          <h3>{{nomstructure}}</h3>
+          <h3 *ngIf="nomstructure">{{nomstructure}}</h3><!-- *ngIf="nomstructure": vérification pour afficher le nom seulement s'il existe.-->
           <p>Bienvenue!</p>
         </div>
         <div class="right-section">
