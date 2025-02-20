@@ -12,22 +12,31 @@ import { StructureService } from '../../../Services/structure.service';
   styleUrl: './sidebare1.component.css'
 })
 export class Sidebare1Component implements OnInit {
-  nomstructure: string | undefined;
+  nomstructure: string  = ''; // Initialisation vide pour éviter les erreurs d'affichage
   notifications: any[] = [];
   unreadCount: number = 0;
   
   constructor (private structureService: StructureService, private notificationAnnonceService: NotificationAnnonceService, private router: Router ) {}
   ngOnInit() {
-    this.structureService.getStructureConnectee().subscribe(
-      (data) => {
-        this.nomstructure = data.nom_structure;
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des données de la structure', error);
-      }
-    );
+    this.getNomStructure();
     this.getNotifications();
   } 
+   // ✅ Récupérer le nom de la structure et l'afficher
+   getNomStructure() {
+    this.structureService.getStructureConnectee().subscribe(
+      (response) => {
+        if (response.status && response.data && response.data.nom) {
+          this.nomstructure = response.data.nom; // Utilisation de data.nom
+          console.log('Nom de la structure récupéré:', this.nomstructure);
+        } else {
+          console.warn("Données incorrectes reçues pour la structure:", response);
+        }
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération du nom de la structure:', error);
+      }
+    );
+  }
 
   // Récupérer le nombre de notifications non lues
   getNotifications() {
