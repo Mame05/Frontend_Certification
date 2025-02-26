@@ -80,4 +80,10 @@ deleteNotification(notificationId: number) {
   });
 }
 
+toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  if (sidebar) {
+      sidebar.classList.toggle('collapsed');
+  }
+}
 }
