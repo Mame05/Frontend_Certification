@@ -103,4 +103,98 @@
   box-shadow: 0 0 5px rgba(223, 44, 38, 0.5);
 }
 
+/* Responsivité pour tablettes */
+@media (max-width: 1024px) {
+    .add-poche-btn .btn-add-poche {
+        font-size: 16px;
+        padding: 8px 15px;
+        border-radius: 8px;
+    }
+    .filter-dropdown,
+    .search-input {
+        width: 100%; /* Assure que les deux champs ont la même largeur */
+    }
+
+    .filter-dropdown select,
+    .search-input input {
+        width: 100%; /* Assure la même taille */
+        font-size: 16px; /* Texte lisible */
+        padding: 12px; /* Augmente l’espace pour bien voir le texte */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .search-input input {
+        white-space: nowrap; /* Empêche la coupure du texte */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* Responsivité pour mobiles */
+@media (max-width: 768px) {
+    .add-poche-btn {
+        justify-content: center;
+    }
+
+    /* Bouton circulaire en bas à droite avec uniquement l'icône */
+    .add-poche-btn .btn-add-poche {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #DF2C26;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-indent: -9999px; /* Cache le texte */
+  }
+
+  .add-poche-btn .btn-add-poche::before {
+    content: "+";
+    font-size: 30px;
+    font-weight: bold;
+    text-indent: 0; /* Réaffiche uniquement l'icône */
+    margin-bottom: 5px;
+  }
+
+
+    .filter-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-dropdown,
+    .search-input {
+        max-width: 100%;
+    }
+    /* Champs de recherche responsifs et lisibles */
+    .filter-dropdown select,
+    .search-input input {
+        width: 100%;
+        font-size: 16px; /* Taille de police adaptée */
+        padding: 10px; /* Ajout d’un padding pour meilleure lisibilité */
+    }
+
+    .table-poches {
+        font-size: 14px;
+    }
+
+    .table-poches th,
+    .table-poches td {
+        padding: 8px;
+    }
+
+    .icon-link {
+        font-size: 18px;
+    }
+}
+
+
 
