@@ -201,5 +201,88 @@
     height: 28px;
 }
 
+/* Rendre le dashboard responsive */
+@media screen and (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .stats-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-left: 0;
+    }
+    
+    .stat-card {
+        width: 90%;
+    }
+    
+    .announce-button {
+        justify-content: center;
+        text-align: center;
+        margin-left: 0;
+    }
+    
+    .content-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .blood-group-table {
+        width: 90%;
+        margin-left: 0;
+    }
+    
+    .announcements {
+        width: 90%;
+        margin-left: 0;
+    }
+    
+    .announcement-card {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard {
+        padding: 5px;
+    }
+    
+    .stat-card {
+        width: 100%;
+        height: auto;
+    }
+    
+    .announce-button {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .announce-button h5 {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .content-section {
+        width: 100%;
+    }
+    
+    .blood-group-table {
+        width: 100%;
+    }
+    
+    .announcements {
+        width: 100%;
+    }
+    
+    .announcement-card {
+        height: auto;
+        padding: 15px;
+    }
+}
+
+
 
 
