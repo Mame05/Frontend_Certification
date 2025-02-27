@@ -132,4 +132,63 @@
   box-shadow: 0 0 5px rgba(223, 44, 38, 0.5);
 }
 
+/* Mode Tablette (écrans ≤ 1024px) */
+@media screen and (max-width: 1024px) {
+  .filter-container {
+      flex-direction: column; /* Empile les champs */
+      align-items: center;
+      gap: 15px; /* Ajoute de l'espace */
+  }
+
+  .filter-container select,
+  .filter-container input {
+      width: 90%; /* Champs plus larges */
+  }
+
+  .donneur-table {
+      font-size: 16px; /* Réduction de la taille du texte */
+  }
+
+  .donneur-table th,
+  .donneur-table td {
+      padding: 8px; /* Ajustement des espacements */
+  }
+
+  .donneur-title {
+      font-size: 28px; /* Réduction de la taille du titre */
+      text-align: center;
+      margin-left: 0;
+  }
+}
+
+/* Mode Mobile (écrans ≤ 768px) */
+@media screen and (max-width: 768px) {
+  .filter-container {
+      flex-direction: column; /* Champs en colonne */
+      width: 100%;
+  }
+
+  .filter-container select,
+  .filter-container input {
+      width: 100%; /* Champs plein écran */
+  }
+
+  .donneur-table {
+      width: 100%;
+      overflow-x: auto; /* Permet de scroller horizontalement */
+      display: block;
+  }
+
+  .donneur-table th,
+  .donneur-table td {
+      font-size: 14px; /* Réduction de la taille du texte */
+      padding: 6px;
+  }
+
+  .donneur-title {
+      font-size: 24px; /* Réduction du titre */
+  }
+}
+
+
   
