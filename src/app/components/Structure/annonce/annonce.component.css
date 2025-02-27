@@ -100,4 +100,86 @@
   border-color: #DF2C26;
   box-shadow: 0 0 5px rgba(223, 44, 38, 0.5);
 }
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .btn-custom {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .struct-title {
+    margin-left: 0;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .filter-container select,
+  .filter-container input[type="text"] {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Bouton circulaire en bas à droite avec uniquement l'icône */
+  .btn-custom {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #DF2C26;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-indent: -9999px; /* Cache le texte */
+  }
+
+  .btn-custom::before {
+    content: "+";
+    font-size: 30px;
+    font-weight: bold;
+    text-indent: 0; /* Réaffiche uniquement l'icône */
+  }
+
+  /* Adapter l'affichage du tableau (scrollable) */
+  .struct-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .struct-table table {
+    width: 100%;
+    min-width: 600px; /* Garde un format lisible */
+    border-collapse: collapse;
+  }
+
+  .struct-table th, .struct-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  /* Amélioration pour les petits écrans */
+  .struct-table::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .struct-table::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+}
+
+
   
