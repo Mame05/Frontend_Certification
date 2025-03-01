@@ -79,4 +79,33 @@
   .btn-cancel:hover {
     opacity: 0.9;
   }
+  @media (max-width: 768px) { /* Mode tablette et mobile */
+    .banque-form {
+        max-width: 100%; /* Utilisation de toute la largeur disponible */
+        padding: 15px; /* Réduction du padding */
+    }
+
+    .form-group input {
+        font-size: 14px; /* Réduction de la taille du texte des champs */
+        padding: 8px;
+    }
+
+    .btn-submit, .btn-cancel {
+        width: 100%; /* Les boutons prennent toute la largeur */
+        font-size: 18px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) { /* Mode mobile */
+    .form-actions {
+        flex-direction: column; /* Empilement des boutons */
+        gap: 10px; /* Espace entre les boutons */
+    }
+
+    .btn-submit, .btn-cancel {
+        width: 100%; /* Prend toute la largeur du parent */
+    }
+}
+
   
