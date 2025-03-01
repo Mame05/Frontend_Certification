@@ -9,8 +9,8 @@
   .title {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+    margin-bottom: 25px;
+    color: #DF2C26;
   }
   
   /* Grille de disposition pour les graphiques */
@@ -89,5 +89,42 @@
     .chart-card {
       height: auto;
     }
+    .statistique-page {
+      padding: 10px;
+    }
+  
+    .title {
+      font-size: 1.5rem; /* Réduction de la taille du titre */
+      margin-bottom: 15px;
+    }
+  
+    .chart-grid {
+      grid-template-columns: 1fr; /* Une seule colonne */
+      gap: 15px;
+    }
+  
+    .chart-card {
+      padding: 10px; /* Moins d'espace interne */
+      border-radius: 8px; /* Réduction du border-radius */
+    }
+  
+    .chart-card h2 {
+      font-size: 1rem; /* Réduction de la taille du texte */
+      margin-top: 10px;
+    }
   }
+  /* Très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .chart-card {
+    padding: 8px;
+  }
+
+  .chart-card h2 {
+    font-size: 0.9rem;
+  }
+}
   
