@@ -210,4 +210,159 @@
 
 .announcement2-content p{
     margin: 5px 0px;   
-} 
+}
+/* Mode Tablette (écrans <= 1024px) */
+@media (max-width: 1024px) {
+    .statistics {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .info-struct {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stocks {
+        width: 90%;
+    }
+
+    .stocks h2 {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .stocks table {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .recent-announcements {
+        width: 90%;
+    }
+
+    .announcement {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .announcement-date {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+/* Mode Mobile (écrans <= 768px) */
+@media (max-width: 768px) {
+    .dashboard-content {
+        padding: 10px;
+    }
+
+    .statistics img {
+        width: 100%;
+    }
+
+    .stat-card {
+        width: 60%;
+        height: auto;
+        padding: 10px;
+    }
+    .stat-card .iconify {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .info-struct {
+        width: 100%;
+    }
+
+    .stocks h2 {
+        font-size: 20px;
+    }
+
+    .stocks table th,
+    .stocks table td {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .add-struct {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .add-struct h5 {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+    .recent-announcements h2 {
+        font-size: 20px;
+    }
+
+    .announcement {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .announcement-date {
+        width: 100%;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+/* Mode Très Petit Écran (écrans <= 480px) */
+@media (max-width: 480px) {
+    .statistics {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .stat-card .stat-info h4 {
+        font-size: 18px;
+    }
+
+    .stocks h2 {
+        font-size: 18px;
+    }
+
+    .stocks table th,
+    .stocks table td {
+        font-size: 12px;
+    }
+
+    .announcement {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .announcement-date {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .announcement-content p {
+        font-size: 14px;
+    }
+}
+
