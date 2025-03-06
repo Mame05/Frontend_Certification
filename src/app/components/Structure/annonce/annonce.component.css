@@ -2,6 +2,7 @@
     width: 100%;
     padding: 20px;
     font-family: Montserrat, sans-serif;
+    overflow-x: hidden;
   }
   
  
@@ -25,18 +26,28 @@
     font-weight: bold;
     color: #1D3557;
   }
+  /* Conteneur du tableau */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
   
   .struct-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
     border: 1px solid #1D3557;
+    table-layout: fixed; /* Important pour forcer l'égalité des colonnes */
 
   }
   
   .struct-table th,
   .struct-table td {
     padding: 12px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .struct-table th {
@@ -122,10 +133,36 @@
   .filter-container input[type="text"] {
     width: 100%;
   }
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .struct-table {
+    width: 100%;
+    min-width: 600px; /* Permet d'éviter le vide */
+    table-layout: auto; /* Permet aux colonnes de s'adapter */
+  }
+
+  .struct-table th, 
+  .struct-table td {
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    padding: 10px;
+    font-size: 16px;
+    min-width: 120px;
+  }
+  .struct-table thead {
+    display: table-header-group;
+  }
+  
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+  .struct-title{
+    font-size: 24px;
+  }
   /* Bouton circulaire en bas à droite avec uniquement l'icône */
   .btn-custom {
     width: 50px;
@@ -151,11 +188,22 @@
     font-weight: bold;
     text-indent: 0; /* Réaffiche uniquement l'icône */
   }
+   /* Alignement vertical des filtres */
+   .filter-container {
+    flex-direction: column;
+  }
+
+  .filter-container select,
+  .filter-container input[type="text"] {
+    width: 100%;
+  }
 
   /* Adapter l'affichage du tableau (scrollable) */
   .struct-table {
     width: 100%;
     overflow-x: auto;
+    display: block;
+    white-space: nowrap; /* Empêche le retour à la ligne */
   }
 
   .struct-table table {
@@ -165,9 +213,9 @@
   }
 
   .struct-table th, .struct-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: left;
+    padding: 10px;
+    font-size: 14px; /* Réduire la taille de la police */
+    white-space: nowrap; /* Évite le retour à la ligne des cellules */
   }
 
   /* Amélioration pour les petits écrans */
@@ -179,7 +227,37 @@
     background: #888;
     border-radius: 10px;
   }
+   /* Ajout d'un conteneur pour le scroll horizontal */
+   .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
+/* 📌 Responsive pour les écrans très petits (moins de 480px) */
+@media (max-width: 480px) {
+  .table-responsive {
+    overflow-x: auto; /* Ajoute un défilement horizontal */
+    display: block;
+    width: 100%;
+  }
 
+  .struct-table {
+    width: 100%;
+    min-width: 600px; /* Pour éviter que la table devienne trop compacte */
+    table-layout: auto;
+  }
+  
+
+  .struct-table th,
+  .struct-table td {
+    padding: 6px;
+    font-size: 12px; /* Réduction de la taille du texte */
+  }
+
+  /* 📌 Réduction des icônes */
+  .icon-link .iconify {
+    font-size: 18px; /* Réduit la taille des icônes */
+  }
+}
 
   
