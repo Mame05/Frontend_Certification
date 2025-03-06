@@ -16,8 +16,16 @@ export class SidebareComponent {
 
   toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+    const topbar = document.querySelector('.topbar');
     if (sidebar) {
         sidebar.classList.toggle('collapsed');
+    }
+    if (mainContent) {
+      mainContent.classList.toggle('expanded');
+    }
+    if (topbar) {
+      topbar.classList.toggle('expanded');
     }
   }
 
