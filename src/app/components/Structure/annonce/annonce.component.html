@@ -15,37 +15,38 @@
       <!-- Filtre par date de début -->
       <input type="text" [(ngModel)]="filterValue" (input)="applyFilters()" class="form-control" placeholder="Filtrer par date de début (dd/MM/yyyy).">
     </div>
-    
-    <table class="struct-table table table-striped mt-3">
-      <thead>
-        <tr>
-          <th>Titre</th>
-          <th>Date Début</th>
-          <th>Lieu</th>
-          <th>Inscrit</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr  *ngFor="let annonce of filteredAnnonces">
-          <td>{{ annonce.titre}}</td>
-          <td>{{ annonce.date_debut | date: 'dd/MM/yyyy'}}</td>
-          <td>{{ annonce.nom_lieu}}</td>
-          <td>{{ annonce.nombre_inscrits }}</td>
-          <td>
-            <a [routerLink]="['/sidebar1/annonce/detail-annonce', annonce.id]" class="icon-link">
-              <span class="iconify" data-icon="mdi:eye"></span>
-            </a>
-            <a [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="icon-link">
-              <span class="iconify" data-icon="mdi:pencil"></span>
-            </a>
-            <a class="icon-link" (click)="deleteAnnonce(annonce.id)">
-              <span class="iconify" data-icon="mdi:delete"></span>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="struct-table table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Date Début</th>
+            <th>Lieu</th>
+            <th>Inscrit</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let annonce of filteredAnnonces">
+            <td>{{ annonce.titre}}</td>
+            <td>{{ annonce.date_debut | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ annonce.nom_lieu}}</td>
+            <td>{{ annonce.nombre_inscrits }}</td>
+            <td>
+              <a [routerLink]="['/sidebar1/annonce/detail-annonce', annonce.id]" class="icon-link">
+                <span class="iconify" data-icon="mdi:eye"></span>
+              </a>
+              <a [routerLink]="['/sidebar1/annonce/modifier', annonce.id]" class="icon-link">
+                <span class="iconify" data-icon="mdi:pencil"></span>
+              </a>
+              <a class="icon-link" (click)="deleteAnnonce(annonce.id)">
+                <span class="iconify" data-icon="mdi:delete"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+    </div>
     
     <!-- Pagination controls -->
     <!--<div class="pagination-controls d-flex justify-content-end mt-3">

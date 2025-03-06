@@ -84,4 +84,75 @@
   .icon-link:hover {
     color: #DF2C26;
   }
+
+  @media (max-width: 768px) { /* Mode tablette et mobile */
+    .btn-add{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #DF2C26;
+      color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-indent: -9999px; /* Cache le texte */
+    }
+  
+    .btn-add::before {
+      content: "+";
+      font-size: 30px;
+      font-weight: bold;
+      text-indent: 0; /* Réaffiche uniquement l'icône */
+    }
+    .banques-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Réduit la taille des cartes */
+    }
+
+    .banque-card {
+        padding: 15px; /* Réduction de l'espace intérieur */
+        border-radius: 8px;
+    }
+
+    .card-title {
+        font-size: 18px; /* Réduction de la taille du titre */
+    }
+
+    .card-info {
+        font-size: 16px; /* Réduction de la taille du texte */
+    }
+
+    .icon-link {
+        font-size: 18px; /* Réduction de la taille des icônes */
+    }
+}
+
+@media (max-width: 480px) { /* Mode mobile (téléphones) */
+    .banques-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Cartes encore plus petites */
+    }
+
+    .banque-card {
+        padding: 12px;
+        border-radius: 6px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-info {
+        font-size: 14px;
+    }
+
+    .icon-link {
+        font-size: 16px;
+    }
+}
+
   

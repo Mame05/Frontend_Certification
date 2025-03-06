@@ -82,4 +82,18 @@ form {
     font-size: 14px;
     margin-top: 5px;
   }
+   /* Mode mobile */
+@media screen and (max-width: 768px) {
+  button.btn-primary,
+  button.btn-cancel {
+      width: 100%; /* Les boutons prennent toute la largeur */
+      margin-bottom: 10px; /* Ajoute un espace entre les boutons */
+  }
+  button.btn-primary:last-child,
+  button.btn-cancel:last-child {
+    margin-bottom: 0; /* Supprime l'espace pour le dernier bouton */
+  }
+  
+}
+
   
