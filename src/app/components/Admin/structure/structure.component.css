@@ -101,4 +101,86 @@
  input{
    width: 70%;
  }
+ @media screen and (max-width: 1024px) {
+  .btn-custom {
+    font-size: 16px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+
+  .struct-title {
+    font-size: 24px;
+    margin-left: 10%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .btn-custom {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #DF2C26;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-indent: -9999px; /* Cache le texte */
+  }
+
+  .btn-custom::before {
+    content: '\002B'; /* Icône "+" */
+    font-size: 30px;
+    font-weight: bold;
+    text-indent: 0;
+  }
+
+  .struct-title {
+    font-size: 18px;
+    margin-left: 10%;
+  }
+}
+/* Mode très petits écrans (moins de 480px) */
+@media screen and (max-width: 480px) {
+  .btn-custom {
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn-custom::before {
+    font-size: 20px;
+  }
+
+  .struct-title {
+    font-size: 16px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .struct-container {
+    padding: 5px;
+  }
+
+  .struct-table {
+    font-size: 12px;
+  }
+
+  .struct-table th,
+  .struct-table td {
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  /* Réduction des icônes */
+  .struct-table .iconify {
+    font-size: 16px;
+  }
+}
+
   
