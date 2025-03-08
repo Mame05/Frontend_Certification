@@ -88,4 +88,112 @@
  input{
    width: 70%;
  }
+ /* 📌 Mode Tablette (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .donneur-title {
+    font-size: 26px;
+    margin-left: 20%;
+  }
+
+  .filter-btn, .add-donneur-btn {
+    width: 180px;
+    font-size: 18px;
+  }
+
+  .donneur-table th, 
+  .donneur-table td {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+/* 📌 Mode Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .donneur-title {
+    font-size: 22px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .donneur-container {
+    padding: 15px;
+  }
+
+  /* Table devient scrollable horizontalement */
+  .donneur-table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .donneur-table thead {
+    display:  block;
+    width: 100%;
+  }
+  .donneur-table tbody {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    max-height: 400px; /* Limite la hauteur pour éviter le vide */
+  }
+
+  .donneur-table tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .filter-btn, .add-donneur-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .donneur-table th,
+  .donneur-table td {
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+    padding: 8px;
+    white-space: nowrap; /* Évite que le texte soit coupé ou mal aligné */
+  }
+  /* Conteneur des champs de recherche */
+  .d-flex {
+    flex-direction: column; /* Superpose les champs */
+    gap: 10px; /* Ajoute un petit espace entre eux */
+  }
+
+  select, input {
+    width: 100%;
+  }
+}
+
+/* 📌 Mode Très petits écrans (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .donneur-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .donneur-container {
+    padding: 10px;
+  }
+
+  .donneur-table th,
+  .donneur-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .filter-btn, .add-donneur-btn {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .donneur-table .iconify {
+    font-size: 16px;
+  }
+}
+
   
