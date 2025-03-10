@@ -103,6 +103,11 @@ input, select {
     background-color: #DF2C26;
     color: #ffffff;
 }
+.error {
+    color: #df2c26;
+    font-size: 14px;
+    margin-top: 5px;
+}
 /* Mode Tablette (moins de 768px) */
 @media screen and (max-width: 768px) {
     h2 {
