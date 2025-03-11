@@ -10,6 +10,8 @@
     flex-direction: column; /* Les éléments sont disposés en colonne */
     padding: 20px;
     position: fixed;
+    transition: width 0.3s ease;
+    overflow: hidden;
   }
 
   .sidebar-header {
@@ -106,6 +108,9 @@
     flex-direction: column;
 
   }
+  .main-content.expanded {
+    margin-left: 60px;
+  }
   .topbar {
     display: flex;
     align-items: center;
@@ -114,7 +119,11 @@
     background-color: #ffffff;
     border-bottom: 1px solid #f0f0f0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+  .topbar.expanded {
+    width: calc(100% - 60px);
   }
 
   .left-section h3 {
@@ -235,7 +244,7 @@
 
 /*  */
 /* Amélioration de la carte de notification */
-.notification-card {
+/*.notification-card {
   background: #fff;
   border: none;
   border-radius: 12px;
@@ -247,10 +256,10 @@
 .notification-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
+}*/
 
 /* Titres et textes plus élégants */
-.notification-title {
+/*.notification-title {
   font-size: 24px;
   color: #34495e;
   margin-bottom: 15px;
@@ -260,10 +269,10 @@
   font-size: 16px;
   line-height: 1.6;
   color: #7f8c8d;
-}
+}*/
 
 /* Dates plus discrètes */
-.notification-date {
+/*.notification-date {
   font-size: 14px;
   color: #95a5a6;
   text-align: right;
@@ -271,6 +280,8 @@
 /* Style pour l'icône de notification */
 .btn {
   position: relative; /* Pour positionner le badge correctement */
+  width: 34px;
+  height: 34px;
 }
 
 .badge {
@@ -346,4 +357,30 @@
   margin: 10px;
   color: #ffffff;
 }
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .sidebar.collapsed {
+    width: 60px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+  }
+
+  .main-content.expanded {
+    margin-left: 60px;
+  }
+
+  .topbar {
+    width: calc(100% - 200px);
+  }
+
+  .topbar.expanded {
+    width: calc(100% - 60px);
+  }
 }

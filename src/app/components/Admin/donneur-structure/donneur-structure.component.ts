@@ -5,11 +5,12 @@ import { AnnonceService } from '../../../Services/annonce.service';
 import { DonneurExterneService } from '../../../Services/donneur-externe.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StructureService } from '../../../Services/structure.service';
 
 @Component({
   selector: 'app-donneur-structure',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],  // Ajoutez NgFor ici
+  imports: [CommonModule, FormsModule],  // Ajoutez NgFor ici
   templateUrl: './donneur-structure.component.html',
   styleUrls: ['./donneur-structure.component.css']
 })
@@ -20,9 +21,10 @@ export class DonneurStructureComponent implements OnInit {
   selectedType: string = 'all';
   filterValue: string = '';
   structureId: number | null = null;
+  structure: any = null; // ✅ Pour stocker la structure
 
 
-  constructor(private annonceService: AnnonceService, private donneurExterneService: DonneurExterneService, private route: ActivatedRoute ) { }
+  constructor(private annonceService: AnnonceService, private donneurExterneService: DonneurExterneService, private structureService: StructureService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -30,12 +32,26 @@ export class DonneurStructureComponent implements OnInit {
       console.log("Structure ID:", structureId); // Vérifiez si l'ID est correct
 
       if (structureId) {
+        this.structureId = structureId;
+        this.fetchStructureById(structureId); // ✅ Récupérer la structure
         this.fetchUtilisateursWithCompletedInscriptions(structureId); // Passer structureId
         this.fetchDonneursParStructure(structureId); // Si vous souhaitez récupérer les donneurs externes aussi
       } else {
         console.error('Structure ID is not provided');
       }
     });
+  }
+   // ✅ Nouvelle méthode pour récupérer la structure
+   fetchStructureById(structureId: number) {
+    this.structureService.getStructure(structureId).subscribe(
+      (response: any) => {
+        console.log("Structure reçue:", response);
+        this.structure = response; // Stocker la structure
+      },
+      error => {
+        console.error("Erreur lors de la récupération de la structure :", error);
+      }
+    );
   }
   fetchUtilisateursWithCompletedInscriptions(structureId: number) {
     this.annonceService.getUtilisateursWithCompletedInscriptions(structureId)

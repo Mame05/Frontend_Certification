@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-donneur-structure',
   standalone: true,
-  imports: [RouterLink, NgFor],  // Ajoutez NgFor ici
+  imports: [NgFor],  // Ajoutez NgFor ici
   templateUrl: './donneur-structure.component.html',
   styleUrls: ['./donneur-structure.component.css']
 })

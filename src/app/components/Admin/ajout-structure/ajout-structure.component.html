@@ -5,6 +5,12 @@
             <div class="form-group">
                 <label for="nom_structure">Nom</label>
                 <input type="text" id="nom_structure" formControlName="nom_structure" placeholder="Nom">
+                <div *ngIf="structureForm.get('nom_structure')?.hasError('required')" class="error">
+                    Le nom est obligatoire.
+                </div>
+                <div *ngIf="structureForm.get('nom_structure')?.hasError('pattern')" class="error">
+                    Le nom doit commencer par une lettre majuscule et doit contenir que des lettres.
+                </div>
             </div>
             <div class="form-group">
                 <label for="region">Région</label>
@@ -25,32 +31,62 @@
                     <option value="Thiès">Thiès</option>  
                     <option value="Ziguinchor">Ziguinchor</option>
                 </select>
+                <div *ngIf="structureForm.get('region')?.hasError('required')" class="error">
+                    Le région est obligatoire.
+                </div>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label for="sigle">Sigle</label>
                 <input type="text" id="sigle" formControlName="sigle" placeholder="Sigle">
+                <!-- Message d'erreur si le champ est vide -->
+                <div *ngIf="structureForm.get('sigle')?.hasError('required')" class="error">
+                    Le sigle est obligatoire.
+                </div>
+
+                <!-- Message d'erreur si le format est invalide -->
+                <div *ngIf="structureForm.get('sigle')?.hasError('pattern')" class="error">
+                    Le sigle doit être en majuscules et peut contenir des chiffres, points ou tirets (sans début/fin spécial).
+                </div>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" formControlName="email" placeholder="Email">
+                <div *ngIf="structureForm.get('email')?.invalid && structureForm.get('email')?.touched" class="error">
+                    Veuillez entrer une adresse email valide.
+                </div>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label for="telephone">Téléphone</label>
                 <input type="text" id="telephone" formControlName="telephone" placeholder="Téléphone">
+                <div *ngIf="structureForm.get('telephone')?.hasError('required')" class="error">
+                    Le Numéro de téléphone est obligatoire.
+                </div>
+                <div *ngIf="structureForm.get('telephone')?.hasError('pattern')" class="error">
+                    Le Numéro de téléphone doit être au format sénégalais (33, 77, 78, 76, 75, 70).
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" formControlName="password" placeholder="Mot de passe">
+                <div *ngIf="structureForm.get('password')?.invalid && structureForm.get('password')?.touched" class="error">
+                    Le mot de passe doit contenir au moins 8 caractères, incluant des lettres et des chiffres.
+                </div>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label for="adresse">Adresse</label>
                 <input type="text" id="adresse" formControlName="adresse" placeholder="Adresse">
+                <div *ngIf="structureForm.get('adresse')?.hasError('required')" class="error">
+                    L'adresse est obligatoire.
+                </div>
+                <div *ngIf="structureForm.get('adresse')?.hasError('pattern')" class="error">
+                    L'adresse doit commencer par une lettre majuscule et peut contenir des lettres, chiffres et espaces.
+                </div>
             </div>
         </div>
         <div class="form-buttons">
