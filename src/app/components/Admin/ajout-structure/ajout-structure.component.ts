@@ -26,7 +26,7 @@ export class AjoutStructureComponent {
       sigle: ['', [Validators.required, Validators.pattern(/^[A-Z0-9][A-Z0-9.-]*[A-Z0-9]$/)
       ]],
       adresse: ['', [Validators.required,  Validators.pattern(/^[A-ZÀ-Ÿ][A-Za-zÀ-ÿ0-9 ,.'\-+/]*$/)]],
-      telephone: ['', [Validators.required, Validators.pattern(/^(77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
+      telephone: ['', [Validators.required, Validators.pattern(/^(33|77|78|76|75|70)\s?\d{3}\s?\d{2}\s?\d{2}$/)]],
       region: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8),Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/)]],
@@ -45,7 +45,7 @@ export class AjoutStructureComponent {
           title: '🎉 Structure ajoutée !',
           text: 'La structure a été ajoutée avec succès.',
           showConfirmButton: false,
-          timer: 2500// Ferme l'alerte après 3 secondes
+          timer: 2500// Ferme l'alerte après 2.5 secondes
         }).then(() => {
           // Redirection après fermeture de l'alerte
           this.router.navigate(['/sidebar/structure']);
