@@ -51,8 +51,13 @@
   
   .nav a:hover,
   .nav a.active {
-    color: #df2c26; /* Couleur au survol et active */
+    color: #df2c26 /* Couleur au survol et active */
     /*border-bottom: 2px solid #df2c26; /* Soulignement sous le lien actif */
+  }
+
+  .nav ul a:hover,
+  .nav ul a.active {
+    color: #df2c26 /* Couleur au survol et active */
   }
   
   .dropdown {

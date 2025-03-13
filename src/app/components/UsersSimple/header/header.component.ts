@@ -1,19 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { NotificationAnnonceService } from '../../../Services/notification-annonce.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
   isMenuOpen = false;
   isDropdownOpen = false;
-  //isDropdownOpen = false;
   notifications: any[] = [];
   unreadCount: number = 0;
 
@@ -26,6 +25,9 @@ export class HeaderComponent implements OnInit {
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
+  isProfileActive(): boolean {
+    return this.router.isActive('/profil', { paths: 'subset', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored' });
+  } 
 
   deconnexion() {
     // Logic for logout, e.g., clearing tokens and navigating to the login page
