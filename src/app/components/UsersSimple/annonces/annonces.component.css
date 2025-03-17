@@ -61,7 +61,7 @@
 .announcement-urgent-card {
     background-color: #ffffff;
     width: 450px;
-    height: 650px;
+    height: 610px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
     overflow: hidden;
@@ -98,7 +98,6 @@
     font-weight: 400;
     margin: 5px 0 20px 10px;
     color: #1D3557;
-
 }
 .announcement-urgent-details p strong{
     font-size: 18px;
@@ -140,7 +139,7 @@
 /* Cartes d'annonces */
 .announcement-collecte-card {
     background-color: #ffffff;
-    flex-basis: calc(50% - 15px); /* Chaque carte occupe environ 50% avec l'espace de 15px */
+    /*flex-basis: calc(50% - 15px); /* Chaque carte occupe environ 50% avec l'espace de 15px */
     flex-grow: 1;
     max-width: 500px;
     height: 680px;
@@ -244,5 +243,146 @@
     border-color: #adb5bd;
     color: #0056b3;
 }
+/* Mode tablette (écrans jusqu'à 1024px) */
+@media screen and (max-width: 1024px) {
+    .banner {
+        height: 400px; /* Réduire la hauteur de la bannière */
+    }
+
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    .announcements-urgent-section .section-title,
+    .announcements-collecte-section .section-title {
+        font-size: 22px;
+        margin-left: 10%;
+    }
+    .border1 {
+        left: 10px ; /* Centre la bordure sous le titre */
+      }
+    .border2 {
+        width: 15%; /* Ajuste la largeur de la bordure */
+        margin-left: 1% ; /* Centre la bordure sous le titre */
+      }
+    
+    .announcement-urgent-card,
+    .announcement-collecte-card {
+        width: 90%;
+        max-width: 400px;
+    } 
+    .announcements-urgent,
+    .announcements-collecte {
+        gap: 20px;
+    }
+    .announcement-urgent-card{
+        height: 600px;
+    }
+    .announcement-urgent-details h3,
+    .announcement-collecte-details h3 {
+        font-size: 20px;
+    }
+
+    .announcement-urgent-details P,
+    .announcement-collecte-details p {
+        font-size: 15px;
+    }
+
+    .announcement-urgent-details p strong,
+    .announcement-collecte-details p strong{
+        font-size: 16px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        margin-left: 65%;
+    }
+
+}
+
+/*  Mode mobile (écrans jusqu'à 768px) */
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 300px;
+        padding: 20px;
+    }
+
+    .banner h1 {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .announcements-urgent-section,
+    .announcements-collecte-section {
+        padding: 20px;
+    }
+
+    .announcements-urgent-section .section-title,
+    .announcements-collecte-section .section-title {
+        font-size: 20px;
+        text-align: center;
+        margin-left: 5%;
+    }
+    .border1, .border2 {
+        width: 13%; /* Ajuste la largeur de la bordure */
+        margin: auto;
+        height: 2px; /* Épaisseur de la bordure */
+    }
+
+    .announcements-urgent,
+    .announcements-collecte {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .announcement-urgent-card,
+    .announcement-collecte-card {
+        width: 95%;
+        max-width: 360px;
+    }
+    .announcement-urgent-card{
+        height: 490px;
+    }
+    .announcement-collecte-card{
+        height: 580px;
+    }
+    .announcement-urgent-card img,
+    .announcement-collecte-card img {
+        height: 120px;
+    }
+    .announcement-urgent-details h3,
+    .announcement-collecte-details h3 {
+        font-size: 18px;
+    }
+
+    .announcement-urgent-details p,
+    .announcement-collecte-details p {
+        font-size: 13px;
+    }
+
+    .announcement-urgent-details p strong,
+    .announcement-collecte-details p strong{
+        font-size: 14px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        margin-left: 50%;
+        font-size: 14px;
+    }
+    .pagination {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .pagination a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+
 
 
