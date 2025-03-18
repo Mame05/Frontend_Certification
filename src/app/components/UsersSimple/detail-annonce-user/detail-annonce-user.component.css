@@ -125,6 +125,23 @@ body {
 .primary-button:hover, .secondary-button:hover {
     opacity: 0.9;
 }
+@media (min-width: 1025px) {
+    .buttons {
+        display: flex;
+        justify-content: center; /* Centre horizontalement */
+        align-items: center; /* Centre verticalement */
+        gap: 20px; /* Ajoute un espace entre les boutons */
+        flex-wrap: nowrap; /* Empêche les boutons de passer à la ligne */
+    }
+
+    .primary-button, .secondary-button {
+        font-size: 16px; /* Ajuste la taille pour les grands écrans */
+        padding: 8px 15px;
+        min-width: 180px; /* Empêche les boutons de devenir trop petits */
+        text-align: center;
+    }
+}
+
 @media (max-width: 1024px) {
     .container {
         width: 80%;
@@ -141,12 +158,17 @@ body {
     .content p, .goal p {
         font-size: 16px; /* Réduction des paragraphes */
     }
+    .buttons {
+        display: flex;
+        justify-content: center; /* Centre les boutons */
+        align-items: center; /* Alignement vertical */
+        gap: 20px; /* Augmente l’espace entre les boutons */
+        flex-wrap: nowrap; /* Empêche les boutons de passer à la ligne */
+    }
     .primary-button, .secondary-button {
         font-size: 16px; /* Réduction des boutons */
         padding: 8px 15px;
-    }
-    .secondary-button{
-        margin-top: 15px;
+        margin: 0;
     }
 
     .header img {

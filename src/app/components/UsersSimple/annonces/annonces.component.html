@@ -25,7 +25,7 @@
             </div>
         </div>
         <!-- Pagination Urgence -->  
-        <div *ngIf="paginatedUrgences.length > 0" class="pagination">
+        <div *ngIf="paginatedUrgences.length > 0" class="pagination pagination-right">
             <a (click)="currentPageUrgence > 1 && changePageUrgence(currentPageUrgence - 1)" 
        [class.disabled]="currentPageUrgence === 1">&laquo; Précédent</a>
             <a (click)="paginatedUrgences.length >= pageSize && changePageUrgence(currentPageUrgence + 1)" 
@@ -55,7 +55,7 @@
             </div>
         </div>
         <!-- Pagination Collecte -->  
-        <div *ngIf="paginatedCollectes.length > 0" class="pagination">
+        <div *ngIf="paginatedCollectes.length > 0" class="pagination  pagination-left">
             <a (click)="currentPageCollecte > 1 && changePageCollecte(currentPageCollecte - 1)" 
        [class.disabled]="currentPageCollecte === 1">&laquo; Précédent</a>
             <a (click)="paginatedCollectes.length >= pageSize && changePageCollecte(currentPageCollecte + 1)" 
