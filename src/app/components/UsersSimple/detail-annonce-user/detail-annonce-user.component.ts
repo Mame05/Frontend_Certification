@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AnnonceService } from '../../../Services/annonce.service';
 import { AuthService } from '../../../Services/Auth/auth.service';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,7 @@ export class DetailAnnonceUserComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private annonceService: AnnonceService,
     private authService: AuthService
   ) { }
@@ -88,30 +89,29 @@ export class DetailAnnonceUserComponent implements OnInit{
     // Appel au service pour effectuer l'inscription
     this.annonceService.inscrire(this.annonceId).subscribe(
       (response: any) => {
-        if (response.message === 'Inscription réussie !') {
-          // Swal.fire('Succès',response.message,'success');
-
-          Swal.fire(
-            {
-              icon: 'success',
-              title: 'Inscription réussie!',
-              text: response.message,
-              confirmButtonText: 'Okay'
-            }
-          )
+          Swal.fire({
+            icon: 'success',
+            title: 'Inscription réussie!',
+            text: response.message,
+            confirmButtonText: 'Okay'
+          }).then(() => {
+            this.router.navigate(['/annonces']);
+          });
           this.isInscrit = true; // Met à jour l'état pour désactiver le bouton
-        } else if (response.message === 'Vous êtes déjà inscrit à cette annonce.') {
-          Swal.fire('Information',response.message,'info');
+        },
+        (error) => {
+          if (error.status === 403 && error.error.message === 'Vous êtes déjà inscrit à cette annonce.') {
+            Swal.fire({
+              icon: 'info',
+              title: 'Information',
+              text: error.error.message,
+              confirmButtonText: 'D\'accord'
+            });
+          }
+          else {
+            console.error('Erreur lors de l\'inscription', error);
+          }
         }
-         else {
-          this.message = response.message; // Message en cas d'erreur
-          Swal.fire('Erreur',response.message ||'Erreur inconnue lors de l\'inscription.','error');
-        }
-      },
-      (error) => {
-        console.error('Erreur lors de l\'inscription', error);
-        Swal.fire('Erreur',error?.error?.message || 'Erreur lors de l\'inscription.','error');
-      }
     );
   }
 }
