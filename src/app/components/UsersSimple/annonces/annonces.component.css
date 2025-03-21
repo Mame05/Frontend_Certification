@@ -8,24 +8,57 @@
 
 /* Bannière */
 .banner {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
-        /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
-        background-size: cover; /* Ajuste l'image pour couvrir l'élément */
-        background-position: center; /* Centre l'image */
-        height: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #ffffff;
-}
-.banner h1{
-    font-size: 32px;
-    font-weight: bold;
-    /*background-color: rgba(0, 0, 0, 0.6); /* Pour rendre le texte plus lisible */
+    position: relative;
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    overflow: hidden;
+    
+    
+}
 
+/* Effet de diaporama pour les images de fond */
+@keyframes bgSlide {
+    0% { background-image: url('/assets/images/annonce_banniere.png'); }
+    33% { background-image: url('/assets/images/accueil1.png'); }
+    66% { background-image: url('/assets/images/accueil1.png'); }
+    100% { background-image: url('/assets/images/annonce_banniere.png'); }
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: bgSlide 10s infinite;
+    background-size: contain;
+    background-position: center;
+    filter: brightness(0.8);
+    image-rendering: crisp-edges;
+}
+
+/* Style du texte */
+.banner h1 {
+    font-size: 30px;
+    font-weight: bold;
+    max-width: 80%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 25px;
+    border-radius: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animation d’apparition du texte */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -311,8 +344,9 @@
     }
 
     .banner h1 {
-        font-size: 24px;
-        padding: 15px;
+        font-size: 20px;
+        padding: 8px;
+        margin-top: 50px;
     }
 
     .announcements-urgent-section,

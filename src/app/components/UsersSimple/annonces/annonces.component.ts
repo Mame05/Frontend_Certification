@@ -20,7 +20,7 @@ export class AnnoncesComponent implements OnInit  {
   currentPageCollecte = 1;
   pageSize = 2; // Nombre d'annonces par page pour les urgences
   collectePageSize = 4; // Nombre d'annonces par page pour les collectes
-  // Tableau des images pour l'alternance
+  
   urgenceImages: string[] = [
     '/assets/images/urgence1.png',
     '/assets/images/urgence2.png'
@@ -34,6 +34,7 @@ export class AnnoncesComponent implements OnInit  {
   constructor(private annonceService: AnnonceService) {}
 
   ngOnInit(): void {
+    // Récupérer les annonces
     this.getAnnonces();
     this.annonceService.onAnnonceAjoute().subscribe(() => {
       this.getAnnonces(); // Rafraîchir la liste quand une annonce est ajoutée
