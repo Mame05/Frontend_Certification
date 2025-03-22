@@ -117,8 +117,8 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .gamification-badge img {
-  width: 70px; /* Taille du badge */
-  height: 70px;
+  width: 80px; /* Taille du badge */
+  height: 80px;
   border-radius: 50%; /* Donne un effet circulaire au badge */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour effet */
   background-color: #ffffff;

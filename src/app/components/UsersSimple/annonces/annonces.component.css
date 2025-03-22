@@ -16,16 +16,14 @@
     text-align: center;
     color: #ffffff;
     padding: 20px;
-    overflow: hidden;
-    
-    
+    overflow: hidden;    
 }
 
 /* Effet de diaporama pour les images de fond */
 @keyframes bgSlide {
     0% { background-image: url('/assets/images/annonce_banniere.png'); }
-    33% { background-image: url('/assets/images/accueil1.png'); }
-    66% { background-image: url('/assets/images/accueil1.png'); }
+    33% { background-image: url('/assets/images/annonce_banniere2.jpg'); }
+    66% { background-image: url('/assets/images/annonce_banniere3.jpeg'); }
     100% { background-image: url('/assets/images/annonce_banniere.png'); }
 }
 
