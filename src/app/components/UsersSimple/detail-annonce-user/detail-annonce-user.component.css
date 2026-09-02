@@ -125,15 +125,114 @@ body {
 .primary-button:hover, .secondary-button:hover {
     opacity: 0.9;
 }
+@media (min-width: 1025px) {
+    .buttons {
+        display: flex;
+        justify-content: center; /* Centre horizontalement */
+        align-items: center; /* Centre verticalement */
+        gap: 20px; /* Ajoute un espace entre les boutons */
+        flex-wrap: nowrap; /* Empêche les boutons de passer à la ligne */
+    }
+
+    .primary-button, .secondary-button {
+        font-size: 16px; /* Ajuste la taille pour les grands écrans */
+        padding: 8px 15px;
+        min-width: 180px; /* Empêche les boutons de devenir trop petits */
+        text-align: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+
+    .right-section {
+        padding: 15px;
+    }
+
+    .header h2 {
+        font-size: 20px; /* Réduction de la taille du titre */
+    }
+
+    .content p, .goal p {
+        font-size: 16px; /* Réduction des paragraphes */
+    }
+    .buttons {
+        display: flex;
+        justify-content: center; /* Centre les boutons */
+        align-items: center; /* Alignement vertical */
+        gap: 20px; /* Augmente l’espace entre les boutons */
+        flex-wrap: nowrap; /* Empêche les boutons de passer à la ligne */
+    }
+    .primary-button, .secondary-button {
+        font-size: 16px; /* Réduction des boutons */
+        padding: 8px 15px;
+        margin: 0;
+    }
+
+    .header img {
+        width: 40px; /* Réduction des icônes */
+    }
+}
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+        width: 90%;
     }
 
-    .left-section, .right-section {
+    .left-section {
+        display: none; /* Masquer l'image en mode mobile */
+    }
+
+    .right-section {
         flex-basis: 100%;
-        width: 100%;
-        height: auto; /* Ajuste la hauteur de l'image sur mobile */
+        padding: 15px;
+        text-align: center;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .header img {
+        width: 45px; /* Augmente la taille de l'icône */
+        height: auto;
+    }
+
+    .blood-icon-left, .blood-icon-right {
+        margin: 0 5px; /* Réduire la marge négative */
+    }
+
+    .header h2 {
+        font-size: 18px;
+        flex-grow: 1;
+        text-align: center;
+        margin: 0;
+    }
+
+    .content p, .goal p {
+        font-size: 14px; /* Réduction de la taille du texte */
+    }
+
+    .primary-button, .secondary-button {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%; /* Largeur des boutons */
+        margin-bottom: 10px; /* Espacement entre les boutons */
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header img {
+        width: 35px; /* Réduction des icônes */
     }
 }
+
 

@@ -8,14 +8,16 @@
     </button>
     <nav class="nav" [class.open]="isMenuOpen">
       <ul>
-        <li><a routerLink="/accueil" routerLinkActive="active">Accueil</a></li>
-        <li><a routerLink="/annonces" routerLinkActive="active">Annonces</a></li>
-        <li><a routerLink="/mes-dons" routerLinkActive="active">Mes Dons</a></li>
-        <li><a routerLinkActive="active" (click)="toggleDropdown()">
+        <li><a routerLink="/accueil" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a></li> 
+        <!-- J'ai ajouter '[routerLinkActiveOptions]="{ exact: true }" ' pour que lorque lorqu'un lien est active, qu'il change de couleur. Avant d'ajouter cela j'avait tout fait mais le lien active ne changé pas de couleur -->
+        <li><a routerLink="/annonces" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Annonces</a></li>
+        <li><a routerLink="/mes-dons" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Mes Dons</a></li>
+        <li><a  [class.active]="isProfileActive()"
+          (click)="toggleDropdown(); $event.preventDefault()" class="profile">
           Profil <i class="fas fa-caret-down"></i>
             </a>
           <ul class="dropdown" *ngIf="isDropdownOpen">
-            <li><a routerLink="/profil" routerLinkActive="active"><i class="fas fa-user"></i> Voir mon profil</a></li>
+            <li><a routerLink="/profil" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fas fa-user"></i> Voir mon profil</a></li>
             <li><a (click)="deconnexion()"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
           </ul>
         </li>

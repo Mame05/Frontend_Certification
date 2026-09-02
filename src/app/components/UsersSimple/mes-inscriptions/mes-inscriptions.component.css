@@ -7,24 +7,27 @@
 
 /* Bannière */
 .banner {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/history1.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
-        /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
-        background-size: cover; /* Ajuste l'image pour couvrir l'élément */
-        background-position: center; /* Centre l'image */
-        height: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #ffffff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/history1.png');
+    background-size: cover;
+    background-position: center;
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+    position: relative;
 }
+
 .banner h1{
     font-size: 32px;
     font-weight: bold;
-    /*background-color: rgba(0, 0, 0, 0.6); /* Pour rendre le texte plus lisible */
-    padding: 20px;
-    border-radius: 10px;
-
+    max-width: 80%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
 }
 
 .section_general {
@@ -238,3 +241,152 @@
     background-color: #457B9D;
     color: white;
 }
+/* Écrans de taille moyenne (tablettes) */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+    .border1{
+        width: 12%; 
+    }
+    .border2 {
+        width: 30%;
+    }
+    .don-card1,
+    .don-card2 {
+        width: 100%;
+        height: auto;
+    }
+    .info1, .info2 {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .don-info1 .cancel-btn {
+        margin-left: auto;
+        display: block;
+        width: 30%;
+        text-align: center;
+        font-size: 16px;
+
+    }
+    .recommand {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .recommand img {
+        margin-left: 0;
+        width: 120px;
+        height: 120px;
+        margin-top: -20px;
+
+    }
+}
+
+/* Écrans de petite taille (mobiles) */
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 300px;
+    }
+
+    .banner h1 {
+        font-size: 20px;
+        padding: 8px;
+        margin-top: 50px;
+    }
+    .upcoming-section h2,
+    .don-history h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .border1,
+    .border2 {
+        margin: 0 auto;
+    }
+    .don-card1,
+    .don-card2 {
+        width: 100%;
+        padding: 10px;
+    }
+    .info1, .info2 {
+        font-size: 16px;
+    }
+    .durée {
+        font-size: 16px;
+    }
+    .don-info1 .cancel-btn {
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+    .recommand div p {
+        font-size: 14px;
+    }
+    .recommand img {
+        width: 100px;
+        height: 100px;
+    }
+}
+/* Écrans très petits (smartphones ≤ 480px) */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    .banner {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .banner h1 {
+        font-size: 20px;
+        padding: 8px;
+    }
+    .upcoming-section h2,
+    .don-history h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+    .border1,
+    .border2 {
+        margin: 0 auto;
+    }
+    .border1{
+        width: 15%;
+    }
+    .border2{
+        width: 20%;
+    }
+    .don-card1,
+    .don-card2 {
+        width: 100%;
+        padding: 8px;
+    }
+    .info1, .info2 {
+        flex-direction: column;
+        font-size: 14px;
+    }
+    .durée {
+        font-size: 14px;
+    }
+    .don-info1 .cancel-btn {
+        font-size: 14px;
+        padding: 5px 8px;
+        width: 30%;
+        text-align: center;
+    }
+    .recommand {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .recommand img {
+        width: 80px;
+        height: 80px;
+    }
+    .recommand div p {
+        font-size: 12px;
+    }
+}
+

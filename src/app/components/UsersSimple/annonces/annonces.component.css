@@ -8,24 +8,55 @@
 
 /* Bannière */
 .banner {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
-        /*background-image: url('/assets/images/annonce_banniere.png'); /* Utilisez le chemin vers l'image d'arrière-plan */
-        background-size: cover; /* Ajuste l'image pour couvrir l'élément */
-        background-position: center; /* Centre l'image */
-        height: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #ffffff;
-}
-.banner h1{
-    font-size: 32px;
-    font-weight: bold;
-    /*background-color: rgba(0, 0, 0, 0.6); /* Pour rendre le texte plus lisible */
+    position: relative;
+    height: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    overflow: hidden;    
+}
 
+/* Effet de diaporama pour les images de fond */
+@keyframes bgSlide {
+    0% { background-image: url('/assets/images/annonce_banniere.png'); }
+    33% { background-image: url('/assets/images/annonce_banniere2.jpg'); }
+    66% { background-image: url('/assets/images/annonce_banniere3.jpeg'); }
+    100% { background-image: url('/assets/images/annonce_banniere.png'); }
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: bgSlide 10s infinite;
+    background-size: contain;
+    background-position: center;
+    filter: brightness(0.8);
+    image-rendering: crisp-edges;
+}
+
+/* Style du texte */
+.banner h1 {
+    font-size: 30px;
+    font-weight: bold;
+    max-width: 80%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 25px;
+    border-radius: 8px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animation d’apparition du texte */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -61,7 +92,7 @@
 .announcement-urgent-card {
     background-color: #ffffff;
     width: 450px;
-    height: 650px;
+    height: 610px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
     overflow: hidden;
@@ -98,7 +129,6 @@
     font-weight: 400;
     margin: 5px 0 20px 10px;
     color: #1D3557;
-
 }
 .announcement-urgent-details p strong{
     font-size: 18px;
@@ -140,7 +170,7 @@
 /* Cartes d'annonces */
 .announcement-collecte-card {
     background-color: #ffffff;
-    flex-basis: calc(50% - 15px); /* Chaque carte occupe environ 50% avec l'espace de 15px */
+    /*flex-basis: calc(50% - 15px); /* Chaque carte occupe environ 50% avec l'espace de 15px */
     flex-grow: 1;
     max-width: 500px;
     height: 680px;
@@ -211,38 +241,182 @@
 /* Style pour la pagination */
 .pagination {
     display: flex;
-    justify-content: center;
-    align-items: center;
     margin-top: 20px;
     gap: 10px; /* Espacement entre les éléments */
+}
+/* Aligner à gauche */
+.pagination-left {
+    justify-content: flex-start;
+}
+
+/* Aligner à droite */
+.pagination-right {
+    justify-content: flex-end;
 }
 
 /* Style pour les liens de pagination */
 .pagination a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    color: #007bff;
     text-decoration: none;
+    background-color: #df2c26;
+    color: white;
+    padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
     cursor: pointer;
 }
 
 /* Désactiver le lien lorsqu'il est désactivé */
 .pagination a.disabled {
-    pointer-events: none;
-    background-color: #e9ecef;
-    color: #6c757d;
-    border-color: #dee2e6;
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
 /* Effet hover */
 .pagination a:hover:not(.disabled) {
-    background-color: #e2e6ea;
-    border-color: #adb5bd;
-    color: #0056b3;
+    background-color: #b2221a;
 }
+/* Mode tablette (écrans jusqu'à 1024px) */
+@media screen and (max-width: 1024px) {
+    .banner {
+        height: 400px; /* Réduire la hauteur de la bannière */
+    }
+
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    .announcements-urgent-section .section-title,
+    .announcements-collecte-section .section-title {
+        font-size: 22px;
+        margin-left: 10%;
+    }
+    .border1 {
+        left: 10px ; /* Centre la bordure sous le titre */
+      }
+    .border2 {
+        width: 15%; /* Ajuste la largeur de la bordure */
+        margin-left: 1% ; /* Centre la bordure sous le titre */
+      }
+    
+    .announcement-urgent-card,
+    .announcement-collecte-card {
+        width: 90%;
+        max-width: 400px;
+    } 
+    .announcements-urgent,
+    .announcements-collecte {
+        gap: 20px;
+    }
+    .announcement-urgent-card{
+        height: 600px;
+    }
+    .announcement-urgent-details h3,
+    .announcement-collecte-details h3 {
+        font-size: 20px;
+    }
+
+    .announcement-urgent-details P,
+    .announcement-collecte-details p {
+        font-size: 15px;
+    }
+
+    .announcement-urgent-details p strong,
+    .announcement-collecte-details p strong{
+        font-size: 16px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        margin-left: 65%;
+    }
+
+}
+
+/*  Mode mobile (écrans jusqu'à 768px) */
+@media screen and (max-width: 768px) {
+    .banner {
+        height: 300px;
+        padding: 20px;
+    }
+
+    .banner h1 {
+        font-size: 20px;
+        padding: 8px;
+        margin-top: 50px;
+    }
+
+    .announcements-urgent-section,
+    .announcements-collecte-section {
+        padding: 20px;
+    }
+
+    .announcements-urgent-section .section-title,
+    .announcements-collecte-section .section-title {
+        font-size: 20px;
+        text-align: center;
+        margin-left: 5%;
+    }
+    .border1, .border2 {
+        width: 13%; /* Ajuste la largeur de la bordure */
+        margin: auto;
+        height: 2px; /* Épaisseur de la bordure */
+    }
+
+    .announcements-urgent,
+    .announcements-collecte {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .announcement-urgent-card,
+    .announcement-collecte-card {
+        width: 95%;
+        max-width: 360px;
+    }
+    .announcement-urgent-card{
+        height: 490px;
+    }
+    .announcement-collecte-card{
+        height: 580px;
+    }
+    .announcement-urgent-card img,
+    .announcement-collecte-card img {
+        height: 120px;
+    }
+    .announcement-urgent-details h3,
+    .announcement-collecte-details h3 {
+        font-size: 18px;
+    }
+
+    .announcement-urgent-details p,
+    .announcement-collecte-details p {
+        font-size: 13px;
+    }
+
+    .announcement-urgent-details p strong,
+    .announcement-collecte-details p strong{
+        font-size: 14px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        margin-left: 50%;
+        font-size: 14px;
+    }
+    .pagination {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .pagination a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+
 
 

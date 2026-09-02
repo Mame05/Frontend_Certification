@@ -65,7 +65,8 @@ export class AjoutAnnonceComponent {
       if (dateDebut) {
         const dateDebutParsed = new Date(dateDebut);
         const diffTime = dateFin.getTime() - dateDebutParsed.getTime();
-        if (dateFin <= dateDebutParsed) {
+        // Permettre que la date de fin soit égale à la date de début
+        if (dateFin < dateDebutParsed) {
           return { dateFinBeforeDebut: true };
         } else if (diffTime > 7 * 24 * 60 * 60 * 1000) { // Différence en millisecondes pour 7 jours
           return { dateDiffTooLong: true };
